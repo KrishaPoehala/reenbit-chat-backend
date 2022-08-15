@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using reenbitChat.DAL.Extentions;
 
-namespace reenbitChat.DAL.Context
+namespace reenbitChat.DAL.Context;
+
+public class ChatContext : DbContext
 {
-    internal class ChatContext
+    public ChatContext(DbContextOptions<ChatContext> options) : base(options)
     {
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Configure();
+        modelBuilder.Seed();
     }
 }

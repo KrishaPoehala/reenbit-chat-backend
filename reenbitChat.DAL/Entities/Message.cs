@@ -7,5 +7,6 @@ public class Message : BaseEntity
     public User Sender { get; set; }
     public int ChatId { get; set; }
     public ChatEntity Chat { get; set; }
+    public bool IsDeletedOnlyForSender { get; set; }
     public DateTime SentAt { get; set; }
 }
