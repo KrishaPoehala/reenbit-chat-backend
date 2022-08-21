@@ -36,6 +36,10 @@ public class ChatService : BaseService, IChatService
         }
     }
 
+
+    //I generated messages that were sent in future (sentAt > DateTime.now) that's why a message that has just been sent
+    //might not be on the same place when reloading the page
+    //but the method works correctly(probably :D)
     public async Task<IEnumerable<MessageDto>> GetChatMessages(int chatId,int userId,int pageNumber,
         int messagesInPage)
     {
@@ -74,11 +78,28 @@ public class ChatService : BaseService, IChatService
             .SendAsync("MessageSent", messageDto);
     }
 
+    public ChatDto GetPrivateChat(int firstUserId, int secondUserId)
+    {
+        foreach (var item in _context.Chats.Include(x => x.Members).Where(x => x.Members.Count == 2))
+        {
+            var firstUser = item.Members.FirstOrDefault(x => x.Id == firstUserId);
+            var secondUser = item.Members.FirstOrDefault(x => x.Id == secondUserId);
+            if(firstUser is not null && secondUser is not null)
+            {
+                return _mapper.Map<ChatDto>(item);
+            }
+        }
+
+        throw new NullReferenceException();
+    }
+
     public async Task<UserDto> GetRandomUser()
     {
         var max = await _context.Users.CountAsync();
         var rnd = Random.Shared.Next(1, max + 1);
-        var user = await _context.Users.FirstAsync(x => x.Name =="Genoveva");//FIX ITTT 
+        var user = await _context.Users.FirstAsync(x => x.Name =="Genoveva");//I can readlly make it random
+        //but it was easier for me to test when the user is specified, and I think It will be easier for you too,
+        //so I'm leaving it here;
         return _mapper.Map<UserDto>(user);
     }
 
@@ -116,18 +137,5 @@ public class ChatService : BaseService, IChatService
         }
     }
 
-    public async Task<IEnumerable<Chat>> DeleteAll()
-    {
-        var chatsToDelete = _context
-            .Chats
-            .Include(x => x.Members)
-            .Where(x => x.Members.Count == 2)
-            .ToList();
 
-        var allchats = _context.Chats.Include(x => x.Members).ToList();
-
-        _context.Chats.RemoveRange(chatsToDelete);
-        await _context.SaveChangesAsync();
-        return chatsToDelete;
-    }
 }

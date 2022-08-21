@@ -15,5 +15,5 @@ public interface IChatService
         int pageNumber, int messagesInPage);
     Task EditMessage(EditMessageDto dto);
     Task DeleteMessage(int id, bool isDeleteOnlyForSender);
-    Task<IEnumerable<Chat>> DeleteAll();
+    ChatDto GetPrivateChat(int firstUserId, int secondUserId);
 }

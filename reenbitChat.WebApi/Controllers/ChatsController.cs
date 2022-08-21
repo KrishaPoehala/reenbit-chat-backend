@@ -73,5 +73,12 @@ namespace reenbitChat.WebApi.Controllers
             await _chatService.DeleteMessage(id, isDeleteOnlyForSender);
             return Ok();
         }
+
+        [HttpGet]
+        [Route("privateChat/{firstUserId}/{secondUserId}")]
+        public ActionResult<ChatDto> GetPrivateChat(int firstUserId, int secondUserId)
+        {
+            return Ok(_chatService.GetPrivateChat(firstUserId, secondUserId));
+        } 
     }
 }
