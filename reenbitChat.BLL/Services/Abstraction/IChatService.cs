@@ -9,11 +9,8 @@ namespace reenbitChat.BLL.Services.Abstraction;
 public interface IChatService
 {
     Task<UserDto> GetRandomUser();
-    Task SendMessage(NewMessageDto message);
     IAsyncEnumerable<ChatDto> GetUserChats(int userId);
     Task<IEnumerable<MessageDto>> GetChatMessages(int chatId,int userId,
         int pageNumber, int messagesInPage);
-    Task EditMessage(EditMessageDto dto);
-    Task DeleteMessage(int id, bool isDeleteOnlyForSender);
     ChatDto GetPrivateChat(int firstUserId, int secondUserId);
 }

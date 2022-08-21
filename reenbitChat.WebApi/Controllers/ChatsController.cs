@@ -50,29 +50,7 @@ namespace reenbitChat.WebApi.Controllers
             return Ok(await _chatService.GetRandomUser());
         }
 
-        [HttpPost]
-        [Route("send")]
-        public async Task<ActionResult> SendMessage(NewMessageDto dto)
-        {
-            await _chatService.SendMessage(dto);
-            return Ok();
-        }
-
-        [HttpPut]
-        [Route("edit")]
-        public async Task<ActionResult> EditMessage(EditMessageDto dto)
-        {
-            await _chatService.EditMessage(dto);
-            return Ok();
-        }
-
-        [HttpDelete]
-        [Route("delete/{id}/{isDeleteOnlyForSender}")]
-        public async Task<ActionResult> DeleteMessage(int id, bool isDeleteOnlyForSender)
-        {
-            await _chatService.DeleteMessage(id, isDeleteOnlyForSender);
-            return Ok();
-        }
+        
 
         [HttpGet]
         [Route("privateChat/{firstUserId}/{secondUserId}")]
