@@ -65,7 +65,10 @@ public class ChatService : BaseService, IChatService
 
     public ChatDto GetPrivateChat(int firstUserId, int secondUserId)
     {
-        foreach (var item in _context.Chats.Include(x => x.Members).Where(x => x.Members.Count == 2))
+        foreach (var item in _context.Chats
+                                     .Include(x => x.Members)
+                                     .Include(x => x.Messages)
+                                     .Where(x => x.Members.Count == 2))
         {
             var firstUser = item.Members.FirstOrDefault(x => x.Id == firstUserId);
             var secondUser = item.Members.FirstOrDefault(x => x.Id == secondUserId);
@@ -82,8 +85,8 @@ public class ChatService : BaseService, IChatService
     {
         var max = await _context.Users.CountAsync();
         var rnd = Random.Shared.Next(1, max + 1);
-        var user = await _context.Users.FirstAsync(x => x.Id == rnd);
-        //var user = await _context.Users.FirstAsync(x => x.Id == 5)
+        //var user = await _context.Users.FirstAsync(x => x.Id == rnd);
+        var user = await _context.Users.FirstAsync(x => x.Name == "Frida");
         //this method gets rnd user each time when the page is reloaded.
         //so if you'd like to test the method specify the id number
         return _mapper.Map<UserDto>(user);
