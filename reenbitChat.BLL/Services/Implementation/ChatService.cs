@@ -85,8 +85,8 @@ public class ChatService : BaseService, IChatService
     {
         var max = await _context.Users.CountAsync();
         var rnd = Random.Shared.Next(1, max + 1);
-        //var user = await _context.Users.FirstAsync(x => x.Id == rnd);
-        var user = await _context.Users.FirstAsync(x => x.Name == "Frida");
+        var user = await _context.Users.FirstAsync(x => x.Id == rnd);
+        //var user = await _context.Users.FirstAsync(x => x.Id == 5);
         //this method gets rnd user each time when the page is reloaded.
         //so if you'd like to test the method specify the id number
         return _mapper.Map<UserDto>(user);
