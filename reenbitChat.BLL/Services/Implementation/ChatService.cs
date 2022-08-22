@@ -65,10 +65,12 @@ public class ChatService : BaseService, IChatService
 
     public ChatDto GetPrivateChat(int firstUserId, int secondUserId)
     {
-        foreach (var item in _context.Chats
+        var privateChats = _context.Chats
                                      .Include(x => x.Members)
                                      .Include(x => x.Messages)
-                                     .Where(x => x.Members.Count == 2))
+                                     .ThenInclude(x => x.Sender)
+                                     .Where(x => x.IsGroup == false);
+        foreach (var item in privateChats)
         {
             var firstUser = item.Members.FirstOrDefault(x => x.Id == firstUserId);
             var secondUser = item.Members.FirstOrDefault(x => x.Id == secondUserId);

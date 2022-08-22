@@ -2,6 +2,7 @@
 
 namespace reenbitChat.BLL.Services.Abstraction;
 
+
 public interface IMessageService
 {
     Task SendMessage(NewMessageDto message);
