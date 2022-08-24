@@ -16,20 +16,6 @@ public class PrivateChatService : BaseService, IPrivateChatService
     {
     }
 
-    public async Task CreateEveryPrivateChat(int userId)
-    {
-        var firstUser = await _context.Users.FirstAsync(x => x.Id == userId);
-        var usersExecptFirst = await _context.Users.Where(x => x.Id != firstUser.Id).ToListAsync();
-        foreach (var secondUser in usersExecptFirst)
-        {
-            bool isPrivateChatExist = DoesPrivateChatExist(firstUser.Id, secondUser.Id);
-            if (isPrivateChatExist == false)
-            {
-                await CreatePrivateChat(firstUser, secondUser);
-            }
-        }
-    }
-
     public ChatDto GetPrivateChat(int firstUserId, int secondUserId)
     {
         var privateChats = _context.Chats
@@ -72,17 +58,7 @@ public class PrivateChatService : BaseService, IPrivateChatService
 
 
 
-    public async Task CreatePrivateChat(User firstUser, User secondUser)
-    {
-        var chat = new Chat();
-        chat.Name = firstUser.Name + " " + secondUser.Name;
-        chat.ImageUrl = "";
-        chat.Members.Add(firstUser);
-        chat.Members.Add(secondUser);
-        chat.IsGroup = false;
-        await _context.Chats.AddAsync(chat);
-        await _context.SaveChangesAsync();
-    }
+    
 
     public bool DoesPrivateChatExist(int firstUserId, int secondUserId)
     {
