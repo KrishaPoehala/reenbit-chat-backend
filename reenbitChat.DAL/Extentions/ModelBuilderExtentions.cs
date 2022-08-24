@@ -39,25 +39,26 @@ public static class ModelBuilderExtentions
         var groups = GenerateGroupes(15);
         var users = GenerateUsers(50);
         var messages = GenerateMessages(1000, users, groups);
+        var chatUsers = GenerateChatUserValues(users, groups);
         builder.Entity<Chat>().HasData(groups);
         builder.Entity<User>().HasData(users);
         builder.Entity<Message>().HasData(messages);
-        
+        builder.Entity("ChatUser").HasData(chatUsers);
     }
     public record ChatUser
     {
-        public int ChatId { get; set; }
-        public int UserId { get; set; }
+        public int ChatsId { get; set; }
+        public int MembersId { get; set; }
     }
     public static IEnumerable<ChatUser> GenerateChatUserValues(
         IEnumerable<User> users, IEnumerable<Chat> groups)
     {
         var faker = new Faker<ChatUser>()
-           .RuleFor(x => x.ChatId, f => f.PickRandom(groups).Id)
-           .RuleFor(x => x.UserId, f => f.PickRandom(users).Id);
+           .RuleFor(x => x.ChatsId, f => f.PickRandom(groups).Id)
+           .RuleFor(x => x.MembersId, f => f.PickRandom(users).Id);
 
         return faker.Generate(200)
-            .DistinctBy(x => new { x.ChatId, x.UserId })
+            .DistinctBy(x => new { x.ChatsId, x.MembersId })
             .ToList();
     }
 
