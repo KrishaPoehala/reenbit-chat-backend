@@ -15,10 +15,11 @@ namespace reenbitChat.WebApi.Controllers
     public class ChatsController : ControllerBase
     {
         private readonly IChatService _chatService;
-
-        public ChatsController(IChatService chatService)
+        private readonly IPrivateChatService _privateChatService;
+        public ChatsController(IChatService chatService, IPrivateChatService privateChatService)
         {
             _chatService = chatService;
+            _privateChatService = privateChatService;
         }
 
         [HttpGet]
@@ -56,7 +57,23 @@ namespace reenbitChat.WebApi.Controllers
         [Route("privateChat/{firstUserId}/{secondUserId}")]
         public ActionResult<ChatDto> GetPrivateChat(int firstUserId, int secondUserId)
         {
-            return Ok(_chatService.GetPrivateChat(firstUserId, secondUserId));
+            try
+            {
+
+                return Ok(_privateChatService.GetPrivateChat(firstUserId, secondUserId));
+            }
+            catch (NullReferenceException)
+            {
+                return NotFound();
+            }
         } 
+
+        [HttpPost]
+        [Route("privateChat/create")]
+        public async Task<ActionResult<ChatDto>> CreatePrivateChat(NewChatDto dto)
+        {
+            var chat = await _privateChatService.CreatePrivatChat(dto.FirstUserId, dto.SecondUserId);
+            return Ok(chat);
+        }
     }
 }

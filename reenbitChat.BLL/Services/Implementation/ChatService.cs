@@ -14,17 +14,14 @@ namespace reenbitChat.BLL.Services.Implementation;
 
 public class ChatService : BaseService, IChatService
 {
-    private readonly IPrivateChatService _privateChatService;
     public ChatService(ChatContext context, IMapper mapper,
-        IHubContext<ChatHub> hub, IPrivateChatService privateChatService) :
+        IHubContext<ChatHub> hub) :
         base(context, mapper, hub)
     {
-        _privateChatService = privateChatService;
     }
 
     public async IAsyncEnumerable<ChatDto> GetUserChats(int userId)
     {
-        await _privateChatService.CreateEveryPrivateChat(userId);
         var chats = _context.Chats
             .Include(x => x.Members)
             .Where(x => x.Members.Any(x => x.Id == userId))
@@ -63,25 +60,7 @@ public class ChatService : BaseService, IChatService
             .Select(x => _mapper.Map<MessageDto>(x));
     }
 
-    public ChatDto GetPrivateChat(int firstUserId, int secondUserId)
-    {
-        var privateChats = _context.Chats
-                                     .Include(x => x.Members)
-                                     .Include(x => x.Messages)
-                                     .ThenInclude(x => x.Sender)
-                                     .Where(x => x.IsGroup == false);
-        foreach (var item in privateChats)
-        {
-            var firstUser = item.Members.FirstOrDefault(x => x.Id == firstUserId);
-            var secondUser = item.Members.FirstOrDefault(x => x.Id == secondUserId);
-            if(firstUser is not null && secondUser is not null)
-            {
-                return _mapper.Map<ChatDto>(item);
-            }
-        }
-
-        throw new NullReferenceException();
-    }
+ 
 
     public async Task<UserDto> GetRandomUser()
     {
