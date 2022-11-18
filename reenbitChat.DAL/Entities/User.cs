@@ -1,9 +1,11 @@
-﻿namespace reenbitChat.DAL.Entities;
+﻿
+using Microsoft.AspNetCore.Identity;
 
-public class User : BaseEntity
+namespace reenbitChat.DAL.Entities;
+
+public class User : IdentityUser<int>
 {
-    public string Name { get; set; }
-    public string Email { get; set; }
+    public override int Id { get; set; }
     public string ProfilePhotoUrl { get; set; }
     public virtual ICollection<Message> MessagesSent { get; set; } = new LinkedList<Message>();
     public virtual ICollection<Chat> Chats { get; set; } = new LinkedList<Chat>();

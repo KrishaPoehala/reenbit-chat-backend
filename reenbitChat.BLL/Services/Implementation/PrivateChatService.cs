@@ -56,10 +56,6 @@ public class PrivateChatService : BaseService, IPrivateChatService
         return dto;
     }
 
-
-
-    
-
     public bool DoesPrivateChatExist(int firstUserId, int secondUserId)
     {
         foreach (var item in _context.Chats.Include(x => x.Members))

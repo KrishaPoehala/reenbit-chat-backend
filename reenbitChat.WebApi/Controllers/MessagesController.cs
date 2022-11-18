@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using reenbitChat.BLL.Services.Abstraction;
 using reenbitChat.Common.Dtos.MessageDtos;
@@ -7,6 +8,7 @@ namespace reenbitChat.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+   // [Authorize]
     public class MessagesController : ControllerBase
     {
         private readonly IMessageService _messageService;

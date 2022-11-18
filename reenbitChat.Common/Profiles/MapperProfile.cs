@@ -10,8 +10,10 @@ public class MapperProfile : Profile
 {
     public MapperProfile()
     { 
-        CreateMap<User, UserDto>();
+        CreateMap<User, UserDto>().ForMember(x => x.Email, opt => opt.MapFrom(x => x.NormalizedEmail));
         CreateMap<UserDto, User>();
+        CreateMap<RegisterUserDto, User>()
+            .ForMember(x => x.UserName, opt => opt.MapFrom(x => x.FirstName));
 
         CreateMap<NewMessageDto, Message>();
         CreateMap<Message, MessageDto>().ReverseMap();

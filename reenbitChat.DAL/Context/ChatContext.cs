@@ -1,12 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using reenbitChat.DAL.Entities;
 using reenbitChat.DAL.Extentions;
 
 namespace reenbitChat.DAL.Context;
 
-public class ChatContext : DbContext
+public class ChatContext : IdentityDbContext<User, IdentityRole<int>, int>
 {
-    public DbSet<User> Users { get; private set; }
+    //public DbSet<User> Users { get; private set; }
     public DbSet<Message> Messages { get; private set; }
     public DbSet<Chat> Chats { get; private set; }
 
@@ -15,10 +17,11 @@ public class ChatContext : DbContext
     }
 
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder builder)
     {
-        modelBuilder.Configure();
-        modelBuilder.Seed();
+        base.OnModelCreating(builder);
+        builder.Configure();
+        builder.Seed();
     }
 
 }

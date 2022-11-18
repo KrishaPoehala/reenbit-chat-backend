@@ -81,10 +81,11 @@ public static class ModelBuilderExtentions
     {
         var index = 1;
         var faker = new Faker<User>()
-            .RuleFor(x => x.Email, f => f.Internet.Email())
-            .RuleFor(x => x.Name, f => f.Name.FirstName())
+            .RuleFor(x => x.NormalizedEmail, f => f.Internet.Email())
+            .RuleFor(x => x.UserName, f => f.Name.FirstName())
             .RuleFor(x => x.ProfilePhotoUrl, f=> f.Image.PicsumUrl(480))
             .RuleFor(x => x.Id, f => index++);
+
 
         return faker.Generate(count);
     }

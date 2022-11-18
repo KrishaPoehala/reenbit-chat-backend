@@ -1,32 +1,36 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using reenbitChat.BLL.Queries;
 using reenbitChat.BLL.Services.Abstraction;
 using reenbitChat.Common.Dtos.ChatDtos;
 using reenbitChat.Common.Dtos.MessageDtos;
 using reenbitChat.Common.Dtos.UserDtos;
-using reenbitChat.DAL.Entities;
-using System.Text;
-using static reenbitChat.DAL.Extentions.ModelBuilderExtentions;
 
 namespace reenbitChat.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class ChatsController : ControllerBase
     {
         private readonly IChatService _chatService;
         private readonly IPrivateChatService _privateChatService;
-        public ChatsController(IChatService chatService, IPrivateChatService privateChatService)
+        private readonly ISender _mediator;
+        public ChatsController(IChatService chatService, IPrivateChatService privateChatService, ISender mediator)
         {
             _chatService = chatService;
             _privateChatService = privateChatService;
+            _mediator = mediator;
         }
 
         [HttpGet]
         [Route("chats/{userId}")]
-        public ActionResult<IAsyncEnumerable<ChatDto>> GetChats(int userId)
+        public async Task<ActionResult<IEnumerable<ChatDto>>> GetChats(int userId)
         {
-            return Ok(_chatService.GetUserChats(userId));
+            var request = new GetUsersChatQuery(userId);
+            return Ok(await _mediator.Send(request));
         }
 
         [HttpGet]
@@ -34,33 +38,34 @@ namespace reenbitChat.WebApi.Controllers
         public async Task<ActionResult<IEnumerable<MessageDto>>> GetMessages(int chatId, int userId,
     int pageNumber = 0, int messagesToLoad = 20)
         {
-            return Ok(await _chatService.GetChatMessages(chatId,userId,
-                pageNumber, messagesToLoad));
-        }
+           var request = new GetChatMessagesQuery(chatId, userId, pageNumber, messagesToLoad);
+            return Ok(await _mediator.Send(request));
+        }   
 
         [HttpGet]
         [Route("messages/{chatId}")]
         public async Task<ActionResult<IEnumerable<MessageDto>>> GetMessages(int chatId)
         {
-            return Ok(await _chatService.GetChatMessages(chatId, -1,0,20));
+            var request = new GetChatMessagesQuery(chatId, -1, 0, 20);
+            return Ok(await _mediator.Send(request));
         }
+            
         [HttpGet]
         [Route("randomUser")]
         public async Task<ActionResult<UserDto>> GetRandomUser()
         {
-            return Ok(await _chatService.GetRandomUser());
+            var user = await _chatService.GetRandomUser();
+            return Ok(user);
         }
-
-        
 
         [HttpGet]
         [Route("privateChat/{firstUserId}/{secondUserId}")]
-        public ActionResult<ChatDto> GetPrivateChat(int firstUserId, int secondUserId)
+        public async Task<IActionResult> GetPrivateChat(int firstUserId, int secondUserId)
         {
             try
             {
-
-                return Ok(_privateChatService.GetPrivateChat(firstUserId, secondUserId));
+                var request = new GetPrivateChatQuery(firstUserId, secondUserId);
+                return Ok(await _mediator.Send(request));
             }
             catch (NullReferenceException)
             {
