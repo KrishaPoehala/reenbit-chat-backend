@@ -10,12 +10,12 @@ using reenbitChat.DAL.Context;
 using reenbitChat.DAL.Entities;
 using reenbitChat.WebApi.Extentions;
 using System.Text.Json.Serialization;
-
+var origins = new string[] { "http://localhost:4200", "https://localhols:7139",
+"https://valik-chat.azurewebsites.net"};
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 {
-    builder.WithOrigins("http://localhost:4200","https://localhols:7139").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
-   // builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+    builder.WithOrigins(origins).AllowAnyMethod().AllowAnyHeader().AllowCredentials();
 }));
 // Add services to the container.
 builder.Services.AddChatDbContext(builder);
