@@ -11,7 +11,7 @@ using reenbitChat.DAL.Entities;
 using reenbitChat.WebApi.Extentions;
 using System.Text.Json.Serialization;
 var origins = new string[] { "http://localhost:4200", "https://localhols:7139",
-"https://valik-chat.azurewebsites.net"};
+"https://orange-river-02b21f710.2.azurestaticapps.net"};
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 {
