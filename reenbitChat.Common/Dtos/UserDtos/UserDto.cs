@@ -9,5 +9,7 @@ public class UserDto
     public string UserName { get; set; }
     public string Email { get; set; }
     public string ProfilePhotoUrl { get; set; }
+    public IEnumerable<ContactDto?>? Contacts { get; set; }
+
    // public ICollection<ChatDto> Chats { get; set; }
 }

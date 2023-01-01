@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using reenbitChat.BLL.Jwt;
-using reenbitChat.BLL.Services.Abstraction;
 using reenbitChat.Common.Dtos.UserDtos;
 using reenbitChat.DAL.Context;
 using reenbitChat.DAL.Entities;
+using reenbitChat.Domain.Abstraction;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 

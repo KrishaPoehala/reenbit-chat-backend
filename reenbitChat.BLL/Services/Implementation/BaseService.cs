@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.SignalR;
 using reenbitChat.BLL.Hubs;
 using reenbitChat.DAL.Context;
 
-namespace reenbitChat.BLL.Services.Abstraction;
+namespace reenbitChat.BLL.Services.Implementation;
 
 public abstract class BaseService
 {

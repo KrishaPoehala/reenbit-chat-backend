@@ -8,13 +8,23 @@ namespace reenbitChat.WebApi.Extentions;
 
 public static class IServiceCollectionExtentions
 {
-    public static void AddChatDbContext(this IServiceCollection services, WebApplicationBuilder builder)
+    public static IServiceCollection AddChatDbContext(this IServiceCollection services, WebApplicationBuilder builder)
     {
         var migrationAssebly = typeof(ChatContext).Assembly.GetName().Name;
+        var connectionString = "";
+        if (builder.Environment.IsDevelopment())
+        {
+            connectionString = builder.Configuration.GetConnectionString("ChatDb");
+        }
+        else
+        {
+            connectionString = builder.Configuration.GetConnectionString("AzureChatDb");
+        }
 
-        services.AddDbContext<ChatContext>(x =>
-x.UseSqlServer(builder.Configuration.GetConnectionString("AzureChatDb"),
-opt => opt.MigrationsAssembly(migrationAssebly)));
+        services.AddDbContext<ChatContext>(x => x.UseSqlServer(connectionString, 
+            opt => opt.MigrationsAssembly(migrationAssebly)));
+
+        return services;
     }
 
     public static IServiceCollection AddJwtAuth(this IServiceCollection services,ConfigurationManager conf)

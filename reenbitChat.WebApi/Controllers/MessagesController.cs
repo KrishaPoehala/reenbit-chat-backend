@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using reenbitChat.BLL.Services.Abstraction;
 using reenbitChat.Common.Dtos.MessageDtos;
+using reenbitChat.Domain.Abstraction;
 
 namespace reenbitChat.WebApi.Controllers
 {
@@ -36,10 +37,19 @@ namespace reenbitChat.WebApi.Controllers
 
         [HttpDelete]
         [Route("delete/{id}/{isDeleteOnlyForSender}")]
-        public async Task<ActionResult> DeleteMessage(int id, bool isDeleteOnlyForSender)
+        public async Task<ActionResult> DeleteMessage(int id, bool isDeletedOnlyForSender)
         {
-            await _messageService.DeleteMessage(id, isDeleteOnlyForSender);
+            await _messageService.DeleteMessage(id, isDeletedOnlyForSender);
             return Ok();
+        }
+
+
+        [HttpPost]
+        [Route("sendPrivate")] 
+        public async Task SendPrivateMessages(NewPrivateMessageDto dto)
+        {
+            await _messageService.SendPrivateMessage(dto);
+            Ok();
         }
     }
 }

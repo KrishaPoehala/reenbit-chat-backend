@@ -1,12 +1,10 @@
-﻿
-namespace reenbitChat.DAL.Entities;
+﻿using reenbitChat.DAL.Entities.Messages;
 
-public class Chat : BaseEntity
+namespace reenbitChat.DAL.Entities;
+public class Chat : EntityBase
 {
     public string Name { get; set; }
     public ICollection<User> Members { get; set; } = new LinkedList<User>();
-    public ICollection<Message> Messages { get; set; } = new LinkedList<Message>();
-    public bool? IsGroup { get; set; }
+    public ICollection<GroupMessage> Messages { get; set; } = new LinkedList<GroupMessage>();
     public string ImageUrl { get; set; }
-
 }

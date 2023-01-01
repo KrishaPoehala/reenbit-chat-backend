@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using reenbitChat.BLL.Services.Abstraction;
 using reenbitChat.DAL.Entities;
+using reenbitChat.Domain.Abstraction;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;

@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\reenbitChat.Common\reenbitChat.Common.csproj" />
     <ProjectReference Include="..\reenbitChat.DAL\reenbitChat.DAL.csproj" />
+    <ProjectReference Include="..\reenbitChat.Domain\reenbitChat.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

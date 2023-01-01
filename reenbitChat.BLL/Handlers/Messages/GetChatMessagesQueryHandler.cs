@@ -21,7 +21,7 @@ public class GetChatMessagesQueryHandler : IRequestHandler<GetChatMessagesQuery,
     {
         var chat = await _context.Chats
         .Include(x => x.Messages)
-        .ThenInclude(x => x.Sender)
+            .ThenInclude(x => x.Sender)
         .FirstAsync(x => x.Id == request.ChatId, cancellationToken);
 
         var messages = chat.Messages;

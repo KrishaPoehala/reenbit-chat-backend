@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace reenbitChat.BLL.Services.Abstraction;
+namespace reenbitChat.Domain.Abstraction;
 
 public interface ITokenProvider
 {
