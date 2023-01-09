@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'reenbit-chattt'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5AEC781B2B0D486B8BAADF39C8FD0DBE }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3160917550134949BDEBF5FE2AF73866 }}
           package: .
