@@ -43,7 +43,8 @@ builder.Services.AddScoped<ITokenProvider, JwtHandler>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var app = builder.Build();
-
+app.UseDeveloperExceptionPage();
+throw new Exception();
 // Configure the HTTP request pipeline.
     app.UseSwagger();
     app.UseSwaggerUI();
