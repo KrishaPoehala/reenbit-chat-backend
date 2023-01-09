@@ -12,4 +12,5 @@ public interface IChatService
     IAsyncEnumerable<ChatDto> GetUserChats(int userId);
     Task<IEnumerable<MessageDto>> GetChatMessages(int chatId, int userId,
         int pageNumber, int messagesInPage);
+    Task<ChatDto> CreateChat(NewChatDto dto);
 }

@@ -1,7 +1,9 @@
-﻿namespace reenbitChat.DAL.Entities.Messages;
+﻿namespace reenbitChat.DAL.Entities;
 
-public class MessageBase : EntityBase
+public class Message:EntityBase
 {
+    public int ChatId { get; set; }
+    public Chat Chat { get; set; }
     public string Text { get; set; }
     public bool? IsDeletedOnlyForSender { get; set; }
     public int SenderId { get; set; }

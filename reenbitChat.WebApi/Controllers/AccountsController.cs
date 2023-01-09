@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using reenbitChat.BLL.Jwt;
 using reenbitChat.Common.Dtos.UserDtos;
-using reenbitChat.DAL.Context;
 using reenbitChat.DAL.Entities;
 using reenbitChat.Domain.Abstraction;
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
 namespace reenbitChat.WebApi.Controllers;
@@ -17,7 +13,6 @@ namespace reenbitChat.WebApi.Controllers;
 public class AccountsController : ControllerBase
 {
     private readonly UserManager<User> _userManager;
-    private readonly SignInManager<User> _signInManager;
     private readonly IMapper _mapper;
     private readonly ITokenProvider _tokenProvider;
     public AccountsController(UserManager<User> manager, IMapper mapper, 
@@ -26,7 +21,6 @@ public class AccountsController : ControllerBase
         _userManager = manager;
         _mapper = mapper;
         _tokenProvider = tokenProvider;
-        _signInManager = signInManager;
     }
 
     [HttpPost]
@@ -72,11 +66,10 @@ public class AccountsController : ControllerBase
         return Ok(new AuthResponseDto() { IsAuthSuccessfull = true, Token = token });
     }
 
-   
-
     [NonAction]
-    private List<Claim> GetClaims(User user) => new()
+    private static List<Claim> GetClaims(User user) => new()
     {
+        new(ClaimTypes.NameIdentifier, user.Id.ToString()),
         new(ClaimTypes.Email, user.Email),
         new(ClaimTypes.Name, user.UserName),
     };

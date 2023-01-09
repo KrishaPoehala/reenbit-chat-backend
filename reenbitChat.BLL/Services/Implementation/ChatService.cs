@@ -7,7 +7,6 @@ using reenbitChat.Common.Dtos.MessageDtos;
 using reenbitChat.Common.Dtos.UserDtos;
 using reenbitChat.DAL.Context;
 using reenbitChat.DAL.Entities;
-using reenbitChat.DAL.Extentions;
 using reenbitChat.Domain.Abstraction;
 
 namespace reenbitChat.BLL.Services.Implementation;
@@ -61,11 +60,29 @@ public class ChatService : BaseService, IChatService
         var max = await _context.Users.CountAsync();
         var rnd = Random.Shared.Next(1, max + 1);
         var user = await _context.Users
-            .Include(x => x.Contacts)
-                .ThenInclude(x => x.ContactUser)
             .FirstAsync(x => x.Id == 8);
 
         var userDto = _mapper.Map<UserDto>(user);
         return userDto;
+    }
+
+    public async Task<ChatDto> CreateChat(NewChatDto newChatDto)
+    {
+        var members = newChatDto.Members;
+        newChatDto.Members = null!;
+        var chat = _mapper.Map<Chat>(newChatDto);
+        _context.Chats.Add(chat);
+        foreach (var memberId in members.Select(x => x.Id))
+        {
+            var user = await _context.Users.FirstAsync(x => x.Id == memberId);
+            user.Chats.Add(chat);
+        }
+
+        await _context.SaveChangesAsync();
+        var result = _mapper.Map<ChatDto>(chat);
+        result.Members = members;
+        
+        await _hub.Clients.All.SendAsync("ChatCreated", result);
+        return result;
     }
 }

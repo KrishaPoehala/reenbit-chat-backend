@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using reenbitChat.BLL.Handlers;
 using reenbitChat.BLL.Hubs;
@@ -30,6 +31,7 @@ builder.Services.Configure<IdentityOptions>(opts => {
     opts.Password.RequireLowercase = true;
     opts.User.RequireUniqueEmail = true;
 });
+
 builder.Services.AddJwtAuth(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(reenbitChat.Common.Profiles.MapperProfile));
 builder.Services.AddControllers().AddJsonOptions(x =>
@@ -38,10 +40,8 @@ builder.Services.AddSignalR();
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<IChatService, ChatService>();
 builder.Services.AddScoped<ITokenProvider, JwtHandler>();
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

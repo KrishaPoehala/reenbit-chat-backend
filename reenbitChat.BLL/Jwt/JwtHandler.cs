@@ -15,8 +15,8 @@ public class JwtHandler : ITokenProvider
 
     public JwtHandler(IConfiguration configuration)
     {
-        this._configuration = configuration;
-        this._jwtSettings = _configuration.GetSection("JwtSettings");
+        _configuration = configuration;
+        _jwtSettings = _configuration.GetSection("JwtSettings");
     }
 
     public string GenerateToken(IEnumerable<Claim> claims)

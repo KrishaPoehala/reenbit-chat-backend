@@ -34,11 +34,7 @@ public static class IServiceCollectionExtentions
         {
             opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        }).AddGoogle(opt => {
-            opt.ClientId = "1061658422584-ggdbk0sitpohbhftak1ga59ehde2e8cs.apps.googleusercontent.com";
-            opt.ClientSecret = "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";
-        })
-            .AddJwtBearer(options =>
+        }).AddJwtBearer(options =>
         {
             options.TokenValidationParameters = new TokenValidationParameters
             {

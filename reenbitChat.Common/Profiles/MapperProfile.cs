@@ -3,7 +3,6 @@ using reenbitChat.Common.Dtos.ChatDtos;
 using reenbitChat.Common.Dtos.MessageDtos;
 using reenbitChat.Common.Dtos.UserDtos;
 using reenbitChat.DAL.Entities;
-using reenbitChat.DAL.Entities.Messages;
 
 namespace reenbitChat.Common.Profiles;
 
@@ -13,21 +12,17 @@ public class MapperProfile : Profile
     {
         CreateMap<User, UserDto>()
             .ForMember(x => x.Email, opt => opt.MapFrom(x => x.NormalizedEmail))
-            .ForMember(x => x.Contacts, opt => opt.MapFrom(x => x.Contacts.Select(x =>
-            x.ContactUser)));
+            .ForMember(x => x.Name, opt => opt.MapFrom(x => x.UserName));
 
-        CreateMap<UserDto, User>();
-        CreateMap<User, ContactDto>().ForMember(x => x.Receiver, opt => opt.MapFrom(x => x));
+        CreateMap<UserDto, User>().ForMember(x => x.UserName, opt => opt.MapFrom(x => x.Name));
 
         CreateMap<RegisterUserDto, User>()
             .ForMember(x => x.UserName, opt => opt.MapFrom(x => x.FirstName));
 
-        CreateMap<NewMessageDto, GroupMessage>();
-        CreateMap<GroupMessage, MessageDto>().ReverseMap();
+        CreateMap<NewMessageDto, Message>();
+        CreateMap<Message, MessageDto>().ReverseMap();
+        CreateMap<NewChatDto, Chat>();
 
-
-        CreateMap<NewPrivateMessageDto, PrivateMessage>();
-        CreateMap<PrivateMessageDto, PrivateMessage>().ReverseMap();
         CreateMap<Chat, ChatDto>();
     }
 }

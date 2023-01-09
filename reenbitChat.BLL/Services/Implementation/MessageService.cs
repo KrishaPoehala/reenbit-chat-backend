@@ -3,11 +3,9 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using reenbitChat.BLL.Hubs;
 using reenbitChat.Common.Dtos.MessageDtos;
-using reenbitChat.Common.Dtos.UserDtos;
 using reenbitChat.DAL.Context;
-using reenbitChat.DAL.Entities.Messages;
+using reenbitChat.DAL.Entities;
 using reenbitChat.Domain.Abstraction;
-using System.Diagnostics;
 
 namespace reenbitChat.BLL.Services.Implementation;
 
@@ -53,8 +51,7 @@ public class MessageService : BaseService, IMessageService
 
     public async Task SendMessage(NewMessageDto dto)
     {
-        dto.Sender.Contacts = null;
-        var message = _mapper.Map<GroupMessage>(dto);
+        var message = _mapper.Map<Message>(dto);
         var sender = message.Sender;
         message.Sender = null;
         await _context.Messages.AddAsync(message);
@@ -65,39 +62,6 @@ public class MessageService : BaseService, IMessageService
         await _hub.Clients
             .Group(message.ChatId.ToString())
             .SendAsync("MessageSent", messageDto);
-    }
-
-    public async Task SendPrivateMessage(NewPrivateMessageDto messageDto)
-    {
-        var senderDto = messageDto.Sender;
-        var receiverDto = messageDto.Receiver;
-        messageDto.Sender = null;
-        messageDto.Receiver = null;
-        var message = _mapper.Map<PrivateMessage>(messageDto);
-        _context.Set<PrivateMessage>().Add(message);
-        try
-        {
-            await _context.SaveChangesAsync();
-        }
-        catch (Exception)
-        {
-            throw;
-        }   
-        var privateMessageDto = _mapper.Map<PrivateMessageDto>(message);
-        privateMessageDto.Sender = senderDto;
-        privateMessageDto.Reveiver = receiverDto;
-        await _hub.Clients.Group(GetGroupName(message.SenderId, message.ReceiverId))
-            .SendAsync("PrivateMessageSent", privateMessageDto);
-    }
-
-    private string GetGroupName(int leftId, int rightId)
-    {
-        if (leftId < rightId)
-        {
-            return leftId.ToString() + "/" + rightId.ToString();
-        }
-
-        return rightId.ToString() + "/" + leftId.ToString();
     }
 
 }
