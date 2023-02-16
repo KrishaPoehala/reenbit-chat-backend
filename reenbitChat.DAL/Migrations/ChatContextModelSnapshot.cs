@@ -22,700 +22,590 @@ namespace reenbitChat.DAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ChatUser", b =>
+            modelBuilder.Entity("ChatMemberMessage", b =>
                 {
-                    b.Property<int>("ChatsId")
+                    b.Property<int>("MessagesReadId")
                         .HasColumnType("int");
 
+                    b.Property<int>("ReadById")
+                        .HasColumnType("int");
+
+                    b.HasKey("MessagesReadId", "ReadById");
+
+                    b.HasIndex("ReadById");
+
+                    b.ToTable("ChatMemberMessage");
+                });
+
+            modelBuilder.Entity("ChatMemberPermission", b =>
+                {
                     b.Property<int>("MembersId")
                         .HasColumnType("int");
 
-                    b.HasKey("ChatsId", "MembersId");
+                    b.Property<int>("PermissionsId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("MembersId");
+                    b.HasKey("MembersId", "PermissionsId");
 
-                    b.ToTable("ChatUser");
+                    b.HasIndex("PermissionsId");
+
+                    b.ToTable("ChatMemberPermission");
 
                     b.HasData(
                         new
                         {
-                            ChatsId = 12,
-                            MembersId = 7
+                            MembersId = 1,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 16,
-                            MembersId = 9
+                            MembersId = 1,
+                            PermissionsId = 2
                         },
                         new
                         {
-                            ChatsId = 3,
-                            MembersId = 9
+                            MembersId = 1,
+                            PermissionsId = 3
                         },
                         new
                         {
-                            ChatsId = 2,
-                            MembersId = 6
+                            MembersId = 1,
+                            PermissionsId = 4
                         },
                         new
                         {
-                            ChatsId = 13,
-                            MembersId = 7
+                            MembersId = 1,
+                            PermissionsId = 5
                         },
                         new
                         {
-                            ChatsId = 2,
-                            MembersId = 5
+                            MembersId = 1,
+                            PermissionsId = 6
                         },
                         new
                         {
-                            ChatsId = 10,
-                            MembersId = 4
+                            MembersId = 1,
+                            PermissionsId = 7
                         },
                         new
                         {
-                            ChatsId = 13,
-                            MembersId = 1
+                            MembersId = 2,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 1,
-                            MembersId = 8
+                            MembersId = 3,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 13,
-                            MembersId = 10
+                            MembersId = 4,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 1,
-                            MembersId = 4
+                            MembersId = 5,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 6,
-                            MembersId = 10
+                            MembersId = 6,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 5,
-                            MembersId = 1
+                            MembersId = 7,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 6,
-                            MembersId = 7
+                            MembersId = 8,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 6,
-                            MembersId = 2
+                            MembersId = 9,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 17,
-                            MembersId = 8
+                            MembersId = 10,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 7,
-                            MembersId = 3
+                            MembersId = 10,
+                            PermissionsId = 2
                         },
                         new
                         {
-                            ChatsId = 14,
-                            MembersId = 1
+                            MembersId = 10,
+                            PermissionsId = 3
                         },
                         new
                         {
-                            ChatsId = 3,
-                            MembersId = 3
+                            MembersId = 10,
+                            PermissionsId = 4
                         },
                         new
                         {
-                            ChatsId = 8,
-                            MembersId = 5
+                            MembersId = 10,
+                            PermissionsId = 5
                         },
                         new
                         {
-                            ChatsId = 17,
-                            MembersId = 7
+                            MembersId = 10,
+                            PermissionsId = 6
                         },
                         new
                         {
-                            ChatsId = 2,
-                            MembersId = 9
+                            MembersId = 10,
+                            PermissionsId = 7
                         },
                         new
                         {
-                            ChatsId = 6,
-                            MembersId = 9
+                            MembersId = 11,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 5,
-                            MembersId = 10
+                            MembersId = 12,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 4,
-                            MembersId = 6
+                            MembersId = 13,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 14,
-                            MembersId = 2
+                            MembersId = 14,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 17,
-                            MembersId = 4
+                            MembersId = 15,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 7,
-                            MembersId = 6
+                            MembersId = 16,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 9,
-                            MembersId = 2
+                            MembersId = 17,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 9,
-                            MembersId = 4
+                            MembersId = 17,
+                            PermissionsId = 2
                         },
                         new
                         {
-                            ChatsId = 1,
-                            MembersId = 7
+                            MembersId = 17,
+                            PermissionsId = 3
                         },
                         new
                         {
-                            ChatsId = 9,
-                            MembersId = 6
+                            MembersId = 17,
+                            PermissionsId = 4
                         },
                         new
                         {
-                            ChatsId = 6,
-                            MembersId = 4
+                            MembersId = 17,
+                            PermissionsId = 5
                         },
                         new
                         {
-                            ChatsId = 11,
-                            MembersId = 8
+                            MembersId = 17,
+                            PermissionsId = 6
                         },
                         new
                         {
-                            ChatsId = 18,
-                            MembersId = 9
+                            MembersId = 17,
+                            PermissionsId = 7
                         },
                         new
                         {
-                            ChatsId = 9,
-                            MembersId = 9
+                            MembersId = 18,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 7,
-                            MembersId = 10
+                            MembersId = 19,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 4,
-                            MembersId = 10
+                            MembersId = 20,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 9,
-                            MembersId = 8
+                            MembersId = 21,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 16,
-                            MembersId = 1
+                            MembersId = 22,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 1,
-                            MembersId = 1
+                            MembersId = 23,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 17,
-                            MembersId = 5
+                            MembersId = 24,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 5,
-                            MembersId = 2
+                            MembersId = 25,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 18,
-                            MembersId = 2
+                            MembersId = 26,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 20,
-                            MembersId = 7
+                            MembersId = 26,
+                            PermissionsId = 2
                         },
                         new
                         {
-                            ChatsId = 5,
-                            MembersId = 6
+                            MembersId = 26,
+                            PermissionsId = 3
                         },
                         new
                         {
-                            ChatsId = 17,
-                            MembersId = 10
+                            MembersId = 26,
+                            PermissionsId = 4
                         },
                         new
                         {
-                            ChatsId = 10,
-                            MembersId = 2
+                            MembersId = 26,
+                            PermissionsId = 5
                         },
                         new
                         {
-                            ChatsId = 10,
-                            MembersId = 1
+                            MembersId = 26,
+                            PermissionsId = 6
                         },
                         new
                         {
-                            ChatsId = 14,
-                            MembersId = 6
+                            MembersId = 26,
+                            PermissionsId = 7
                         },
                         new
                         {
-                            ChatsId = 8,
-                            MembersId = 9
+                            MembersId = 27,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 8,
-                            MembersId = 2
+                            MembersId = 28,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 18,
-                            MembersId = 8
+                            MembersId = 29,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 16,
-                            MembersId = 10
+                            MembersId = 30,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 15,
-                            MembersId = 1
+                            MembersId = 31,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 19,
-                            MembersId = 5
+                            MembersId = 32,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 19,
-                            MembersId = 8
+                            MembersId = 32,
+                            PermissionsId = 2
                         },
                         new
                         {
-                            ChatsId = 12,
-                            MembersId = 6
+                            MembersId = 32,
+                            PermissionsId = 3
                         },
                         new
                         {
-                            ChatsId = 7,
-                            MembersId = 7
+                            MembersId = 32,
+                            PermissionsId = 4
                         },
                         new
                         {
-                            ChatsId = 9,
-                            MembersId = 3
+                            MembersId = 32,
+                            PermissionsId = 5
                         },
                         new
                         {
-                            ChatsId = 19,
-                            MembersId = 7
+                            MembersId = 32,
+                            PermissionsId = 6
                         },
                         new
                         {
-                            ChatsId = 5,
-                            MembersId = 7
+                            MembersId = 32,
+                            PermissionsId = 7
                         },
                         new
                         {
-                            ChatsId = 17,
-                            MembersId = 1
+                            MembersId = 33,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 18,
-                            MembersId = 7
+                            MembersId = 34,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 15,
-                            MembersId = 3
+                            MembersId = 35,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 4,
-                            MembersId = 5
+                            MembersId = 36,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 11,
-                            MembersId = 9
+                            MembersId = 37,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 18,
-                            MembersId = 4
+                            MembersId = 38,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 9,
-                            MembersId = 10
+                            MembersId = 39,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 10,
-                            MembersId = 7
+                            MembersId = 39,
+                            PermissionsId = 2
                         },
                         new
                         {
-                            ChatsId = 16,
-                            MembersId = 3
+                            MembersId = 39,
+                            PermissionsId = 3
                         },
                         new
                         {
-                            ChatsId = 18,
-                            MembersId = 6
+                            MembersId = 39,
+                            PermissionsId = 4
                         },
                         new
                         {
-                            ChatsId = 12,
-                            MembersId = 10
+                            MembersId = 39,
+                            PermissionsId = 5
                         },
                         new
                         {
-                            ChatsId = 3,
-                            MembersId = 10
+                            MembersId = 39,
+                            PermissionsId = 6
                         },
                         new
                         {
-                            ChatsId = 8,
-                            MembersId = 10
+                            MembersId = 39,
+                            PermissionsId = 7
                         },
                         new
                         {
-                            ChatsId = 15,
-                            MembersId = 5
+                            MembersId = 40,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 6,
-                            MembersId = 5
+                            MembersId = 41,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 1,
-                            MembersId = 3
+                            MembersId = 42,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 7,
-                            MembersId = 4
+                            MembersId = 43,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 19,
-                            MembersId = 1
+                            MembersId = 44,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 13,
-                            MembersId = 6
+                            MembersId = 45,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 16,
-                            MembersId = 8
+                            MembersId = 45,
+                            PermissionsId = 2
                         },
                         new
                         {
-                            ChatsId = 13,
-                            MembersId = 3
+                            MembersId = 45,
+                            PermissionsId = 3
                         },
                         new
                         {
-                            ChatsId = 14,
-                            MembersId = 5
+                            MembersId = 45,
+                            PermissionsId = 4
                         },
                         new
                         {
-                            ChatsId = 12,
-                            MembersId = 1
+                            MembersId = 45,
+                            PermissionsId = 5
                         },
                         new
                         {
-                            ChatsId = 14,
-                            MembersId = 8
+                            MembersId = 45,
+                            PermissionsId = 6
                         },
                         new
                         {
-                            ChatsId = 11,
-                            MembersId = 2
+                            MembersId = 45,
+                            PermissionsId = 7
                         },
                         new
                         {
-                            ChatsId = 12,
-                            MembersId = 9
+                            MembersId = 46,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 19,
-                            MembersId = 4
+                            MembersId = 47,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 19,
-                            MembersId = 3
+                            MembersId = 48,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 8,
-                            MembersId = 6
+                            MembersId = 49,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 13,
-                            MembersId = 5
+                            MembersId = 50,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 20,
-                            MembersId = 5
+                            MembersId = 51,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 9,
-                            MembersId = 1
+                            MembersId = 52,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 1,
-                            MembersId = 5
+                            MembersId = 53,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 17,
-                            MembersId = 3
+                            MembersId = 54,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 12,
-                            MembersId = 2
+                            MembersId = 54,
+                            PermissionsId = 2
                         },
                         new
                         {
-                            ChatsId = 16,
-                            MembersId = 5
+                            MembersId = 54,
+                            PermissionsId = 3
                         },
                         new
                         {
-                            ChatsId = 16,
-                            MembersId = 6
+                            MembersId = 54,
+                            PermissionsId = 4
                         },
                         new
                         {
-                            ChatsId = 20,
-                            MembersId = 3
+                            MembersId = 54,
+                            PermissionsId = 5
                         },
                         new
                         {
-                            ChatsId = 3,
-                            MembersId = 8
+                            MembersId = 54,
+                            PermissionsId = 6
                         },
                         new
                         {
-                            ChatsId = 3,
-                            MembersId = 5
+                            MembersId = 54,
+                            PermissionsId = 7
                         },
                         new
                         {
-                            ChatsId = 4,
-                            MembersId = 4
+                            MembersId = 55,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 13,
-                            MembersId = 8
+                            MembersId = 56,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 11,
-                            MembersId = 10
+                            MembersId = 57,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 2,
-                            MembersId = 8
+                            MembersId = 58,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 15,
-                            MembersId = 6
+                            MembersId = 59,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 18,
-                            MembersId = 3
+                            MembersId = 60,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 4,
-                            MembersId = 1
+                            MembersId = 61,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 7,
-                            MembersId = 1
+                            MembersId = 62,
+                            PermissionsId = 1
                         },
                         new
                         {
-                            ChatsId = 12,
-                            MembersId = 4
-                        },
-                        new
-                        {
-                            ChatsId = 3,
-                            MembersId = 2
-                        },
-                        new
-                        {
-                            ChatsId = 11,
-                            MembersId = 6
-                        },
-                        new
-                        {
-                            ChatsId = 11,
-                            MembersId = 5
-                        },
-                        new
-                        {
-                            ChatsId = 10,
-                            MembersId = 3
-                        },
-                        new
-                        {
-                            ChatsId = 14,
-                            MembersId = 10
-                        },
-                        new
-                        {
-                            ChatsId = 11,
-                            MembersId = 1
-                        },
-                        new
-                        {
-                            ChatsId = 8,
-                            MembersId = 8
-                        },
-                        new
-                        {
-                            ChatsId = 4,
-                            MembersId = 7
-                        },
-                        new
-                        {
-                            ChatsId = 15,
-                            MembersId = 7
-                        },
-                        new
-                        {
-                            ChatsId = 14,
-                            MembersId = 7
-                        },
-                        new
-                        {
-                            ChatsId = 4,
-                            MembersId = 9
-                        },
-                        new
-                        {
-                            ChatsId = 19,
-                            MembersId = 9
-                        },
-                        new
-                        {
-                            ChatsId = 11,
-                            MembersId = 3
-                        },
-                        new
-                        {
-                            ChatsId = 20,
-                            MembersId = 4
-                        },
-                        new
-                        {
-                            ChatsId = 1,
-                            MembersId = 6
-                        },
-                        new
-                        {
-                            ChatsId = 12,
-                            MembersId = 5
-                        },
-                        new
-                        {
-                            ChatsId = 20,
-                            MembersId = 1
-                        },
-                        new
-                        {
-                            ChatsId = 1,
-                            MembersId = 2
-                        },
-                        new
-                        {
-                            ChatsId = 14,
-                            MembersId = 9
-                        },
-                        new
-                        {
-                            ChatsId = 6,
-                            MembersId = 3
-                        },
-                        new
-                        {
-                            ChatsId = 11,
-                            MembersId = 4
-                        },
-                        new
-                        {
-                            ChatsId = 1,
-                            MembersId = 10
-                        },
-                        new
-                        {
-                            ChatsId = 16,
-                            MembersId = 2
-                        },
-                        new
-                        {
-                            ChatsId = 4,
-                            MembersId = 2
-                        },
-                        new
-                        {
-                            ChatsId = 5,
-                            MembersId = 3
+                            MembersId = 63,
+                            PermissionsId = 1
                         });
                 });
 
@@ -852,6 +742,93 @@ namespace reenbitChat.DAL.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("PermissionRole", b =>
+                {
+                    b.Property<int>("DefaultPermissionsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RolesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DefaultPermissionsId", "RolesId");
+
+                    b.HasIndex("RolesId");
+
+                    b.ToTable("PermissionRole");
+
+                    b.HasData(
+                        new
+                        {
+                            DefaultPermissionsId = 1,
+                            RolesId = 1
+                        },
+                        new
+                        {
+                            DefaultPermissionsId = 1,
+                            RolesId = 2
+                        },
+                        new
+                        {
+                            DefaultPermissionsId = 3,
+                            RolesId = 2
+                        },
+                        new
+                        {
+                            DefaultPermissionsId = 4,
+                            RolesId = 2
+                        },
+                        new
+                        {
+                            DefaultPermissionsId = 5,
+                            RolesId = 2
+                        },
+                        new
+                        {
+                            DefaultPermissionsId = 6,
+                            RolesId = 2
+                        },
+                        new
+                        {
+                            DefaultPermissionsId = 7,
+                            RolesId = 2
+                        },
+                        new
+                        {
+                            DefaultPermissionsId = 1,
+                            RolesId = 3
+                        },
+                        new
+                        {
+                            DefaultPermissionsId = 2,
+                            RolesId = 3
+                        },
+                        new
+                        {
+                            DefaultPermissionsId = 3,
+                            RolesId = 3
+                        },
+                        new
+                        {
+                            DefaultPermissionsId = 4,
+                            RolesId = 3
+                        },
+                        new
+                        {
+                            DefaultPermissionsId = 5,
+                            RolesId = 3
+                        },
+                        new
+                        {
+                            DefaultPermissionsId = 6,
+                            RolesId = 3
+                        },
+                        new
+                        {
+                            DefaultPermissionsId = 7,
+                            RolesId = 3
+                        });
+                });
+
             modelBuilder.Entity("reenbitChat.DAL.Entities.Chat", b =>
                 {
                     b.Property<int>("Id")
@@ -866,6 +843,9 @@ namespace reenbitChat.DAL.Migrations
                     b.Property<bool?>("IsGroup")
                         .HasColumnType("bit");
 
+                    b.Property<bool?>("IsPublic")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -877,122 +857,603 @@ namespace reenbitChat.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            ImageUrl = "https://picsum.photos/640/480/?image=636",
-                            Name = "Nienow, Lubowitz and Leffler"
+                            ImageUrl = "https://picsum.photos/640/480/?image=960",
+                            IsGroup = true,
+                            IsPublic = true,
+                            Name = "Satterfield - Orn"
                         },
                         new
                         {
                             Id = 2,
-                            ImageUrl = "https://picsum.photos/640/480/?image=199",
-                            Name = "Hills, McLaughlin and Littel"
+                            ImageUrl = "https://picsum.photos/640/480/?image=211",
+                            IsGroup = true,
+                            IsPublic = true,
+                            Name = "Wiza and Sons"
                         },
                         new
                         {
                             Id = 3,
-                            ImageUrl = "https://picsum.photos/640/480/?image=147",
-                            Name = "Davis and Sons"
+                            ImageUrl = "https://picsum.photos/640/480/?image=996",
+                            IsGroup = true,
+                            IsPublic = true,
+                            Name = "Boyer - Kunze"
                         },
                         new
                         {
                             Id = 4,
-                            ImageUrl = "https://picsum.photos/640/480/?image=730",
-                            Name = "Dickinson, Crooks and Langworth"
+                            ImageUrl = "https://picsum.photos/640/480/?image=1053",
+                            IsGroup = true,
+                            IsPublic = true,
+                            Name = "Mraz, Swaniawski and Heaney"
                         },
                         new
                         {
                             Id = 5,
-                            ImageUrl = "https://picsum.photos/640/480/?image=487",
-                            Name = "King - Schmitt"
+                            ImageUrl = "https://picsum.photos/640/480/?image=453",
+                            IsGroup = true,
+                            IsPublic = true,
+                            Name = "Stoltenberg - Davis"
                         },
                         new
                         {
                             Id = 6,
-                            ImageUrl = "https://picsum.photos/640/480/?image=962",
-                            Name = "Leannon, Abbott and Kilback"
+                            ImageUrl = "https://picsum.photos/640/480/?image=752",
+                            IsGroup = true,
+                            IsPublic = true,
+                            Name = "Wiza and Sons"
                         },
                         new
                         {
                             Id = 7,
-                            ImageUrl = "https://picsum.photos/640/480/?image=447",
-                            Name = "Moore Group"
+                            ImageUrl = "https://picsum.photos/640/480/?image=27",
+                            IsGroup = true,
+                            IsPublic = true,
+                            Name = "Windler LLC"
                         },
                         new
                         {
                             Id = 8,
-                            ImageUrl = "https://picsum.photos/640/480/?image=899",
-                            Name = "Monahan LLC"
+                            ImageUrl = "https://picsum.photos/640/480/?image=908",
+                            IsGroup = true,
+                            IsPublic = true,
+                            Name = "Dickinson Group"
+                        });
+                });
+
+            modelBuilder.Entity("reenbitChat.DAL.Entities.ChatMember", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ChatId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RoleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UnreadMessagesCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatId");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ChatMember");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ChatId = 1,
+                            RoleId = 3,
+                            UnreadMessagesCount = 0,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ChatId = 1,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ChatId = 1,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ChatId = 1,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ChatId = 1,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ChatId = 1,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ChatId = 1,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ChatId = 1,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 6
                         },
                         new
                         {
                             Id = 9,
-                            ImageUrl = "https://picsum.photos/640/480/?image=598",
-                            Name = "McLaughlin, Adams and Hudson"
+                            ChatId = 1,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 3
                         },
                         new
                         {
                             Id = 10,
-                            ImageUrl = "https://picsum.photos/640/480/?image=516",
-                            Name = "Wilkinson, Wintheiser and Raynor"
+                            ChatId = 2,
+                            RoleId = 3,
+                            UnreadMessagesCount = 0,
+                            UserId = 9
                         },
                         new
                         {
                             Id = 11,
-                            ImageUrl = "https://picsum.photos/640/480/?image=1022",
-                            Name = "Moen and Sons"
+                            ChatId = 2,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 5
                         },
                         new
                         {
                             Id = 12,
-                            ImageUrl = "https://picsum.photos/640/480/?image=342",
-                            Name = "Schmitt, Vandervort and Huel"
+                            ChatId = 2,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 10
                         },
                         new
                         {
                             Id = 13,
-                            ImageUrl = "https://picsum.photos/640/480/?image=398",
-                            Name = "Murray, Feeney and Fahey"
+                            ChatId = 2,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 3
                         },
                         new
                         {
                             Id = 14,
-                            ImageUrl = "https://picsum.photos/640/480/?image=1080",
-                            Name = "Heller, Emmerich and Runolfsdottir"
+                            ChatId = 2,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 2
                         },
                         new
                         {
                             Id = 15,
-                            ImageUrl = "https://picsum.photos/640/480/?image=1056",
-                            Name = "McDermott, Stiedemann and Weissnat"
+                            ChatId = 2,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 6
                         },
                         new
                         {
                             Id = 16,
-                            ImageUrl = "https://picsum.photos/640/480/?image=498",
-                            Name = "Ankunding and Sons"
+                            ChatId = 2,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 8
                         },
                         new
                         {
                             Id = 17,
-                            ImageUrl = "https://picsum.photos/640/480/?image=320",
-                            Name = "Abbott, Schamberger and Bergstrom"
+                            ChatId = 3,
+                            RoleId = 3,
+                            UnreadMessagesCount = 0,
+                            UserId = 9
                         },
                         new
                         {
                             Id = 18,
-                            ImageUrl = "https://picsum.photos/640/480/?image=655",
-                            Name = "Bradtke - Schowalter"
+                            ChatId = 3,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 1
                         },
                         new
                         {
                             Id = 19,
-                            ImageUrl = "https://picsum.photos/640/480/?image=787",
-                            Name = "Shanahan - Barton"
+                            ChatId = 3,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 1
                         },
                         new
                         {
                             Id = 20,
-                            ImageUrl = "https://picsum.photos/640/480/?image=1043",
-                            Name = "Pollich, Hoeger and Moore"
+                            ChatId = 3,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 21,
+                            ChatId = 3,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 22,
+                            ChatId = 3,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 23,
+                            ChatId = 3,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 24,
+                            ChatId = 3,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 25,
+                            ChatId = 3,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 26,
+                            ChatId = 4,
+                            RoleId = 3,
+                            UnreadMessagesCount = 0,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 27,
+                            ChatId = 4,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 28,
+                            ChatId = 4,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 29,
+                            ChatId = 4,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 30,
+                            ChatId = 4,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 31,
+                            ChatId = 4,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 32,
+                            ChatId = 5,
+                            RoleId = 3,
+                            UnreadMessagesCount = 0,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 33,
+                            ChatId = 5,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 34,
+                            ChatId = 5,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 35,
+                            ChatId = 5,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 36,
+                            ChatId = 5,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 37,
+                            ChatId = 5,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 38,
+                            ChatId = 5,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 39,
+                            ChatId = 6,
+                            RoleId = 3,
+                            UnreadMessagesCount = 0,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 40,
+                            ChatId = 6,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 41,
+                            ChatId = 6,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 42,
+                            ChatId = 6,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 43,
+                            ChatId = 6,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 44,
+                            ChatId = 6,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 45,
+                            ChatId = 7,
+                            RoleId = 3,
+                            UnreadMessagesCount = 0,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 46,
+                            ChatId = 7,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 47,
+                            ChatId = 7,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 48,
+                            ChatId = 7,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 49,
+                            ChatId = 7,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 50,
+                            ChatId = 7,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 51,
+                            ChatId = 7,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 52,
+                            ChatId = 7,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 53,
+                            ChatId = 7,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 54,
+                            ChatId = 8,
+                            RoleId = 3,
+                            UnreadMessagesCount = 0,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 55,
+                            ChatId = 8,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 56,
+                            ChatId = 8,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 57,
+                            ChatId = 8,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 58,
+                            ChatId = 8,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 59,
+                            ChatId = 8,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 60,
+                            ChatId = 8,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 61,
+                            ChatId = 8,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 62,
+                            ChatId = 8,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 63,
+                            ChatId = 8,
+                            RoleId = 1,
+                            UnreadMessagesCount = 0,
+                            UserId = 6
                         });
                 });
 
@@ -1010,6 +1471,17 @@ namespace reenbitChat.DAL.Migrations
                     b.Property<bool?>("IsDeletedOnlyForSender")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsEdited")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<bool>("IsSeen")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("ReplyMessageId")
+                        .HasColumnType("int");
+
                     b.Property<int>("SenderId")
                         .HasColumnType("int");
 
@@ -1023,6 +1495,8 @@ namespace reenbitChat.DAL.Migrations
 
                     b.HasIndex("ChatId");
 
+                    b.HasIndex("ReplyMessageId");
+
                     b.HasIndex("SenderId");
 
                     b.ToTable("Messages");
@@ -1032,2401 +1506,3093 @@ namespace reenbitChat.DAL.Migrations
                         {
                             Id = 1,
                             ChatId = 1,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 8, 23, 5, 18, 3, 858, DateTimeKind.Local).AddTicks(789),
-                            Text = "Sequi optio odio tenetur id maiores ratione.\nQuas et magnam."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 46,
+                            SentAt = new DateTime(2022, 12, 29, 10, 40, 23, 564, DateTimeKind.Local).AddTicks(7491),
+                            Text = "Magnam ducimus odio explicabo.\nAperiam voluptas in cumque itaque."
                         },
                         new
                         {
                             Id = 2,
-                            ChatId = 15,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 4, 13, 3, 56, 27, 705, DateTimeKind.Local).AddTicks(4442),
-                            Text = "Ipsa cumque quo ut.\nQuam incidunt earum et temporibus alias maxime."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 31,
+                            SentAt = new DateTime(2022, 2, 26, 9, 4, 20, 970, DateTimeKind.Local).AddTicks(33),
+                            Text = "Dicta incidunt soluta fuga soluta in quisquam.\nIn aut eos nam adipisci rem."
                         },
                         new
                         {
                             Id = 3,
-                            ChatId = 1,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 5, 18, 7, 24, 49, 201, DateTimeKind.Local).AddTicks(7641),
-                            Text = "Esse voluptatem provident saepe.\nNisi modi asperiores nihil deserunt in."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 36,
+                            SentAt = new DateTime(2022, 3, 29, 9, 36, 26, 901, DateTimeKind.Local).AddTicks(974),
+                            Text = "Sapiente repudiandae qui.\nSed aperiam qui molestias itaque suscipit et incidunt."
                         },
                         new
                         {
                             Id = 4,
-                            ChatId = 10,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 11, 23, 10, 49, 47, 207, DateTimeKind.Local).AddTicks(2587),
-                            Text = "Rerum labore qui.\nOdit nemo accusamus ab ea eos."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 38,
+                            SentAt = new DateTime(2022, 10, 7, 15, 1, 26, 454, DateTimeKind.Local).AddTicks(9656),
+                            Text = "Tenetur fuga id ut labore laudantium fuga voluptatem dolorem.\nAt nisi placeat repellat nemo ut."
                         },
                         new
                         {
                             Id = 5,
-                            ChatId = 12,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 11, 16, 19, 58, 16, 962, DateTimeKind.Local).AddTicks(1953),
-                            Text = "Qui vel dignissimos non occaecati non facilis et.\nEnim sit doloribus voluptas et."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 10,
+                            SentAt = new DateTime(2022, 2, 20, 18, 48, 33, 34, DateTimeKind.Local).AddTicks(1078),
+                            Text = "Vitae ut commodi reprehenderit non iste facere qui sit deleniti.\nEst quis voluptas consequatur."
                         },
                         new
                         {
                             Id = 6,
-                            ChatId = 2,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 1, 18, 2, 31, 1, 373, DateTimeKind.Local).AddTicks(8177),
-                            Text = "Enim libero cupiditate.\nRatione suscipit ipsam sunt."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 60,
+                            SentAt = new DateTime(2022, 9, 21, 7, 58, 8, 287, DateTimeKind.Local).AddTicks(3656),
+                            Text = "Dolores ad laudantium officiis optio ea.\nMinima doloribus laborum voluptas."
                         },
                         new
                         {
                             Id = 7,
-                            ChatId = 13,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 5, 23, 16, 3, 14, 601, DateTimeKind.Local).AddTicks(2516),
-                            Text = "Eius eos qui quo voluptate modi.\nEst ipsam veritatis recusandae voluptatem tempore."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 14,
+                            SentAt = new DateTime(2022, 4, 5, 2, 10, 2, 72, DateTimeKind.Local).AddTicks(199),
+                            Text = "Consequatur sed occaecati ad pariatur.\nAdipisci debitis enim praesentium."
                         },
                         new
                         {
                             Id = 8,
                             ChatId = 3,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 9, 10, 15, 13, 55, 490, DateTimeKind.Local).AddTicks(8999),
-                            Text = "Facere omnis quidem.\nNam impedit alias ad est dolores nobis."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 18,
+                            SentAt = new DateTime(2022, 12, 14, 3, 22, 8, 859, DateTimeKind.Local).AddTicks(2484),
+                            Text = "Voluptatem officiis vero enim accusantium sint.\nUt eveniet aut ut pariatur voluptas."
                         },
                         new
                         {
                             Id = 9,
-                            ChatId = 9,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 10, 23, 22, 33, 45, 148, DateTimeKind.Local).AddTicks(8542),
-                            Text = "Et nobis voluptate inventore voluptas explicabo quos.\nIncidunt esse totam beatae facilis consequatur."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 49,
+                            SentAt = new DateTime(2022, 2, 25, 11, 2, 20, 714, DateTimeKind.Local).AddTicks(5328),
+                            Text = "Veritatis quos id dignissimos quidem nesciunt.\nVoluptatem temporibus officiis ut animi architecto ipsum neque sit corporis."
                         },
                         new
                         {
                             Id = 10,
-                            ChatId = 5,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 2, 8, 11, 49, 57, 515, DateTimeKind.Local).AddTicks(5044),
-                            Text = "Ea sunt qui veniam harum quisquam sint esse fugit ut.\nVoluptatem expedita doloremque nisi."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 63,
+                            SentAt = new DateTime(2022, 2, 19, 10, 44, 57, 856, DateTimeKind.Local).AddTicks(3594),
+                            Text = "Alias corporis facilis iure ad qui maiores iure.\nIn rerum dignissimos."
                         },
                         new
                         {
                             Id = 11,
-                            ChatId = 19,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 12, 24, 15, 28, 44, 621, DateTimeKind.Local).AddTicks(2383),
-                            Text = "Facilis voluptatum et voluptatum est libero.\nQui dignissimos alias voluptatem sit."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 29,
+                            SentAt = new DateTime(2023, 1, 28, 4, 2, 4, 856, DateTimeKind.Local).AddTicks(809),
+                            Text = "Fugiat expedita quae ut enim.\nSimilique ipsum necessitatibus quia omnis mollitia eum."
                         },
                         new
                         {
                             Id = 12,
-                            ChatId = 2,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 8, 19, 21, 25, 9, 619, DateTimeKind.Local).AddTicks(5935),
-                            Text = "Qui deserunt culpa dolores dolore autem minima ipsa sint.\nOfficia incidunt iure ad ipsam sit sit voluptatum."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 44,
+                            SentAt = new DateTime(2022, 11, 20, 23, 28, 9, 436, DateTimeKind.Local).AddTicks(9208),
+                            Text = "Praesentium cupiditate molestias aut tempora et ut.\nPlaceat rerum culpa soluta consequatur iure dolor."
                         },
                         new
                         {
                             Id = 13,
-                            ChatId = 1,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 5, 11, 3, 39, 0, 277, DateTimeKind.Local).AddTicks(9467),
-                            Text = "Sed culpa omnis eum et et.\nFacere blanditiis delectus veniam corporis est culpa."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 53,
+                            SentAt = new DateTime(2022, 9, 11, 2, 22, 28, 444, DateTimeKind.Local).AddTicks(7918),
+                            Text = "Sed cum quasi.\nEligendi temporibus qui fugit perferendis sed."
                         },
                         new
                         {
                             Id = 14,
-                            ChatId = 2,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 9, 11, 22, 6, 34, 454, DateTimeKind.Local).AddTicks(3166),
-                            Text = "Repellendus corrupti amet dicta est nostrum culpa quis eum odit.\nAut similique earum velit omnis in sunt dolorum et."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 26,
+                            SentAt = new DateTime(2022, 5, 21, 14, 41, 42, 226, DateTimeKind.Local).AddTicks(9219),
+                            Text = "Delectus aut atque ullam culpa adipisci dolorum.\nAdipisci vel velit aperiam."
                         },
                         new
                         {
                             Id = 15,
-                            ChatId = 2,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 6, 6, 7, 31, 55, 444, DateTimeKind.Local).AddTicks(1240),
-                            Text = "Inventore architecto quam ipsam libero labore occaecati aspernatur illum exercitationem.\nAut architecto voluptatem ut voluptas hic ut sit itaque voluptas."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 37,
+                            SentAt = new DateTime(2022, 7, 29, 18, 21, 47, 549, DateTimeKind.Local).AddTicks(9056),
+                            Text = "Consequatur asperiores sit error ut praesentium quia aut rerum.\nAccusantium officiis ut quaerat non."
                         },
                         new
                         {
                             Id = 16,
-                            ChatId = 18,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 4, 27, 22, 48, 14, 409, DateTimeKind.Local).AddTicks(4639),
-                            Text = "Dolorem nihil temporibus natus qui.\nVoluptates reprehenderit corporis perspiciatis magnam reprehenderit quis."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 55,
+                            SentAt = new DateTime(2022, 11, 18, 11, 54, 53, 92, DateTimeKind.Local).AddTicks(2365),
+                            Text = "Et iste accusantium ut sit fugit dolor et.\nRem aut qui consequatur nobis soluta qui commodi."
                         },
                         new
                         {
                             Id = 17,
-                            ChatId = 9,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 6, 5, 2, 24, 27, 572, DateTimeKind.Local).AddTicks(2717),
-                            Text = "Ipsum provident qui aut quae harum odio dolor nihil cupiditate.\nPraesentium ipsum hic expedita perspiciatis."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 7,
+                            SentAt = new DateTime(2022, 9, 3, 15, 47, 46, 22, DateTimeKind.Local).AddTicks(9718),
+                            Text = "Neque quasi et enim alias rem.\nIllum aliquid aut officia."
                         },
                         new
                         {
                             Id = 18,
-                            ChatId = 12,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 9, 23, 10, 38, 57, 561, DateTimeKind.Local).AddTicks(3206),
-                            Text = "Sit consequatur soluta in atque id incidunt.\nFacilis et aliquam non in fuga nesciunt."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 47,
+                            SentAt = new DateTime(2022, 2, 26, 12, 45, 28, 649, DateTimeKind.Local).AddTicks(5178),
+                            Text = "Ipsam sed amet explicabo et eius ut.\nUt iste distinctio sit ullam quia quod molestiae."
                         },
                         new
                         {
                             Id = 19,
-                            ChatId = 3,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 3, 23, 14, 59, 43, 55, DateTimeKind.Local).AddTicks(8801),
-                            Text = "Veniam quasi reprehenderit iure voluptates distinctio itaque.\nSit temporibus fuga molestias id repellat quae aliquam."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 35,
+                            SentAt = new DateTime(2022, 6, 24, 2, 8, 14, 611, DateTimeKind.Local).AddTicks(9348),
+                            Text = "Ea aperiam accusantium possimus exercitationem officia quia dolorem.\nUt quae quos in ut enim modi animi quasi."
                         },
                         new
                         {
                             Id = 20,
-                            ChatId = 3,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 9, 5, 14, 15, 55, 318, DateTimeKind.Local).AddTicks(4412),
-                            Text = "Non repellat porro fugiat.\nArchitecto voluptatem placeat ipsam."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 11,
+                            SentAt = new DateTime(2022, 8, 14, 7, 15, 22, 259, DateTimeKind.Local).AddTicks(5069),
+                            Text = "Ipsa tempore velit animi laboriosam maxime et nam earum.\nCulpa nihil voluptas perferendis quod quidem."
                         },
                         new
                         {
                             Id = 21,
-                            ChatId = 20,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 1, 23, 15, 56, 8, 593, DateTimeKind.Local).AddTicks(9648),
-                            Text = "Esse sint a enim quae sint.\nMinima consectetur qui repellendus aut alias debitis fugit ut."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 32,
+                            SentAt = new DateTime(2022, 5, 26, 10, 31, 29, 961, DateTimeKind.Local).AddTicks(6798),
+                            Text = "Quo nulla neque molestiae et.\nDoloribus quisquam voluptas."
                         },
                         new
                         {
                             Id = 22,
-                            ChatId = 9,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 10, 9, 15, 46, 57, 782, DateTimeKind.Local).AddTicks(6306),
-                            Text = "Illum esse ut velit.\nNatus iste sequi earum non necessitatibus ut omnis."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 27,
+                            SentAt = new DateTime(2022, 9, 14, 6, 57, 43, 934, DateTimeKind.Local).AddTicks(7927),
+                            Text = "Dignissimos quia sit quidem iure provident iusto velit qui.\nModi aut perspiciatis suscipit laborum ad dolorem rerum modi omnis."
                         },
                         new
                         {
                             Id = 23,
-                            ChatId = 5,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 5, 27, 8, 37, 45, 10, DateTimeKind.Local).AddTicks(2068),
-                            Text = "Sed sapiente unde aperiam aspernatur expedita in vel eius neque.\nPossimus mollitia adipisci non tempora reiciendis corrupti."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 6,
+                            SentAt = new DateTime(2022, 6, 4, 11, 10, 33, 223, DateTimeKind.Local).AddTicks(4574),
+                            Text = "Quam alias fugiat.\nDignissimos iste ipsam et praesentium."
                         },
                         new
                         {
                             Id = 24,
-                            ChatId = 9,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 5, 25, 15, 24, 55, 898, DateTimeKind.Local).AddTicks(6742),
-                            Text = "Velit doloremque a dolorem sed asperiores velit iste eligendi debitis.\nAlias necessitatibus beatae aliquam consequatur."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 51,
+                            SentAt = new DateTime(2022, 7, 6, 1, 50, 57, 999, DateTimeKind.Local).AddTicks(8680),
+                            Text = "Officia et qui numquam autem dolor.\nQui repellendus dolores quia adipisci optio iure."
                         },
                         new
                         {
                             Id = 25,
-                            ChatId = 6,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 5, 16, 0, 23, 56, 769, DateTimeKind.Local).AddTicks(8148),
-                            Text = "Tenetur ut labore voluptate fuga illum.\nIure nostrum et dolorem iure dolorem distinctio."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 26,
+                            SentAt = new DateTime(2022, 9, 30, 3, 20, 21, 331, DateTimeKind.Local).AddTicks(5754),
+                            Text = "Temporibus maxime ullam aut minima repellat saepe ipsum.\nProvident vel ut dolores et."
                         },
                         new
                         {
                             Id = 26,
-                            ChatId = 15,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 4, 12, 14, 12, 39, 530, DateTimeKind.Local).AddTicks(4291),
-                            Text = "Minus qui magnam omnis officiis qui reprehenderit tenetur.\nAdipisci sit nam architecto libero eligendi quasi veniam excepturi quia."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 33,
+                            SentAt = new DateTime(2022, 5, 22, 21, 30, 35, 625, DateTimeKind.Local).AddTicks(825),
+                            Text = "Qui eligendi vitae eveniet animi placeat et ex.\nCumque non earum quia tempore reprehenderit aperiam deserunt et."
                         },
                         new
                         {
                             Id = 27,
-                            ChatId = 19,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 1, 10, 18, 46, 47, 942, DateTimeKind.Local).AddTicks(3918),
-                            Text = "Ut minima quam rerum culpa ullam harum adipisci unde et.\nUt excepturi a consequatur libero repellendus in quo."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 16,
+                            SentAt = new DateTime(2022, 5, 27, 0, 23, 52, 603, DateTimeKind.Local).AddTicks(9018),
+                            Text = "Et praesentium ratione soluta tempore ullam ad.\nSed pariatur ut."
                         },
                         new
                         {
                             Id = 28,
-                            ChatId = 1,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 7, 28, 14, 22, 20, 984, DateTimeKind.Local).AddTicks(4850),
-                            Text = "Quos odio vero exercitationem numquam asperiores corrupti.\nAdipisci aut eos aliquid aut dolorum ab quo nesciunt odit."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 5,
+                            SentAt = new DateTime(2022, 3, 4, 10, 32, 58, 389, DateTimeKind.Local).AddTicks(9584),
+                            Text = "Molestiae soluta eos ducimus totam aut ut est.\nIllo asperiores nisi voluptatem perferendis quia labore ut blanditiis est."
                         },
                         new
                         {
                             Id = 29,
-                            ChatId = 18,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 6, 28, 4, 10, 15, 914, DateTimeKind.Local).AddTicks(5989),
-                            Text = "Sit reprehenderit laborum id qui a voluptates maiores.\nFugiat optio blanditiis."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 32,
+                            SentAt = new DateTime(2022, 10, 26, 23, 14, 1, 253, DateTimeKind.Local).AddTicks(1853),
+                            Text = "In iusto nobis ducimus qui.\nDoloremque provident exercitationem alias."
                         },
                         new
                         {
                             Id = 30,
-                            ChatId = 12,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 5, 6, 23, 12, 11, 949, DateTimeKind.Local).AddTicks(59),
-                            Text = "Et eos ipsam et at exercitationem.\nTempore quia voluptatem sed ea doloremque pariatur."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 18,
+                            SentAt = new DateTime(2022, 12, 4, 13, 40, 40, 571, DateTimeKind.Local).AddTicks(8992),
+                            Text = "Quisquam debitis tempore.\nQui facilis soluta esse nemo quo."
                         },
                         new
                         {
                             Id = 31,
                             ChatId = 2,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 5, 20, 13, 50, 53, 155, DateTimeKind.Local).AddTicks(3965),
-                            Text = "Aut saepe voluptatibus eum accusamus eaque odio et soluta eum.\nAliquid facilis quasi labore est quod enim laborum atque earum."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 14,
+                            SentAt = new DateTime(2022, 6, 30, 10, 23, 41, 961, DateTimeKind.Local).AddTicks(7139),
+                            Text = "Temporibus et et magnam.\nUt animi qui a quaerat consequatur dolore delectus dolores sed."
                         },
                         new
                         {
                             Id = 32,
-                            ChatId = 14,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 11, 24, 18, 27, 52, 468, DateTimeKind.Local).AddTicks(5850),
-                            Text = "Suscipit ut totam nostrum.\nEa voluptas et suscipit sint et."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 1,
+                            SentAt = new DateTime(2022, 12, 17, 23, 11, 50, 178, DateTimeKind.Local).AddTicks(7735),
+                            Text = "Ut expedita molestias sunt at qui dolores.\nExcepturi ipsum ipsum illo explicabo modi nihil et eveniet repellendus."
                         },
                         new
                         {
                             Id = 33,
-                            ChatId = 3,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 9, 24, 11, 9, 56, 987, DateTimeKind.Local).AddTicks(7399),
-                            Text = "Optio voluptate deserunt facilis ratione quae veritatis esse non ad.\nVoluptate ut sed dignissimos voluptatem consequatur est sunt eos recusandae."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 34,
+                            SentAt = new DateTime(2022, 11, 24, 10, 52, 45, 5, DateTimeKind.Local).AddTicks(8121),
+                            Text = "Quas aut ut est voluptatum corporis.\nDelectus molestiae non et accusamus quo eaque minima."
                         },
                         new
                         {
                             Id = 34,
-                            ChatId = 18,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 8, 8, 6, 11, 21, 930, DateTimeKind.Local).AddTicks(2252),
-                            Text = "Ipsum aut amet qui dolore ut error ut accusamus.\nQuo praesentium minus tempora molestiae ab quibusdam nihil."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 40,
+                            SentAt = new DateTime(2022, 9, 7, 7, 10, 59, 642, DateTimeKind.Local).AddTicks(5133),
+                            Text = "Aliquid libero aliquam id repudiandae perferendis.\nEst aut sapiente quo in ipsum perferendis aut quia."
                         },
                         new
                         {
                             Id = 35,
                             ChatId = 2,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 2, 2, 3, 10, 23, 350, DateTimeKind.Local).AddTicks(5221),
-                            Text = "Reiciendis aut et voluptas commodi recusandae quis et commodi.\nAliquid quaerat sed et."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 7,
+                            SentAt = new DateTime(2022, 5, 25, 11, 0, 39, 976, DateTimeKind.Local).AddTicks(9888),
+                            Text = "Quam ab quisquam repudiandae iusto provident veritatis accusantium.\nSed consectetur voluptas est qui nisi veniam non est."
                         },
                         new
                         {
                             Id = 36,
-                            ChatId = 4,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 12, 20, 6, 50, 42, 652, DateTimeKind.Local).AddTicks(6798),
-                            Text = "Fugit dolor asperiores.\nHarum vero sed."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 9,
+                            SentAt = new DateTime(2022, 4, 30, 8, 19, 36, 332, DateTimeKind.Local).AddTicks(9516),
+                            Text = "Sint saepe doloribus hic fuga.\nId et nihil expedita et."
                         },
                         new
                         {
                             Id = 37,
-                            ChatId = 12,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 3, 19, 11, 11, 26, 561, DateTimeKind.Local).AddTicks(4996),
-                            Text = "Nisi autem aut est magnam ex consequuntur itaque cupiditate.\nMolestiae officia facere fuga aut."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 48,
+                            SentAt = new DateTime(2022, 9, 12, 5, 20, 3, 519, DateTimeKind.Local).AddTicks(8288),
+                            Text = "Omnis sit sequi a vero quidem ut dolores velit ipsa.\nVitae perspiciatis dolorem odio sequi repudiandae totam praesentium voluptatem."
                         },
                         new
                         {
                             Id = 38,
-                            ChatId = 1,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 2, 2, 4, 56, 39, 379, DateTimeKind.Local).AddTicks(2450),
-                            Text = "Sit sed impedit.\nDolorum sunt rerum atque aut illo et esse eaque hic."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 60,
+                            SentAt = new DateTime(2022, 2, 19, 6, 58, 22, 816, DateTimeKind.Local).AddTicks(498),
+                            Text = "Commodi itaque repellendus voluptates tempora ipsa velit velit libero.\nUt totam magni doloremque."
                         },
                         new
                         {
                             Id = 39,
-                            ChatId = 9,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 8, 14, 17, 7, 56, 901, DateTimeKind.Local).AddTicks(611),
-                            Text = "Saepe veritatis quae dolorum harum fuga accusantium et.\nSuscipit sint rerum corporis dolorem praesentium."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 43,
+                            SentAt = new DateTime(2022, 9, 20, 21, 39, 45, 746, DateTimeKind.Local).AddTicks(6958),
+                            Text = "Est excepturi omnis labore ipsa ex occaecati et nihil dolorum.\nModi consectetur minima quia et et quia voluptatem."
                         },
                         new
                         {
                             Id = 40,
-                            ChatId = 19,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 11, 26, 15, 47, 42, 847, DateTimeKind.Local).AddTicks(6678),
-                            Text = "Rem error voluptates soluta est perferendis qui.\nAut alias dolor omnis."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 52,
+                            SentAt = new DateTime(2022, 9, 2, 16, 43, 22, 377, DateTimeKind.Local).AddTicks(3651),
+                            Text = "Occaecati consequuntur id.\nPerspiciatis esse a."
                         },
                         new
                         {
                             Id = 41,
-                            ChatId = 9,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 12, 4, 6, 48, 32, 384, DateTimeKind.Local).AddTicks(4966),
-                            Text = "Eligendi corporis et dicta nulla eum vel cumque voluptate.\nDucimus aut iusto non ipsam perferendis."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 48,
+                            SentAt = new DateTime(2022, 6, 14, 16, 31, 9, 467, DateTimeKind.Local).AddTicks(6075),
+                            Text = "Veritatis velit sed dolores suscipit est aut natus.\nOmnis aliquid non quo error sed quod."
                         },
                         new
                         {
                             Id = 42,
-                            ChatId = 6,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 7, 1, 14, 59, 40, 70, DateTimeKind.Local).AddTicks(4263),
-                            Text = "Tempora et animi numquam suscipit aut amet itaque incidunt vitae.\nRerum qui dolor nemo et aut atque quo quos."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 22,
+                            SentAt = new DateTime(2022, 9, 27, 6, 11, 3, 835, DateTimeKind.Local).AddTicks(5569),
+                            Text = "Natus modi blanditiis voluptas sed tempora cum enim optio aut.\nDolorum rerum maiores quisquam aliquam omnis animi."
                         },
                         new
                         {
                             Id = 43,
-                            ChatId = 17,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 2, 3, 20, 6, 31, 174, DateTimeKind.Local).AddTicks(8612),
-                            Text = "Aut dicta ut.\nQuasi iusto vel ut et incidunt."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 39,
+                            SentAt = new DateTime(2022, 6, 25, 20, 35, 58, 515, DateTimeKind.Local).AddTicks(5940),
+                            Text = "Quis voluptas aliquam distinctio laboriosam esse voluptas possimus dolores.\nHarum corrupti vel quo vero qui nobis ducimus ad dignissimos."
                         },
                         new
                         {
                             Id = 44,
-                            ChatId = 14,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 12, 2, 22, 35, 51, 102, DateTimeKind.Local).AddTicks(8817),
-                            Text = "Dolor magnam doloribus amet accusamus.\nQuis ut vitae molestiae repellendus magni."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 15,
+                            SentAt = new DateTime(2022, 4, 25, 0, 8, 29, 414, DateTimeKind.Local).AddTicks(4452),
+                            Text = "Ut similique voluptatem sint quisquam et dolores.\nNihil sit error blanditiis ut quia corporis enim voluptates."
                         },
                         new
                         {
                             Id = 45,
-                            ChatId = 19,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 6, 19, 21, 19, 32, 973, DateTimeKind.Local).AddTicks(6371),
-                            Text = "Excepturi id aut.\nTenetur sint nesciunt quam quidem fuga voluptatem officiis."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 28,
+                            SentAt = new DateTime(2022, 3, 27, 8, 35, 5, 428, DateTimeKind.Local).AddTicks(2973),
+                            Text = "Quia nemo saepe consectetur eum dolor dolorem.\nEt corrupti magni commodi ipsum enim ut quisquam laboriosam."
                         },
                         new
                         {
                             Id = 46,
-                            ChatId = 6,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 8, 7, 11, 4, 1, 234, DateTimeKind.Local).AddTicks(9271),
-                            Text = "Et eos in aperiam deserunt cumque nihil ipsam vel et.\nFuga voluptas consequuntur aut repellendus dolorum placeat ipsa."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 51,
+                            SentAt = new DateTime(2023, 1, 12, 16, 49, 6, 571, DateTimeKind.Local).AddTicks(3412),
+                            Text = "Voluptatem vel nostrum ut doloremque asperiores.\nVeritatis tempore ducimus nesciunt est aut porro sint quis."
                         },
                         new
                         {
                             Id = 47,
-                            ChatId = 7,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 1, 31, 18, 42, 53, 246, DateTimeKind.Local).AddTicks(1783),
-                            Text = "Quisquam labore necessitatibus.\nQui odit commodi dolorum consequuntur laboriosam temporibus harum quasi et."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 26,
+                            SentAt = new DateTime(2022, 2, 25, 6, 41, 9, 319, DateTimeKind.Local).AddTicks(7623),
+                            Text = "Fugit cumque error et sit asperiores necessitatibus fuga quas.\nDolores totam sunt et saepe reprehenderit ut labore dolore iusto."
                         },
                         new
                         {
                             Id = 48,
-                            ChatId = 10,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 12, 5, 5, 49, 25, 102, DateTimeKind.Local).AddTicks(2313),
-                            Text = "Et laudantium sequi veritatis aut autem repellendus dolorem deleniti rem.\nAut rerum minima odit maiores sint rerum."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 41,
+                            SentAt = new DateTime(2022, 4, 8, 20, 12, 29, 389, DateTimeKind.Local).AddTicks(6673),
+                            Text = "Eius minus excepturi sit quia.\nAlias et ullam non veniam labore."
                         },
                         new
                         {
                             Id = 49,
-                            ChatId = 2,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 11, 23, 3, 36, 13, 650, DateTimeKind.Local).AddTicks(3608),
-                            Text = "Quas iste vero et praesentium suscipit vel sit illum.\nEt aspernatur in quisquam quam aut sapiente cupiditate pariatur tempora."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 52,
+                            SentAt = new DateTime(2022, 7, 27, 21, 27, 58, 424, DateTimeKind.Local).AddTicks(1125),
+                            Text = "Sint perferendis corrupti animi a.\nExpedita nesciunt eaque explicabo."
                         },
                         new
                         {
                             Id = 50,
-                            ChatId = 11,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 6, 2, 5, 35, 27, 982, DateTimeKind.Local).AddTicks(9883),
-                            Text = "Voluptas quis corrupti illum aliquid.\nCumque sed perspiciatis minima in autem autem id."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 23,
+                            SentAt = new DateTime(2022, 10, 28, 7, 14, 31, 852, DateTimeKind.Local).AddTicks(2961),
+                            Text = "Qui dolor sint non dolore accusamus dolorum asperiores.\nConsequuntur voluptates tempora beatae."
                         },
                         new
                         {
                             Id = 51,
-                            ChatId = 10,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 9, 4, 19, 14, 31, 298, DateTimeKind.Local).AddTicks(8016),
-                            Text = "Maiores molestiae illo et sunt cum recusandae quasi blanditiis.\nTemporibus consectetur est modi explicabo molestias."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 1,
+                            SentAt = new DateTime(2022, 7, 12, 7, 25, 41, 34, DateTimeKind.Local).AddTicks(5400),
+                            Text = "Minus ex error sequi aut laudantium sequi quia quas esse.\nEaque rem ipsum illum ullam provident alias necessitatibus."
                         },
                         new
                         {
                             Id = 52,
-                            ChatId = 14,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 5, 17, 7, 7, 54, 439, DateTimeKind.Local).AddTicks(2775),
-                            Text = "Ut sint dolorem tempore at in maxime deserunt nemo ut.\nVoluptas aperiam qui."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 26,
+                            SentAt = new DateTime(2023, 2, 8, 11, 25, 34, 145, DateTimeKind.Local).AddTicks(146),
+                            Text = "Ut minus neque quia.\nReprehenderit quis aperiam rem velit delectus quidem."
                         },
                         new
                         {
                             Id = 53,
-                            ChatId = 5,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 2, 3, 2, 2, 20, 735, DateTimeKind.Local).AddTicks(5761),
-                            Text = "Non cumque molestiae quo facilis ratione nisi quisquam rerum optio.\nNihil ut non quia dolores quaerat cumque."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 61,
+                            SentAt = new DateTime(2023, 1, 21, 0, 42, 47, 642, DateTimeKind.Local).AddTicks(6588),
+                            Text = "Recusandae repudiandae laboriosam laudantium ullam vel.\nConsequuntur velit accusantium voluptatem deserunt qui consequatur corporis eum ut."
                         },
                         new
                         {
                             Id = 54,
-                            ChatId = 16,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 8, 9, 13, 57, 27, 83, DateTimeKind.Local).AddTicks(986),
-                            Text = "Voluptas et qui sed sed vero excepturi qui.\nNostrum deleniti tenetur et aut itaque quia."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 29,
+                            SentAt = new DateTime(2022, 9, 23, 10, 8, 9, 365, DateTimeKind.Local).AddTicks(7882),
+                            Text = "Voluptas odio repudiandae amet sed dolores laborum commodi et assumenda.\nPerferendis sit sunt molestias nesciunt adipisci soluta dignissimos."
                         },
                         new
                         {
                             Id = 55,
                             ChatId = 1,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 8, 8, 21, 19, 8, 90, DateTimeKind.Local).AddTicks(6479),
-                            Text = "Aut praesentium eius.\nMolestias dolores unde officiis."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 11,
+                            SentAt = new DateTime(2022, 11, 30, 17, 50, 55, 378, DateTimeKind.Local).AddTicks(262),
+                            Text = "Dolorem magnam qui provident et odit exercitationem molestiae repellendus.\nExcepturi aliquid vel voluptatem in recusandae."
                         },
                         new
                         {
                             Id = 56,
-                            ChatId = 4,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 7, 21, 15, 53, 31, 360, DateTimeKind.Local).AddTicks(2793),
-                            Text = "Beatae quas quo ab.\nModi dolorem neque sed perferendis nulla molestias."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 8,
+                            SentAt = new DateTime(2022, 2, 23, 4, 8, 53, 301, DateTimeKind.Local).AddTicks(5705),
+                            Text = "Id alias facere culpa commodi molestias voluptatibus.\nQuia quod omnis qui qui voluptatem temporibus consequuntur culpa consequuntur."
                         },
                         new
                         {
                             Id = 57,
-                            ChatId = 12,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 7, 23, 1, 28, 59, 392, DateTimeKind.Local).AddTicks(8499),
-                            Text = "Cumque quo tempora.\nUt reprehenderit vitae voluptas ratione soluta."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 37,
+                            SentAt = new DateTime(2023, 1, 11, 21, 39, 13, 408, DateTimeKind.Local).AddTicks(9042),
+                            Text = "Aut et qui dolores.\nEveniet ducimus ut quia eaque omnis illum aut dolorum voluptatem."
                         },
                         new
                         {
                             Id = 58,
-                            ChatId = 10,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 11, 12, 14, 18, 14, 588, DateTimeKind.Local).AddTicks(2755),
-                            Text = "Commodi dolores qui.\nTempora quia quia autem rem aliquid sed debitis totam."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 20,
+                            SentAt = new DateTime(2022, 2, 17, 1, 18, 6, 90, DateTimeKind.Local).AddTicks(540),
+                            Text = "Nesciunt architecto qui ullam sint.\nAsperiores deserunt laborum rerum eos vel culpa qui vitae."
                         },
                         new
                         {
                             Id = 59,
-                            ChatId = 8,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 11, 28, 1, 20, 53, 895, DateTimeKind.Local).AddTicks(2553),
-                            Text = "Quibusdam mollitia qui.\nQuo a sunt nisi."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 50,
+                            SentAt = new DateTime(2022, 6, 22, 19, 17, 16, 762, DateTimeKind.Local).AddTicks(9693),
+                            Text = "Placeat sed dicta maiores ut laborum libero modi.\nRepudiandae autem rerum."
                         },
                         new
                         {
                             Id = 60,
-                            ChatId = 9,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 8, 2, 19, 28, 3, 4, DateTimeKind.Local).AddTicks(3419),
-                            Text = "Provident non repellat.\nIusto delectus quia molestiae consequatur voluptate maiores quia veritatis ut."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 16,
+                            SentAt = new DateTime(2022, 5, 21, 3, 56, 33, 729, DateTimeKind.Local).AddTicks(1868),
+                            Text = "Numquam eos beatae vitae ipsa quod officiis.\nRem quo magnam quia reprehenderit ut quia quas provident."
                         },
                         new
                         {
                             Id = 61,
-                            ChatId = 12,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 5, 11, 0, 24, 19, 70, DateTimeKind.Local).AddTicks(6040),
-                            Text = "Voluptatem sint rerum nostrum sapiente aut.\nQui in doloremque eos sit doloremque minima."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 22,
+                            SentAt = new DateTime(2022, 7, 12, 0, 38, 57, 832, DateTimeKind.Local).AddTicks(4646),
+                            Text = "Quam quo rerum vel exercitationem in expedita.\nIure non dolorum nihil voluptatem cumque ratione deleniti repellendus."
                         },
                         new
                         {
                             Id = 62,
-                            ChatId = 19,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 1, 17, 8, 21, 28, 512, DateTimeKind.Local).AddTicks(5079),
-                            Text = "Et officiis ad distinctio molestias.\nOfficiis omnis enim similique fugit."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 23,
+                            SentAt = new DateTime(2022, 9, 21, 14, 41, 6, 790, DateTimeKind.Local).AddTicks(8228),
+                            Text = "Doloremque quidem voluptatum cumque temporibus voluptatem sed aut.\nQuidem animi perspiciatis impedit."
                         },
                         new
                         {
                             Id = 63,
-                            ChatId = 9,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 9, 24, 10, 4, 8, 127, DateTimeKind.Local).AddTicks(1709),
-                            Text = "Libero maxime ad et fuga quasi et.\nHarum voluptatum expedita dolores pariatur."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 37,
+                            SentAt = new DateTime(2022, 6, 10, 23, 3, 16, 606, DateTimeKind.Local).AddTicks(8150),
+                            Text = "Quisquam repellendus quia.\nAliquam blanditiis voluptas cumque veritatis."
                         },
                         new
                         {
                             Id = 64,
-                            ChatId = 16,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 5, 14, 15, 22, 10, 674, DateTimeKind.Local).AddTicks(3085),
-                            Text = "Atque temporibus omnis ipsum nihil consectetur veniam at porro.\nAb quo aut iure in odio neque."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 51,
+                            SentAt = new DateTime(2022, 3, 1, 11, 52, 11, 996, DateTimeKind.Local).AddTicks(5559),
+                            Text = "Eaque quod pariatur repellat quaerat aut magnam.\nNon doloremque delectus quisquam eius id odit quam."
                         },
                         new
                         {
                             Id = 65,
-                            ChatId = 8,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 11, 2, 10, 43, 53, 783, DateTimeKind.Local).AddTicks(4382),
-                            Text = "Id sequi impedit voluptatem officiis possimus qui quia sunt.\nDebitis dolores nulla fuga perferendis omnis sed rerum."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 19,
+                            SentAt = new DateTime(2022, 9, 23, 8, 9, 3, 358, DateTimeKind.Local).AddTicks(5820),
+                            Text = "Ducimus asperiores rem maxime voluptas eum.\nNihil laudantium iste minus aut impedit animi unde."
                         },
                         new
                         {
                             Id = 66,
-                            ChatId = 1,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 3, 16, 16, 26, 31, 974, DateTimeKind.Local).AddTicks(3216),
-                            Text = "Ex fugit et omnis est rerum maxime sint repellat qui.\nVero maxime dicta quia quisquam."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 31,
+                            SentAt = new DateTime(2022, 5, 2, 1, 23, 30, 719, DateTimeKind.Local).AddTicks(5608),
+                            Text = "Consequuntur rem velit enim dolorum nulla deleniti quisquam et.\nAutem ad ratione ab qui in facere et."
                         },
                         new
                         {
                             Id = 67,
-                            ChatId = 19,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 8, 27, 22, 46, 16, 22, DateTimeKind.Local).AddTicks(4789),
-                            Text = "Dolores qui et deserunt eum ut a molestias.\nSuscipit debitis non ipsam."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 40,
+                            SentAt = new DateTime(2022, 5, 23, 7, 5, 59, 311, DateTimeKind.Local).AddTicks(9355),
+                            Text = "Quia temporibus deserunt consequatur ut quia.\nDolores iste minus rem quisquam."
                         },
                         new
                         {
                             Id = 68,
                             ChatId = 5,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 10, 17, 22, 37, 54, 670, DateTimeKind.Local).AddTicks(7640),
-                            Text = "Ut dolore et.\nCulpa qui quis soluta omnis maxime et officiis quam facilis."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 56,
+                            SentAt = new DateTime(2022, 7, 28, 23, 16, 37, 412, DateTimeKind.Local).AddTicks(3173),
+                            Text = "Quod voluptatem tempore libero fuga.\nVoluptatem ut atque labore in."
                         },
                         new
                         {
                             Id = 69,
-                            ChatId = 8,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 1, 26, 10, 31, 40, 215, DateTimeKind.Local).AddTicks(4441),
-                            Text = "Omnis quas eius.\nQuo minus facilis quo quos officiis sit qui voluptas ut."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 51,
+                            SentAt = new DateTime(2022, 3, 24, 8, 25, 59, 126, DateTimeKind.Local).AddTicks(5789),
+                            Text = "Saepe et suscipit eius voluptatem explicabo est est eos.\nEx quos commodi assumenda."
                         },
                         new
                         {
                             Id = 70,
-                            ChatId = 9,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 6, 16, 3, 51, 24, 108, DateTimeKind.Local).AddTicks(2822),
-                            Text = "Inventore aperiam expedita quibusdam.\nNihil non ipsam iure et impedit ut vero possimus."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 32,
+                            SentAt = new DateTime(2022, 12, 30, 14, 41, 45, 151, DateTimeKind.Local).AddTicks(2698),
+                            Text = "Amet natus non aliquam nemo quia.\nIncidunt enim quibusdam quos id."
                         },
                         new
                         {
                             Id = 71,
-                            ChatId = 13,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 9, 15, 5, 59, 55, 932, DateTimeKind.Local).AddTicks(4981),
-                            Text = "Facilis velit quidem nihil est quod quia tempora voluptatem.\nQuod suscipit sint magni excepturi aut ut."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 25,
+                            SentAt = new DateTime(2022, 10, 15, 22, 33, 58, 658, DateTimeKind.Local).AddTicks(6312),
+                            Text = "Minima dolores incidunt fugit esse nulla perferendis et et.\nOptio qui saepe aperiam amet blanditiis quas blanditiis impedit vel."
                         },
                         new
                         {
                             Id = 72,
-                            ChatId = 2,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 9, 9, 22, 25, 29, 923, DateTimeKind.Local).AddTicks(4087),
-                            Text = "Eos placeat voluptas distinctio ut accusantium.\nCulpa at aliquid."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 10,
+                            SentAt = new DateTime(2022, 7, 22, 7, 2, 29, 540, DateTimeKind.Local).AddTicks(3626),
+                            Text = "Quo nesciunt non quia recusandae atque incidunt dolorum itaque.\nQuia nostrum dignissimos."
                         },
                         new
                         {
                             Id = 73,
-                            ChatId = 11,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 4, 10, 15, 26, 35, 149, DateTimeKind.Local).AddTicks(9900),
-                            Text = "Officiis molestias et atque ad rerum at non et asperiores.\nReiciendis enim tenetur explicabo laboriosam amet velit nostrum."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 52,
+                            SentAt = new DateTime(2022, 9, 14, 18, 3, 25, 576, DateTimeKind.Local).AddTicks(9585),
+                            Text = "Et voluptas rerum libero et ut.\nAccusamus asperiores itaque eius."
                         },
                         new
                         {
                             Id = 74,
-                            ChatId = 7,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 12, 27, 17, 1, 8, 221, DateTimeKind.Local).AddTicks(5113),
-                            Text = "Suscipit enim qui temporibus officiis voluptatem.\nVero et quam eaque nulla."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 38,
+                            SentAt = new DateTime(2022, 4, 30, 11, 19, 52, 282, DateTimeKind.Local).AddTicks(2776),
+                            Text = "Aliquid animi neque aut.\nAccusantium ab illo sapiente doloremque provident quidem est."
                         },
                         new
                         {
                             Id = 75,
-                            ChatId = 12,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 8, 26, 13, 59, 17, 432, DateTimeKind.Local).AddTicks(9929),
-                            Text = "Optio in et.\nSed ut itaque voluptas tempore suscipit."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 51,
+                            SentAt = new DateTime(2022, 5, 31, 13, 35, 58, 378, DateTimeKind.Local).AddTicks(4752),
+                            Text = "Qui earum quos et voluptates earum molestiae sunt dolorum alias.\nEligendi cumque voluptas provident suscipit illum reprehenderit vero quibusdam fugiat."
                         },
                         new
                         {
                             Id = 76,
-                            ChatId = 16,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 1, 11, 16, 5, 24, 505, DateTimeKind.Local).AddTicks(7134),
-                            Text = "Sit laborum molestiae iusto qui nulla a fuga.\nSunt et velit quaerat mollitia."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 41,
+                            SentAt = new DateTime(2022, 7, 27, 10, 38, 2, 742, DateTimeKind.Local).AddTicks(1948),
+                            Text = "Sint ut quae.\nSed qui sapiente dolorum aut ea eum voluptate molestiae perferendis."
                         },
                         new
                         {
                             Id = 77,
-                            ChatId = 19,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 10, 23, 4, 51, 18, 457, DateTimeKind.Local).AddTicks(3825),
-                            Text = "Et voluptatem est ad.\nEos sed dolores nesciunt aut molestias earum ad."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 20,
+                            SentAt = new DateTime(2022, 7, 29, 0, 44, 17, 296, DateTimeKind.Local).AddTicks(8212),
+                            Text = "Enim earum error nihil est.\nVel et eaque."
                         },
                         new
                         {
                             Id = 78,
-                            ChatId = 11,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 3, 22, 22, 30, 45, 294, DateTimeKind.Local).AddTicks(2828),
-                            Text = "Impedit voluptas perferendis quaerat autem quibusdam praesentium occaecati ratione non.\nFugiat minus saepe consequatur molestiae fugiat culpa similique fuga."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 11,
+                            SentAt = new DateTime(2022, 10, 22, 4, 23, 52, 255, DateTimeKind.Local).AddTicks(3121),
+                            Text = "Vel consectetur debitis sint corrupti aut voluptas est.\nPariatur voluptas totam et mollitia."
                         },
                         new
                         {
                             Id = 79,
-                            ChatId = 15,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 10, 24, 14, 40, 51, 94, DateTimeKind.Local).AddTicks(4038),
-                            Text = "Sed facere alias soluta quae reiciendis dolores nulla accusamus tempora.\nEt delectus voluptatum et nisi sapiente architecto voluptas."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 53,
+                            SentAt = new DateTime(2022, 8, 2, 20, 32, 38, 715, DateTimeKind.Local).AddTicks(9980),
+                            Text = "Tenetur eos accusamus deleniti molestias sunt autem atque.\nIusto minima hic et eos aliquam quisquam dolor."
                         },
                         new
                         {
                             Id = 80,
-                            ChatId = 17,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 6, 23, 4, 18, 43, 563, DateTimeKind.Local).AddTicks(2440),
-                            Text = "Ea et nesciunt reprehenderit nulla ullam.\nNesciunt consequatur ea est non."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 4,
+                            SentAt = new DateTime(2022, 10, 28, 4, 44, 59, 344, DateTimeKind.Local).AddTicks(5234),
+                            Text = "Dolor omnis autem aliquam autem.\nDolor nulla tenetur est et."
                         },
                         new
                         {
                             Id = 81,
-                            ChatId = 6,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 2, 28, 2, 45, 5, 392, DateTimeKind.Local).AddTicks(855),
-                            Text = "Voluptates et quaerat.\nNemo dolor unde enim et accusamus quia tenetur."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 34,
+                            SentAt = new DateTime(2022, 8, 30, 19, 1, 20, 982, DateTimeKind.Local).AddTicks(4027),
+                            Text = "Error aspernatur ut est aliquid dolorum facere exercitationem pariatur.\nOdit ipsum nesciunt."
                         },
                         new
                         {
                             Id = 82,
                             ChatId = 5,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 10, 29, 10, 48, 3, 526, DateTimeKind.Local).AddTicks(2693),
-                            Text = "Et et dolore quibusdam quia dolorem reiciendis.\nSint asperiores quas aut quod earum quia."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 57,
+                            SentAt = new DateTime(2023, 1, 30, 19, 2, 25, 608, DateTimeKind.Local).AddTicks(1996),
+                            Text = "Distinctio soluta illum.\nQui impedit beatae repudiandae maxime laboriosam recusandae aut voluptates."
                         },
                         new
                         {
                             Id = 83,
-                            ChatId = 8,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 12, 28, 12, 58, 17, 480, DateTimeKind.Local).AddTicks(5174),
-                            Text = "Autem aperiam a porro quo.\nAutem voluptas ut blanditiis."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 52,
+                            SentAt = new DateTime(2022, 7, 23, 3, 19, 29, 434, DateTimeKind.Local).AddTicks(4753),
+                            Text = "Magni placeat quibusdam sit et consequatur reiciendis officiis.\nReiciendis quo maiores nesciunt qui."
                         },
                         new
                         {
                             Id = 84,
-                            ChatId = 11,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 9, 20, 0, 17, 42, 145, DateTimeKind.Local).AddTicks(342),
-                            Text = "Qui eligendi iusto aut quia numquam et iure minima.\nArchitecto quidem illum tenetur ratione occaecati."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 43,
+                            SentAt = new DateTime(2022, 6, 6, 18, 18, 36, 804, DateTimeKind.Local).AddTicks(9524),
+                            Text = "Veniam sint consequatur delectus sunt sed ut voluptatem.\nDolorem voluptas voluptas doloribus aut."
                         },
                         new
                         {
                             Id = 85,
-                            ChatId = 1,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 3, 23, 10, 17, 6, 957, DateTimeKind.Local).AddTicks(8712),
-                            Text = "Aut repellendus et earum aut non voluptates mollitia aut.\nDignissimos eius et quaerat non saepe repudiandae."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 12,
+                            SentAt = new DateTime(2022, 4, 6, 6, 47, 43, 644, DateTimeKind.Local).AddTicks(3689),
+                            Text = "Et iusto ea.\nDucimus est ut dolorum omnis est esse qui dolor consequuntur."
                         },
                         new
                         {
                             Id = 86,
-                            ChatId = 19,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 1, 30, 15, 11, 42, 866, DateTimeKind.Local).AddTicks(4592),
-                            Text = "Repellat minima illo voluptatum rerum dignissimos qui beatae repellendus.\nDolor placeat culpa tenetur voluptatum ut saepe quas voluptatibus."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 9,
+                            SentAt = new DateTime(2023, 2, 2, 23, 46, 1, 977, DateTimeKind.Local).AddTicks(7350),
+                            Text = "Libero ipsa accusantium.\nExpedita eligendi fugiat quia et et cumque."
                         },
                         new
                         {
                             Id = 87,
-                            ChatId = 6,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 4, 7, 8, 29, 41, 87, DateTimeKind.Local).AddTicks(6925),
-                            Text = "Eos rerum velit fugiat praesentium.\nMagni minima dolore quam voluptates doloribus alias soluta."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 33,
+                            SentAt = new DateTime(2022, 5, 9, 13, 50, 42, 267, DateTimeKind.Local).AddTicks(554),
+                            Text = "Unde delectus qui pariatur ipsa.\nVeniam dolorum ipsum."
                         },
                         new
                         {
                             Id = 88,
-                            ChatId = 16,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 10, 14, 14, 50, 13, 663, DateTimeKind.Local).AddTicks(5467),
-                            Text = "Est eum recusandae magnam accusamus ea occaecati ea aut aliquam.\nQuia nam eligendi aspernatur enim maxime quis repudiandae."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 14,
+                            SentAt = new DateTime(2022, 8, 10, 5, 45, 1, 841, DateTimeKind.Local).AddTicks(7941),
+                            Text = "Molestiae adipisci nihil nihil sit.\nOdio voluptatibus harum soluta animi omnis dignissimos voluptatem quas."
                         },
                         new
                         {
                             Id = 89,
-                            ChatId = 19,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 7, 30, 13, 46, 19, 578, DateTimeKind.Local).AddTicks(8750),
-                            Text = "Consequatur animi est.\nQuasi vel in."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 60,
+                            SentAt = new DateTime(2022, 10, 12, 5, 4, 52, 571, DateTimeKind.Local).AddTicks(7982),
+                            Text = "Molestiae et nobis praesentium non nemo consequatur repellendus.\nArchitecto repellendus ullam officia non inventore."
                         },
                         new
                         {
                             Id = 90,
-                            ChatId = 13,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 1, 29, 11, 12, 34, 727, DateTimeKind.Local).AddTicks(8514),
-                            Text = "Cupiditate quis iusto ut veniam et magni necessitatibus eos.\nIste non officiis."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 49,
+                            SentAt = new DateTime(2022, 3, 25, 0, 3, 41, 311, DateTimeKind.Local).AddTicks(7562),
+                            Text = "Eos aut eaque deleniti aut consequatur voluptas nisi.\nEa ipsa fugiat velit."
                         },
                         new
                         {
                             Id = 91,
-                            ChatId = 7,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 4, 2, 8, 49, 20, 693, DateTimeKind.Local).AddTicks(470),
-                            Text = "Magni omnis ut eum fugiat ut fugiat.\nConsequuntur rerum est voluptas et delectus corporis."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 11,
+                            SentAt = new DateTime(2022, 12, 22, 5, 29, 55, 15, DateTimeKind.Local).AddTicks(1055),
+                            Text = "Ut quasi ex aut velit tenetur corporis quia vitae aspernatur.\nConsequatur aut ratione nobis cupiditate quia."
                         },
                         new
                         {
                             Id = 92,
-                            ChatId = 8,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 5, 29, 18, 15, 47, 896, DateTimeKind.Local).AddTicks(9912),
-                            Text = "Impedit alias nam ea quod laborum enim.\nCorrupti nihil repellat animi."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 54,
+                            SentAt = new DateTime(2022, 4, 10, 13, 6, 43, 367, DateTimeKind.Local).AddTicks(8394),
+                            Text = "Est omnis ut qui.\nSed voluptas fugiat magnam veritatis voluptatem aut harum in voluptas."
                         },
                         new
                         {
                             Id = 93,
-                            ChatId = 8,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 10, 8, 21, 5, 45, 149, DateTimeKind.Local).AddTicks(7279),
-                            Text = "Ullam odio perferendis dolorem quasi omnis.\nCommodi impedit architecto."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 44,
+                            SentAt = new DateTime(2022, 3, 11, 19, 24, 55, 300, DateTimeKind.Local).AddTicks(7024),
+                            Text = "Eligendi perferendis magni corporis.\nRepellat nesciunt exercitationem molestiae earum reprehenderit atque et veniam."
                         },
                         new
                         {
                             Id = 94,
                             ChatId = 4,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 1, 24, 11, 59, 51, 700, DateTimeKind.Local).AddTicks(1062),
-                            Text = "Natus nesciunt animi quo adipisci.\nVitae nihil fugiat dolore asperiores."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 56,
+                            SentAt = new DateTime(2022, 4, 11, 23, 42, 59, 539, DateTimeKind.Local).AddTicks(9152),
+                            Text = "Non sunt harum neque omnis explicabo.\nCumque neque dolores maiores totam porro."
                         },
                         new
                         {
                             Id = 95,
-                            ChatId = 11,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 3, 26, 20, 1, 7, 28, DateTimeKind.Local).AddTicks(7194),
-                            Text = "Doloribus error et dolorum suscipit.\nQui sint iure eius in qui ratione assumenda."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 35,
+                            SentAt = new DateTime(2022, 11, 21, 17, 42, 24, 302, DateTimeKind.Local).AddTicks(227),
+                            Text = "Quis suscipit non.\nVero et reprehenderit nihil et adipisci molestiae."
                         },
                         new
                         {
                             Id = 96,
-                            ChatId = 5,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 5, 3, 18, 44, 48, 192, DateTimeKind.Local).AddTicks(1396),
-                            Text = "Eos ut veritatis est minus et rerum.\nNumquam quidem officiis sed harum eveniet dicta veniam."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 11,
+                            SentAt = new DateTime(2022, 10, 30, 12, 8, 7, 646, DateTimeKind.Local).AddTicks(9622),
+                            Text = "Recusandae enim maiores qui autem eaque.\nVelit aliquam et nostrum voluptatibus."
                         },
                         new
                         {
                             Id = 97,
-                            ChatId = 1,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 4, 28, 6, 9, 19, 930, DateTimeKind.Local).AddTicks(4866),
-                            Text = "Eos laborum hic delectus tenetur.\nVero ut ipsum esse doloremque odio."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 32,
+                            SentAt = new DateTime(2023, 2, 5, 2, 3, 16, 53, DateTimeKind.Local).AddTicks(3178),
+                            Text = "Aut quibusdam voluptas quidem dolor voluptas aliquid sunt.\nAd aut voluptatem velit voluptatum perspiciatis quis."
                         },
                         new
                         {
                             Id = 98,
-                            ChatId = 16,
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
                             SenderId = 8,
-                            SentAt = new DateTime(2022, 4, 15, 13, 35, 40, 433, DateTimeKind.Local).AddTicks(5635),
-                            Text = "Consequatur repellat id assumenda consectetur repudiandae molestiae reiciendis cupiditate.\nLibero voluptatum quo eum occaecati eaque et illo."
+                            SentAt = new DateTime(2022, 9, 5, 11, 50, 45, 121, DateTimeKind.Local).AddTicks(5686),
+                            Text = "Deleniti ut tempore eveniet adipisci sit.\nHic rem fugit eaque."
                         },
                         new
                         {
                             Id = 99,
-                            ChatId = 1,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 4, 8, 3, 28, 5, 752, DateTimeKind.Local).AddTicks(3325),
-                            Text = "Deleniti quisquam quisquam nihil cum totam et voluptas numquam.\nNisi sit ut facere sint."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 43,
+                            SentAt = new DateTime(2022, 4, 28, 21, 2, 31, 357, DateTimeKind.Local).AddTicks(962),
+                            Text = "Sit necessitatibus nihil iste labore vel dolorem dolorem asperiores.\nInventore possimus quia quo consequatur aut quae."
                         },
                         new
                         {
                             Id = 100,
-                            ChatId = 7,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 7, 14, 6, 9, 17, 65, DateTimeKind.Local).AddTicks(9815),
-                            Text = "Aliquid perspiciatis non.\nOptio sed error eveniet corrupti perferendis porro ut omnis rerum."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 61,
+                            SentAt = new DateTime(2022, 9, 27, 12, 3, 34, 410, DateTimeKind.Local).AddTicks(1190),
+                            Text = "Quidem nostrum reprehenderit.\nDicta odio aut sunt numquam et."
                         },
                         new
                         {
                             Id = 101,
-                            ChatId = 2,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 11, 9, 6, 41, 6, 732, DateTimeKind.Local).AddTicks(9701),
-                            Text = "Facilis rem et dolores aut.\nFugit minus tempore asperiores nesciunt magnam enim doloremque odio sit."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 47,
+                            SentAt = new DateTime(2022, 4, 6, 19, 52, 40, 401, DateTimeKind.Local).AddTicks(9239),
+                            Text = "Voluptates voluptatem provident enim blanditiis qui et eum labore officia.\nSapiente debitis accusamus saepe culpa cumque dolor neque omnis."
                         },
                         new
                         {
                             Id = 102,
-                            ChatId = 18,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 3, 18, 16, 38, 35, 571, DateTimeKind.Local).AddTicks(4457),
-                            Text = "Itaque aliquid ea.\nNon voluptatem odit molestiae quam."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 27,
+                            SentAt = new DateTime(2022, 3, 5, 9, 39, 4, 848, DateTimeKind.Local).AddTicks(3011),
+                            Text = "Quos eaque tempora consectetur quia laudantium aliquid.\nEt labore dolorem minima veniam itaque tenetur incidunt error."
                         },
                         new
                         {
                             Id = 103,
-                            ChatId = 20,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 4, 1, 7, 11, 12, 898, DateTimeKind.Local).AddTicks(6171),
-                            Text = "Quisquam ipsam architecto sit quaerat non et et repellat.\nLaudantium qui adipisci ea."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 25,
+                            SentAt = new DateTime(2022, 4, 14, 15, 22, 45, 853, DateTimeKind.Local).AddTicks(3578),
+                            Text = "Accusamus ut magnam molestiae.\nConsequatur minus maiores iure porro magnam eos quia necessitatibus voluptatibus."
                         },
                         new
                         {
                             Id = 104,
-                            ChatId = 17,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 3, 30, 5, 58, 44, 981, DateTimeKind.Local).AddTicks(1514),
-                            Text = "Asperiores magnam dolor soluta temporibus distinctio sit reiciendis tempore.\nLibero voluptatem molestiae asperiores dolores perferendis minus alias."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 50,
+                            SentAt = new DateTime(2022, 5, 28, 0, 0, 29, 149, DateTimeKind.Local).AddTicks(2686),
+                            Text = "Et aut et.\nQuod facilis quidem similique in saepe repellendus aut eos."
                         },
                         new
                         {
                             Id = 105,
-                            ChatId = 20,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 10, 13, 21, 24, 50, 581, DateTimeKind.Local).AddTicks(898),
-                            Text = "Distinctio nostrum inventore occaecati quia sit atque adipisci repudiandae modi.\nVelit in fuga recusandae alias animi eius corporis quia."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 13,
+                            SentAt = new DateTime(2022, 2, 24, 20, 24, 56, 770, DateTimeKind.Local).AddTicks(8771),
+                            Text = "Rerum eaque placeat nihil sit cupiditate totam ab sunt.\nQui iure rem."
                         },
                         new
                         {
                             Id = 106,
-                            ChatId = 4,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 1, 22, 18, 36, 28, 156, DateTimeKind.Local).AddTicks(8780),
-                            Text = "Beatae dolore officiis sunt aperiam explicabo eos modi quas.\nUt quasi adipisci eaque quia sit possimus."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 24,
+                            SentAt = new DateTime(2022, 7, 8, 9, 16, 18, 847, DateTimeKind.Local).AddTicks(3293),
+                            Text = "Nihil quasi cumque ut quia fugit repellat minima.\nVeritatis delectus molestiae consequatur voluptate."
                         },
                         new
                         {
                             Id = 107,
-                            ChatId = 3,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 5, 14, 14, 2, 4, 910, DateTimeKind.Local).AddTicks(6255),
-                            Text = "Deleniti similique vitae commodi recusandae minima est enim.\nLaboriosam maiores non enim."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 46,
+                            SentAt = new DateTime(2022, 12, 15, 1, 17, 12, 126, DateTimeKind.Local).AddTicks(2677),
+                            Text = "Dolorum sed omnis voluptas ipsum ut.\nEius fugiat saepe sed."
                         },
                         new
                         {
                             Id = 108,
-                            ChatId = 13,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 5, 29, 16, 20, 41, 301, DateTimeKind.Local).AddTicks(3911),
-                            Text = "Quo qui rem omnis non quo optio iusto ducimus voluptatem.\nDeleniti quibusdam qui illum."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 35,
+                            SentAt = new DateTime(2022, 7, 23, 17, 37, 16, 972, DateTimeKind.Local).AddTicks(8678),
+                            Text = "Vel id fuga occaecati.\nMolestiae necessitatibus labore ut saepe neque facere."
                         },
                         new
                         {
                             Id = 109,
-                            ChatId = 10,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 11, 21, 15, 38, 31, 544, DateTimeKind.Local).AddTicks(882),
-                            Text = "Perferendis autem excepturi optio quae beatae.\nDolor repellendus omnis ut a officia quidem saepe aperiam optio."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 57,
+                            SentAt = new DateTime(2022, 4, 17, 17, 1, 19, 309, DateTimeKind.Local).AddTicks(767),
+                            Text = "Explicabo facilis quos quis et id recusandae consequatur perferendis error.\nOfficia impedit aliquam quia et facere perspiciatis."
                         },
                         new
                         {
                             Id = 110,
-                            ChatId = 8,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 2, 11, 18, 52, 51, 812, DateTimeKind.Local).AddTicks(6871),
-                            Text = "Libero officia ab animi vel eveniet beatae aut earum nostrum.\nSed ut saepe neque libero qui aut esse non officiis."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 25,
+                            SentAt = new DateTime(2022, 10, 8, 22, 8, 15, 147, DateTimeKind.Local).AddTicks(2970),
+                            Text = "Nostrum voluptate maxime quaerat neque voluptas odit deleniti.\nConsequatur blanditiis tempora incidunt aspernatur."
                         },
                         new
                         {
                             Id = 111,
                             ChatId = 4,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 10, 29, 10, 37, 39, 764, DateTimeKind.Local).AddTicks(7496),
-                            Text = "Facilis dolore unde.\nTemporibus aliquid est perferendis esse velit autem dolorum ipsum voluptatum."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 48,
+                            SentAt = new DateTime(2022, 4, 1, 6, 37, 45, 93, DateTimeKind.Local).AddTicks(1822),
+                            Text = "Est mollitia et laudantium accusamus inventore.\nAsperiores est nisi nobis nam autem."
                         },
                         new
                         {
                             Id = 112,
-                            ChatId = 12,
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
                             SenderId = 9,
-                            SentAt = new DateTime(2022, 6, 5, 1, 24, 43, 387, DateTimeKind.Local).AddTicks(2727),
-                            Text = "Voluptatem itaque voluptatibus in totam.\nEos quia blanditiis repudiandae et odio."
+                            SentAt = new DateTime(2022, 3, 28, 15, 37, 52, 396, DateTimeKind.Local).AddTicks(4994),
+                            Text = "Molestias corporis repellendus enim in.\nAut similique repellendus commodi ut."
                         },
                         new
                         {
                             Id = 113,
-                            ChatId = 8,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 1, 19, 10, 46, 12, 385, DateTimeKind.Local).AddTicks(5773),
-                            Text = "Soluta et eius sed.\nVoluptatem quo libero dignissimos et cupiditate mollitia commodi."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 43,
+                            SentAt = new DateTime(2022, 12, 25, 22, 43, 42, 373, DateTimeKind.Local).AddTicks(5023),
+                            Text = "Molestiae quasi dolores modi minima.\nDeleniti velit saepe vero voluptas occaecati blanditiis quod."
                         },
                         new
                         {
                             Id = 114,
-                            ChatId = 10,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 2, 19, 13, 57, 2, 925, DateTimeKind.Local).AddTicks(5626),
-                            Text = "Ab rerum in ipsa.\nEa quis unde est."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 50,
+                            SentAt = new DateTime(2022, 5, 4, 5, 26, 46, 969, DateTimeKind.Local).AddTicks(6456),
+                            Text = "Suscipit molestiae quaerat at et odio beatae rerum minima.\nCorporis eos vero tempore tenetur qui et voluptatem explicabo eum."
                         },
                         new
                         {
                             Id = 115,
-                            ChatId = 11,
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
                             SenderId = 7,
-                            SentAt = new DateTime(2022, 4, 8, 23, 8, 18, 236, DateTimeKind.Local).AddTicks(6938),
-                            Text = "Inventore libero deleniti consequatur maiores quas ut.\nPariatur sit rerum et dolorum autem sed ducimus."
+                            SentAt = new DateTime(2022, 11, 5, 8, 15, 1, 173, DateTimeKind.Local).AddTicks(6113),
+                            Text = "Omnis aut ut quaerat qui.\nSit voluptatem qui."
                         },
                         new
                         {
                             Id = 116,
-                            ChatId = 19,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 11, 1, 21, 24, 31, 472, DateTimeKind.Local).AddTicks(1209),
-                            Text = "Illo dolores error temporibus aut qui aut ut dignissimos distinctio.\nAut et sapiente impedit."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 35,
+                            SentAt = new DateTime(2022, 3, 3, 19, 21, 5, 752, DateTimeKind.Local).AddTicks(2013),
+                            Text = "Id accusantium esse.\nSapiente nobis quisquam qui debitis soluta facilis porro nihil."
                         },
                         new
                         {
                             Id = 117,
-                            ChatId = 7,
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
                             SenderId = 5,
-                            SentAt = new DateTime(2022, 7, 25, 2, 20, 14, 583, DateTimeKind.Local).AddTicks(6961),
-                            Text = "Error eaque autem temporibus adipisci optio.\nNihil debitis vero et officia."
+                            SentAt = new DateTime(2023, 1, 2, 15, 26, 47, 324, DateTimeKind.Local).AddTicks(4316),
+                            Text = "Enim eum tenetur.\nAnimi laboriosam autem vitae totam nostrum recusandae officiis sit."
                         },
                         new
                         {
                             Id = 118,
-                            ChatId = 12,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 3, 5, 2, 22, 20, 354, DateTimeKind.Local).AddTicks(6314),
-                            Text = "Incidunt est natus.\nReprehenderit ducimus deleniti et rerum explicabo unde quibusdam quaerat hic."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 8,
+                            SentAt = new DateTime(2023, 1, 3, 18, 57, 7, 136, DateTimeKind.Local).AddTicks(5609),
+                            Text = "Tempora mollitia non voluptas in consequatur at iure esse alias.\nNeque est eius ducimus recusandae sapiente qui aut."
                         },
                         new
                         {
                             Id = 119,
-                            ChatId = 8,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 2, 23, 2, 53, 5, 93, DateTimeKind.Local).AddTicks(5713),
-                            Text = "Nemo et omnis molestiae quia dignissimos cupiditate.\nRepellendus sapiente perspiciatis sit nobis officiis earum est inventore."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 58,
+                            SentAt = new DateTime(2022, 5, 26, 18, 10, 18, 277, DateTimeKind.Local).AddTicks(399),
+                            Text = "Voluptate ut pariatur doloremque omnis doloremque at nesciunt facere quaerat.\nVoluptatem numquam consectetur."
                         },
                         new
                         {
                             Id = 120,
-                            ChatId = 3,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 12, 29, 9, 12, 3, 221, DateTimeKind.Local).AddTicks(2095),
-                            Text = "Qui et necessitatibus adipisci sapiente impedit.\nCupiditate aut optio."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 54,
+                            SentAt = new DateTime(2022, 7, 22, 8, 7, 17, 568, DateTimeKind.Local).AddTicks(5881),
+                            Text = "Distinctio unde minus consequatur vel non qui.\nMolestiae quibusdam dolorem in."
                         },
                         new
                         {
                             Id = 121,
-                            ChatId = 6,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 2, 14, 2, 44, 31, 913, DateTimeKind.Local).AddTicks(2965),
-                            Text = "Et molestiae dicta harum quibusdam esse quia possimus error quae.\nQui temporibus ipsum."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 27,
+                            SentAt = new DateTime(2022, 12, 3, 21, 18, 36, 87, DateTimeKind.Local).AddTicks(5414),
+                            Text = "Deserunt quia numquam totam quisquam et autem ex et.\nEt error in corporis est nihil labore magni accusamus."
                         },
                         new
                         {
                             Id = 122,
-                            ChatId = 1,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 12, 27, 23, 26, 38, 416, DateTimeKind.Local).AddTicks(7616),
-                            Text = "Fuga id voluptatem nihil quia similique aut recusandae.\nEaque rerum nemo soluta."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 59,
+                            SentAt = new DateTime(2022, 12, 7, 6, 55, 36, 91, DateTimeKind.Local).AddTicks(3299),
+                            Text = "Eaque molestiae tempora laudantium quas aut id et quos neque.\nEt asperiores vel."
                         },
                         new
                         {
                             Id = 123,
-                            ChatId = 11,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 7, 10, 1, 26, 22, 568, DateTimeKind.Local).AddTicks(8652),
-                            Text = "Sint neque cupiditate.\nEst cupiditate voluptatibus corporis sed similique nihil aut et."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 47,
+                            SentAt = new DateTime(2022, 9, 13, 15, 7, 48, 78, DateTimeKind.Local).AddTicks(8434),
+                            Text = "Occaecati porro tenetur.\nMolestiae animi esse velit et optio aut omnis soluta."
                         },
                         new
                         {
                             Id = 124,
-                            ChatId = 19,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 10, 4, 9, 35, 21, 931, DateTimeKind.Local).AddTicks(6632),
-                            Text = "Sunt ipsum aut sed sunt autem.\nNon sint nemo sequi."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 7,
+                            SentAt = new DateTime(2022, 10, 9, 22, 14, 9, 400, DateTimeKind.Local).AddTicks(8363),
+                            Text = "Consequatur tempora sit quibusdam.\nSunt occaecati ab quisquam facere."
                         },
                         new
                         {
                             Id = 125,
-                            ChatId = 19,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 1, 22, 22, 37, 12, 519, DateTimeKind.Local).AddTicks(6999),
-                            Text = "Similique laboriosam nemo consequuntur.\nSit sint id ut pariatur."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 52,
+                            SentAt = new DateTime(2022, 4, 2, 20, 29, 30, 951, DateTimeKind.Local).AddTicks(8912),
+                            Text = "Natus et enim ut.\nEst nemo excepturi rerum voluptatum."
                         },
                         new
                         {
                             Id = 126,
-                            ChatId = 20,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 7, 28, 21, 42, 43, 634, DateTimeKind.Local).AddTicks(9169),
-                            Text = "Accusamus beatae quasi repellat voluptatem quisquam sed omnis omnis similique.\nFuga quibusdam quia."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 22,
+                            SentAt = new DateTime(2022, 12, 26, 21, 31, 58, 89, DateTimeKind.Local).AddTicks(2080),
+                            Text = "Laborum expedita reiciendis.\nMaiores labore sunt laboriosam est temporibus."
                         },
                         new
                         {
                             Id = 127,
-                            ChatId = 17,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 12, 30, 8, 59, 4, 964, DateTimeKind.Local).AddTicks(9092),
-                            Text = "Sequi maxime et.\nVoluptatem amet sapiente."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 52,
+                            SentAt = new DateTime(2022, 3, 3, 18, 31, 57, 491, DateTimeKind.Local).AddTicks(875),
+                            Text = "Ipsam reiciendis voluptas et.\nEt nulla odit qui maxime sed molestias saepe dolor."
                         },
                         new
                         {
                             Id = 128,
-                            ChatId = 2,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 5, 16, 8, 9, 23, 272, DateTimeKind.Local).AddTicks(1510),
-                            Text = "Voluptatibus sapiente sequi qui sint saepe quo.\nEst quam enim harum sed veritatis eos consequatur quos eveniet."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 33,
+                            SentAt = new DateTime(2022, 11, 10, 18, 34, 12, 759, DateTimeKind.Local).AddTicks(3965),
+                            Text = "Odio aperiam eaque.\nQui aut repellat."
                         },
                         new
                         {
                             Id = 129,
-                            ChatId = 14,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 9, 5, 1, 36, 32, 865, DateTimeKind.Local).AddTicks(5286),
-                            Text = "Vitae ea laborum autem voluptas rerum distinctio corrupti voluptatem.\nEt illum quod id dolor voluptates voluptatum qui."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 7,
+                            SentAt = new DateTime(2022, 8, 20, 18, 58, 13, 940, DateTimeKind.Local).AddTicks(4119),
+                            Text = "Ex esse sit labore rerum qui tempore.\nNon aut ducimus possimus repudiandae qui et."
                         },
                         new
                         {
                             Id = 130,
-                            ChatId = 11,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 3, 17, 15, 16, 12, 81, DateTimeKind.Local).AddTicks(109),
-                            Text = "Consectetur et consequuntur est autem.\nRerum rem sunt ab dolore vero quibusdam error beatae eveniet."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 19,
+                            SentAt = new DateTime(2022, 10, 14, 7, 32, 47, 863, DateTimeKind.Local).AddTicks(1321),
+                            Text = "Aut voluptate ab rerum quam officia ipsam ullam sed.\nEos amet quia odit aperiam eaque tempora provident consequatur ratione."
                         },
                         new
                         {
                             Id = 131,
-                            ChatId = 12,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 6, 13, 2, 46, 35, 290, DateTimeKind.Local).AddTicks(687),
-                            Text = "Quaerat assumenda omnis eos et.\nIn natus qui nisi necessitatibus aperiam non ut et amet."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 38,
+                            SentAt = new DateTime(2023, 2, 6, 0, 24, 54, 789, DateTimeKind.Local).AddTicks(9636),
+                            Text = "Velit consequatur error recusandae qui dicta corrupti hic reiciendis.\nMagni dolores commodi fuga perferendis sed corporis officiis eaque quod."
                         },
                         new
                         {
                             Id = 132,
-                            ChatId = 9,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 1, 22, 0, 11, 1, 45, DateTimeKind.Local).AddTicks(6613),
-                            Text = "Omnis aut nihil ut eos voluptas.\nA et qui aut architecto."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 6,
+                            SentAt = new DateTime(2022, 9, 10, 22, 18, 35, 585, DateTimeKind.Local).AddTicks(2993),
+                            Text = "Officia est optio illum qui enim asperiores ducimus numquam molestias.\nConsequatur totam qui eaque consectetur vel rerum iure consequatur magni."
                         },
                         new
                         {
                             Id = 133,
-                            ChatId = 6,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 10, 1, 9, 8, 22, 490, DateTimeKind.Local).AddTicks(2587),
-                            Text = "Mollitia architecto voluptatem qui impedit.\nEt optio voluptate odio."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 30,
+                            SentAt = new DateTime(2022, 5, 22, 9, 2, 31, 779, DateTimeKind.Local).AddTicks(5878),
+                            Text = "Voluptatibus expedita impedit voluptas laborum nihil consequatur et et.\nCorrupti sit libero enim."
                         },
                         new
                         {
                             Id = 134,
-                            ChatId = 19,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 5, 2, 15, 42, 0, 833, DateTimeKind.Local).AddTicks(8394),
-                            Text = "Odit velit sunt voluptas ad qui voluptas.\nDolor non magni."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 35,
+                            SentAt = new DateTime(2022, 4, 13, 1, 56, 30, 828, DateTimeKind.Local).AddTicks(9482),
+                            Text = "Cum dolores dicta eveniet iste assumenda ut.\nVeritatis aut quisquam voluptatem distinctio ullam."
                         },
                         new
                         {
                             Id = 135,
-                            ChatId = 11,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 1, 11, 10, 19, 52, 655, DateTimeKind.Local).AddTicks(446),
-                            Text = "Consequatur repudiandae mollitia nobis asperiores sed voluptas recusandae accusantium sit.\nAut deserunt amet magni error consectetur."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 5,
+                            SentAt = new DateTime(2023, 1, 27, 13, 15, 21, 641, DateTimeKind.Local).AddTicks(1098),
+                            Text = "Omnis quae maiores.\nTenetur quia et fugiat suscipit at."
                         },
                         new
                         {
                             Id = 136,
-                            ChatId = 4,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 1, 4, 14, 6, 2, 461, DateTimeKind.Local).AddTicks(9190),
-                            Text = "Repellat a eaque neque dolorem.\nAspernatur ab aut voluptatem ipsum quibusdam a quae."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 23,
+                            SentAt = new DateTime(2022, 5, 6, 7, 57, 13, 884, DateTimeKind.Local).AddTicks(6281),
+                            Text = "Dolor eligendi explicabo velit maxime.\nVoluptatem dolores itaque voluptatem distinctio sit numquam necessitatibus."
                         },
                         new
                         {
                             Id = 137,
-                            ChatId = 9,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 5, 6, 18, 27, 16, 883, DateTimeKind.Local).AddTicks(7231),
-                            Text = "Consequatur saepe unde praesentium eius tempore blanditiis voluptatem sed aut.\nOfficiis animi reiciendis totam iste consequatur."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 40,
+                            SentAt = new DateTime(2022, 5, 16, 4, 39, 41, 51, DateTimeKind.Local).AddTicks(5714),
+                            Text = "Dolor atque est et qui omnis minus hic perferendis.\nQuia quam voluptate quasi nostrum nostrum est ab nam repellendus."
                         },
                         new
                         {
                             Id = 138,
-                            ChatId = 19,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 1, 7, 21, 6, 41, 868, DateTimeKind.Local).AddTicks(3075),
-                            Text = "Animi et ullam laboriosam ut repudiandae quo nisi.\nMaxime ad pariatur."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 22,
+                            SentAt = new DateTime(2022, 3, 9, 7, 56, 6, 485, DateTimeKind.Local).AddTicks(5469),
+                            Text = "Quia aut maiores unde atque molestiae ut voluptas sit.\nReprehenderit illum voluptatum molestias saepe enim quo."
                         },
                         new
                         {
                             Id = 139,
-                            ChatId = 8,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 1, 23, 4, 49, 18, 943, DateTimeKind.Local).AddTicks(3369),
-                            Text = "Excepturi nam architecto qui et assumenda.\nBlanditiis consectetur at."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 26,
+                            SentAt = new DateTime(2022, 11, 12, 20, 49, 59, 188, DateTimeKind.Local).AddTicks(5311),
+                            Text = "Omnis sapiente magni consectetur ad.\nQuisquam sunt dignissimos ratione quae."
                         },
                         new
                         {
                             Id = 140,
-                            ChatId = 12,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 3, 20, 2, 26, 37, 651, DateTimeKind.Local).AddTicks(2542),
-                            Text = "Repellat et sit.\nVoluptatem molestiae maiores similique voluptatibus commodi ut neque velit nam."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 61,
+                            SentAt = new DateTime(2022, 10, 29, 5, 59, 25, 273, DateTimeKind.Local).AddTicks(6658),
+                            Text = "In omnis excepturi facere nulla reiciendis in tempora harum.\nNeque possimus enim eveniet adipisci deleniti."
                         },
                         new
                         {
                             Id = 141,
-                            ChatId = 7,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 8, 23, 16, 1, 19, 990, DateTimeKind.Local).AddTicks(3638),
-                            Text = "Doloremque culpa quasi.\nLaboriosam facere enim facilis quo saepe laudantium."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 33,
+                            SentAt = new DateTime(2023, 1, 26, 8, 48, 51, 345, DateTimeKind.Local).AddTicks(8244),
+                            Text = "Ea cumque non dolorem hic placeat dignissimos nihil omnis ipsam.\nMolestiae incidunt et aut voluptate commodi accusamus dolor et molestias."
                         },
                         new
                         {
                             Id = 142,
                             ChatId = 2,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 11, 24, 9, 11, 59, 294, DateTimeKind.Local).AddTicks(5401),
-                            Text = "Ea molestias est natus aut sed.\nMaiores odio ut necessitatibus labore sed ea eum sed voluptas."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 9,
+                            SentAt = new DateTime(2022, 8, 9, 19, 59, 26, 175, DateTimeKind.Local).AddTicks(4833),
+                            Text = "Et distinctio maiores qui.\nVeniam sint vel ipsa qui in magnam."
                         },
                         new
                         {
                             Id = 143,
-                            ChatId = 4,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 11, 2, 22, 7, 13, 21, DateTimeKind.Local).AddTicks(2754),
-                            Text = "Quaerat debitis neque et.\nUnde mollitia earum distinctio."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 36,
+                            SentAt = new DateTime(2022, 7, 21, 23, 26, 41, 325, DateTimeKind.Local).AddTicks(2253),
+                            Text = "Optio praesentium sit dolor.\nDistinctio minus quia consequuntur velit veniam."
                         },
                         new
                         {
                             Id = 144,
-                            ChatId = 15,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 12, 8, 12, 16, 23, 750, DateTimeKind.Local).AddTicks(9916),
-                            Text = "Facilis sunt expedita itaque minus consequatur temporibus.\nOdit sit nulla praesentium est."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 25,
+                            SentAt = new DateTime(2022, 4, 1, 2, 24, 26, 509, DateTimeKind.Local).AddTicks(7300),
+                            Text = "Provident voluptas temporibus odit magnam nulla commodi id.\nEos cumque ut vel praesentium repellendus quia."
                         },
                         new
                         {
                             Id = 145,
-                            ChatId = 4,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 2, 21, 15, 12, 58, 277, DateTimeKind.Local).AddTicks(9168),
-                            Text = "Asperiores nam vitae quas deleniti aperiam tempora libero incidunt dolores.\nDucimus ipsum veritatis autem quidem voluptas sunt voluptatum quibusdam beatae."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 25,
+                            SentAt = new DateTime(2022, 6, 4, 13, 8, 19, 843, DateTimeKind.Local).AddTicks(7957),
+                            Text = "Aperiam non velit quas veritatis quos et accusantium.\nDeserunt aut distinctio corporis et consequatur."
                         },
                         new
                         {
                             Id = 146,
-                            ChatId = 4,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 2, 10, 23, 15, 0, 903, DateTimeKind.Local).AddTicks(221),
-                            Text = "Ea fuga illum unde et omnis.\nNulla quia aliquam."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 29,
+                            SentAt = new DateTime(2023, 1, 10, 7, 35, 38, 27, DateTimeKind.Local).AddTicks(2566),
+                            Text = "Recusandae exercitationem sit.\nNesciunt ab voluptatem quia repellat est enim expedita porro reiciendis."
                         },
                         new
                         {
                             Id = 147,
-                            ChatId = 9,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 4, 26, 22, 4, 58, 801, DateTimeKind.Local).AddTicks(9846),
-                            Text = "Ipsa perspiciatis quia rem sunt incidunt nemo suscipit.\nVoluptates sit et quo."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 46,
+                            SentAt = new DateTime(2022, 3, 19, 17, 12, 52, 826, DateTimeKind.Local).AddTicks(9488),
+                            Text = "Molestias dignissimos eos id aspernatur.\nEligendi atque pariatur voluptatem facere."
                         },
                         new
                         {
                             Id = 148,
-                            ChatId = 16,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 5, 19, 7, 11, 45, 973, DateTimeKind.Local).AddTicks(9297),
-                            Text = "Quibusdam ut autem deleniti corporis voluptatem suscipit ipsum.\nVitae temporibus voluptas cupiditate."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 43,
+                            SentAt = new DateTime(2022, 4, 7, 14, 39, 21, 752, DateTimeKind.Local).AddTicks(9634),
+                            Text = "Dolores perferendis nihil pariatur consequatur et impedit velit provident eius.\nAsperiores repellendus cumque placeat illum beatae dicta quo."
                         },
                         new
                         {
                             Id = 149,
-                            ChatId = 18,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 1, 2, 13, 8, 29, 440, DateTimeKind.Local).AddTicks(2694),
-                            Text = "Qui vitae soluta et omnis minus consequuntur dolores.\nNeque voluptas quia et veniam vitae dolores deserunt velit maiores."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 27,
+                            SentAt = new DateTime(2022, 7, 25, 13, 23, 27, 417, DateTimeKind.Local).AddTicks(8043),
+                            Text = "Fugit cumque ipsum magnam aut.\nAut repellat tempora recusandae aperiam vel est."
                         },
                         new
                         {
                             Id = 150,
-                            ChatId = 20,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 5, 12, 9, 1, 39, 15, DateTimeKind.Local).AddTicks(933),
-                            Text = "Eligendi corrupti qui iure eum minima perspiciatis quaerat quos pariatur.\nEt nulla eligendi optio quasi."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 29,
+                            SentAt = new DateTime(2022, 2, 19, 19, 41, 19, 186, DateTimeKind.Local).AddTicks(904),
+                            Text = "Vero maiores cupiditate atque sit deleniti occaecati hic.\nCum qui perspiciatis iste rerum excepturi tempora."
                         },
                         new
                         {
                             Id = 151,
-                            ChatId = 17,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 12, 29, 21, 38, 36, 29, DateTimeKind.Local).AddTicks(8931),
-                            Text = "Ut et ut quos eum qui voluptatem voluptas ipsum quisquam.\nAutem officiis quam minus est."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 9,
+                            SentAt = new DateTime(2022, 11, 11, 18, 16, 27, 53, DateTimeKind.Local).AddTicks(3941),
+                            Text = "Ut sed nam aut sit accusantium velit.\nInventore est ducimus debitis."
                         },
                         new
                         {
                             Id = 152,
-                            ChatId = 3,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 8, 21, 11, 5, 21, 234, DateTimeKind.Local).AddTicks(8167),
-                            Text = "Iste nesciunt minima voluptatum ab libero fugit id deleniti sit.\nVoluptatem adipisci laudantium architecto cumque."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 39,
+                            SentAt = new DateTime(2022, 9, 1, 12, 39, 8, 85, DateTimeKind.Local).AddTicks(8361),
+                            Text = "Numquam non velit est nulla autem libero incidunt quisquam non.\nQui et suscipit beatae vitae magnam magni maiores."
                         },
                         new
                         {
                             Id = 153,
-                            ChatId = 7,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 6, 12, 18, 51, 25, 401, DateTimeKind.Local).AddTicks(9698),
-                            Text = "Saepe neque laborum et ut porro asperiores sed.\nAspernatur eos rerum dolorum."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 38,
+                            SentAt = new DateTime(2022, 12, 8, 18, 37, 7, 116, DateTimeKind.Local).AddTicks(3178),
+                            Text = "Veritatis dolor tenetur ut aut et impedit inventore ut.\nDolore dolor et cum quia dignissimos similique vel dolore."
                         },
                         new
                         {
                             Id = 154,
-                            ChatId = 1,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 9, 28, 6, 16, 38, 577, DateTimeKind.Local).AddTicks(5531),
-                            Text = "Qui ut officia ducimus delectus ea asperiores sit ex.\nOfficiis ut provident dolorem."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 2,
+                            SentAt = new DateTime(2023, 2, 5, 23, 51, 37, 495, DateTimeKind.Local).AddTicks(9557),
+                            Text = "Maiores iusto dolor fugiat.\nUt nesciunt fugiat non deleniti esse."
                         },
                         new
                         {
                             Id = 155,
-                            ChatId = 20,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 3, 4, 3, 22, 1, 996, DateTimeKind.Local).AddTicks(6444),
-                            Text = "Accusamus et illo quia assumenda quis qui.\nLaudantium soluta expedita placeat."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 60,
+                            SentAt = new DateTime(2022, 5, 3, 15, 13, 57, 658, DateTimeKind.Local).AddTicks(8861),
+                            Text = "Nam sit molestiae enim.\nEst est neque voluptatem debitis ad tenetur sint quod error."
                         },
                         new
                         {
                             Id = 156,
-                            ChatId = 16,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 7, 29, 4, 51, 22, 669, DateTimeKind.Local).AddTicks(6956),
-                            Text = "Aliquam est laudantium eveniet quo explicabo qui cum repudiandae.\nAliquid occaecati expedita aspernatur accusamus laborum corporis."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 61,
+                            SentAt = new DateTime(2022, 6, 27, 18, 22, 57, 792, DateTimeKind.Local).AddTicks(1764),
+                            Text = "Quis reiciendis ad sunt.\nUt cupiditate rerum."
                         },
                         new
                         {
                             Id = 157,
-                            ChatId = 7,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 8, 14, 3, 56, 54, 888, DateTimeKind.Local).AddTicks(4473),
-                            Text = "Corrupti sunt quis saepe odio dolores facere.\nFacilis ut quis blanditiis animi mollitia quo a."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 60,
+                            SentAt = new DateTime(2022, 6, 24, 18, 31, 32, 645, DateTimeKind.Local).AddTicks(8133),
+                            Text = "Voluptatem non animi ea nam qui dignissimos quasi.\nModi eum occaecati natus omnis delectus."
                         },
                         new
                         {
                             Id = 158,
-                            ChatId = 13,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 1, 21, 15, 57, 10, 622, DateTimeKind.Local).AddTicks(2072),
-                            Text = "Vero et ut voluptate id ut illum ex.\nAccusantium provident et est nisi autem et."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 21,
+                            SentAt = new DateTime(2022, 2, 28, 17, 5, 53, 838, DateTimeKind.Local).AddTicks(4649),
+                            Text = "Quod dolor at ipsum necessitatibus a id nobis sint laborum.\nVoluptas qui incidunt incidunt temporibus explicabo."
                         },
                         new
                         {
                             Id = 159,
-                            ChatId = 5,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 6, 9, 4, 30, 13, 525, DateTimeKind.Local).AddTicks(8895),
-                            Text = "Adipisci aliquid tempora autem sequi quaerat consectetur.\nVoluptatibus voluptatem et aut et."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 26,
+                            SentAt = new DateTime(2022, 11, 12, 15, 8, 27, 208, DateTimeKind.Local).AddTicks(6873),
+                            Text = "Illum modi aut.\nSuscipit suscipit repellendus consectetur eos et eum minus officia."
                         },
                         new
                         {
                             Id = 160,
-                            ChatId = 11,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 12, 20, 2, 47, 54, 498, DateTimeKind.Local).AddTicks(8637),
-                            Text = "Adipisci eaque quis laborum voluptas labore aut suscipit modi aliquid.\nUt provident dolor quia laborum."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 15,
+                            SentAt = new DateTime(2022, 7, 21, 2, 5, 35, 931, DateTimeKind.Local).AddTicks(5412),
+                            Text = "Quae aliquid voluptatem porro aut enim voluptatem accusantium iste veniam.\nQuam tenetur est molestiae rerum aut commodi ullam nesciunt aspernatur."
                         },
                         new
                         {
                             Id = 161,
-                            ChatId = 16,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 11, 12, 15, 25, 40, 952, DateTimeKind.Local).AddTicks(4930),
-                            Text = "Iusto eos est sequi.\nMolestias inventore reiciendis rerum magnam dolorem."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 47,
+                            SentAt = new DateTime(2022, 10, 22, 5, 8, 48, 765, DateTimeKind.Local).AddTicks(3890),
+                            Text = "Ipsum itaque deserunt vel qui maiores architecto aut.\nVoluptatibus molestiae sint iusto possimus corrupti."
                         },
                         new
                         {
                             Id = 162,
-                            ChatId = 14,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 1, 19, 1, 20, 56, 327, DateTimeKind.Local).AddTicks(8654),
-                            Text = "Labore placeat in voluptas labore ipsum veniam quod qui unde.\nNisi ad nemo vel ex quis et sapiente numquam."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 52,
+                            SentAt = new DateTime(2022, 12, 28, 17, 24, 40, 717, DateTimeKind.Local).AddTicks(1171),
+                            Text = "Voluptas non in iusto qui reprehenderit quos natus accusamus.\nDoloremque quos pariatur laudantium porro sed."
                         },
                         new
                         {
                             Id = 163,
-                            ChatId = 15,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 6, 4, 3, 3, 49, 978, DateTimeKind.Local).AddTicks(5342),
-                            Text = "Enim cupiditate facere quam et.\nEsse non aliquam quia unde cumque voluptatem."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 40,
+                            SentAt = new DateTime(2023, 1, 12, 13, 15, 14, 210, DateTimeKind.Local).AddTicks(1871),
+                            Text = "Dolorum alias itaque earum assumenda et.\nDeserunt recusandae voluptates sint."
                         },
                         new
                         {
                             Id = 164,
-                            ChatId = 5,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 7, 18, 18, 26, 31, 51, DateTimeKind.Local).AddTicks(6925),
-                            Text = "A facilis ea ipsa recusandae voluptatem.\nNostrum placeat quia suscipit et quasi totam alias quibusdam sed."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 26,
+                            SentAt = new DateTime(2022, 3, 13, 1, 24, 31, 330, DateTimeKind.Local).AddTicks(9241),
+                            Text = "Hic aut placeat rerum blanditiis nesciunt qui id quibusdam.\nA id nisi ut ipsum earum."
                         },
                         new
                         {
                             Id = 165,
                             ChatId = 5,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 5, 22, 3, 39, 15, 770, DateTimeKind.Local).AddTicks(411),
-                            Text = "Facere iste aut impedit beatae quia voluptatem rerum placeat in.\nTemporibus rerum eum non."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 29,
+                            SentAt = new DateTime(2023, 1, 11, 21, 9, 0, 314, DateTimeKind.Local).AddTicks(4577),
+                            Text = "Corrupti deserunt numquam sed.\nMagni ut nesciunt explicabo."
                         },
                         new
                         {
                             Id = 166,
-                            ChatId = 1,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 12, 27, 5, 42, 58, 472, DateTimeKind.Local).AddTicks(572),
-                            Text = "A vel modi velit aut et cum et ut saepe.\nMinus cum qui in."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 23,
+                            SentAt = new DateTime(2022, 12, 23, 0, 55, 53, 864, DateTimeKind.Local).AddTicks(5164),
+                            Text = "Modi quod vel nostrum rem aliquam vel rerum.\nIn qui dignissimos eveniet."
                         },
                         new
                         {
                             Id = 167,
-                            ChatId = 14,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 5, 30, 6, 34, 29, 298, DateTimeKind.Local).AddTicks(5180),
-                            Text = "In doloribus aut quibusdam sed quo dolore sed.\nAccusantium ut sequi iste id atque blanditiis perspiciatis."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 30,
+                            SentAt = new DateTime(2022, 8, 12, 6, 1, 33, 993, DateTimeKind.Local).AddTicks(3160),
+                            Text = "Totam magni itaque sed dolorem perspiciatis vero.\nSit nihil qui incidunt sint sit qui voluptatibus repudiandae."
                         },
                         new
                         {
                             Id = 168,
-                            ChatId = 8,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 8, 21, 2, 7, 48, 735, DateTimeKind.Local).AddTicks(7370),
-                            Text = "Aliquid ex qui occaecati facilis eius autem a.\nVoluptatem sit quam."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 36,
+                            SentAt = new DateTime(2022, 12, 1, 22, 37, 59, 805, DateTimeKind.Local).AddTicks(958),
+                            Text = "Dolore voluptatem est nemo tenetur dolor illo.\nUt ut labore commodi."
                         },
                         new
                         {
                             Id = 169,
-                            ChatId = 6,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 6, 29, 2, 3, 53, 104, DateTimeKind.Local).AddTicks(4786),
-                            Text = "Ratione iste pariatur impedit et.\nNon voluptas omnis ut quis voluptatem voluptas doloremque iste officia."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 44,
+                            SentAt = new DateTime(2022, 11, 23, 19, 4, 27, 562, DateTimeKind.Local).AddTicks(4948),
+                            Text = "Consequatur exercitationem omnis.\nEst quibusdam et expedita eius aperiam."
                         },
                         new
                         {
                             Id = 170,
-                            ChatId = 12,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 11, 29, 19, 16, 42, 271, DateTimeKind.Local).AddTicks(9418),
-                            Text = "Pariatur sunt in nam ipsa sit ad.\nFuga iusto assumenda in perspiciatis in facilis minima et."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 49,
+                            SentAt = new DateTime(2023, 2, 3, 2, 21, 8, 873, DateTimeKind.Local).AddTicks(1718),
+                            Text = "Id eius et provident natus quasi excepturi qui maiores.\nSaepe ut adipisci porro."
                         },
                         new
                         {
                             Id = 171,
-                            ChatId = 1,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 4, 2, 10, 1, 37, 70, DateTimeKind.Local).AddTicks(6402),
-                            Text = "Eum labore consequatur consequuntur ut.\nUt adipisci accusantium nihil consequuntur aliquam aut quis."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 54,
+                            SentAt = new DateTime(2022, 9, 12, 3, 14, 56, 321, DateTimeKind.Local).AddTicks(6501),
+                            Text = "Dolor autem et eos rerum excepturi enim ut consequuntur fugit.\nIpsa soluta qui voluptas aut."
                         },
                         new
                         {
                             Id = 172,
-                            ChatId = 2,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 10, 3, 19, 20, 18, 312, DateTimeKind.Local).AddTicks(7868),
-                            Text = "Rerum quod debitis ut aut dolores.\nDolore laborum totam et delectus exercitationem."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 28,
+                            SentAt = new DateTime(2022, 3, 7, 17, 38, 42, 964, DateTimeKind.Local).AddTicks(2594),
+                            Text = "Rem placeat odit nihil molestiae inventore sed ut.\nQuia voluptatem dolor facere qui mollitia ab."
                         },
                         new
                         {
                             Id = 173,
-                            ChatId = 3,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 12, 25, 10, 0, 33, 829, DateTimeKind.Local).AddTicks(8620),
-                            Text = "Quia voluptatem esse nulla quos.\nNatus veritatis voluptatem iste soluta eum cupiditate id eum."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 27,
+                            SentAt = new DateTime(2023, 2, 4, 3, 47, 12, 111, DateTimeKind.Local).AddTicks(7096),
+                            Text = "Quos incidunt quasi qui ratione recusandae repudiandae dolor consectetur.\nOdio cupiditate maxime."
                         },
                         new
                         {
                             Id = 174,
-                            ChatId = 17,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 12, 14, 5, 40, 13, 435, DateTimeKind.Local).AddTicks(4412),
-                            Text = "Pariatur ut deserunt molestiae.\nAccusamus non facere distinctio minus."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 51,
+                            SentAt = new DateTime(2022, 11, 20, 10, 51, 14, 999, DateTimeKind.Local).AddTicks(4750),
+                            Text = "Sint et vel et et neque dignissimos.\nPerferendis enim et voluptatem corrupti et voluptatem atque reiciendis sunt."
                         },
                         new
                         {
                             Id = 175,
-                            ChatId = 13,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 11, 23, 19, 43, 1, 55, DateTimeKind.Local).AddTicks(4666),
-                            Text = "Blanditiis omnis odio.\nConsequatur excepturi odit voluptas eos aut et qui voluptatem placeat."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 62,
+                            SentAt = new DateTime(2022, 9, 2, 23, 3, 23, 452, DateTimeKind.Local).AddTicks(7169),
+                            Text = "Voluptatem voluptatibus dolorem necessitatibus et sapiente aut libero omnis dolores.\nQui rem est nisi ex provident quo tempore eveniet sapiente."
                         },
                         new
                         {
                             Id = 176,
-                            ChatId = 6,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 6, 7, 21, 29, 31, 400, DateTimeKind.Local).AddTicks(1253),
-                            Text = "Voluptatem et totam sit et corporis sit aliquam harum vel.\nDelectus illum eligendi molestias laudantium est quia eum quo."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 45,
+                            SentAt = new DateTime(2022, 10, 15, 9, 27, 0, 491, DateTimeKind.Local).AddTicks(6758),
+                            Text = "Illum ut et minus corrupti itaque voluptates natus qui.\nQuisquam dolores aut illum culpa nobis atque minus inventore."
                         },
                         new
                         {
                             Id = 177,
-                            ChatId = 15,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 1, 23, 6, 42, 27, 789, DateTimeKind.Local).AddTicks(2515),
-                            Text = "Minima ea laborum.\nQui velit aut tempora perspiciatis qui."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 29,
+                            SentAt = new DateTime(2022, 10, 6, 13, 57, 59, 736, DateTimeKind.Local).AddTicks(7290),
+                            Text = "Quae aut minima dolorum.\nQuaerat ratione voluptatum esse iure."
                         },
                         new
                         {
                             Id = 178,
-                            ChatId = 3,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 6, 29, 19, 12, 28, 256, DateTimeKind.Local).AddTicks(7507),
-                            Text = "Porro eligendi beatae.\nNeque dolorem unde laboriosam esse porro eos distinctio architecto."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 10,
+                            SentAt = new DateTime(2022, 4, 18, 4, 7, 10, 332, DateTimeKind.Local).AddTicks(253),
+                            Text = "Ullam consectetur sit.\nQui doloribus quasi omnis deleniti molestias voluptatem."
                         },
                         new
                         {
                             Id = 179,
-                            ChatId = 17,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 2, 24, 12, 50, 43, 313, DateTimeKind.Local).AddTicks(8317),
-                            Text = "Saepe recusandae ratione porro iusto et eos id.\nRepudiandae quia fuga magni voluptatum nulla aperiam voluptate nesciunt nam."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 22,
+                            SentAt = new DateTime(2022, 9, 19, 18, 57, 42, 288, DateTimeKind.Local).AddTicks(4717),
+                            Text = "Ab qui officia deserunt autem error tenetur facilis et.\nConsectetur cum ut iste."
                         },
                         new
                         {
                             Id = 180,
                             ChatId = 8,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 7, 22, 10, 18, 37, 564, DateTimeKind.Local).AddTicks(1721),
-                            Text = "Dicta et quasi architecto dolorem dolorem.\nTenetur placeat dolor eius quisquam."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 11,
+                            SentAt = new DateTime(2022, 12, 24, 23, 34, 24, 975, DateTimeKind.Local).AddTicks(724),
+                            Text = "Rerum voluptatem voluptatem qui dicta harum et recusandae.\nQuia dignissimos natus tenetur dolores assumenda iste et debitis similique."
                         },
                         new
                         {
                             Id = 181,
-                            ChatId = 18,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 6, 5, 21, 12, 38, 425, DateTimeKind.Local).AddTicks(9330),
-                            Text = "Omnis et dolorum optio pariatur esse ut.\nDolor consequatur reiciendis."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 57,
+                            SentAt = new DateTime(2022, 12, 30, 20, 59, 3, 800, DateTimeKind.Local).AddTicks(3846),
+                            Text = "Ut quam libero commodi labore expedita quaerat aut.\nArchitecto ut aperiam odio laboriosam est fugiat et est repellat."
                         },
                         new
                         {
                             Id = 182,
-                            ChatId = 1,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 5, 27, 5, 31, 29, 934, DateTimeKind.Local).AddTicks(1345),
-                            Text = "Aliquid perspiciatis est sit laudantium ipsa est quae.\nHic aut reprehenderit et dicta ducimus aut eos voluptas voluptatem."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 30,
+                            SentAt = new DateTime(2022, 11, 24, 15, 19, 13, 620, DateTimeKind.Local).AddTicks(9817),
+                            Text = "Expedita nesciunt officia cumque et magnam sed aperiam.\nUt numquam adipisci alias."
                         },
                         new
                         {
                             Id = 183,
-                            ChatId = 9,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 7, 23, 18, 30, 38, 539, DateTimeKind.Local).AddTicks(381),
-                            Text = "Tenetur aut a aut in animi necessitatibus.\nTempore consequuntur quia voluptatem aut non debitis."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 51,
+                            SentAt = new DateTime(2022, 9, 21, 0, 59, 22, 415, DateTimeKind.Local).AddTicks(9838),
+                            Text = "Soluta facere nulla accusantium laudantium.\nQui tempore fugiat quam eveniet expedita harum ut."
                         },
                         new
                         {
                             Id = 184,
-                            ChatId = 11,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 10, 24, 21, 33, 54, 544, DateTimeKind.Local).AddTicks(1170),
-                            Text = "Eius omnis aperiam omnis.\nEum nihil consequatur magnam pariatur ut voluptas."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 58,
+                            SentAt = new DateTime(2022, 4, 23, 4, 5, 38, 789, DateTimeKind.Local).AddTicks(9092),
+                            Text = "Excepturi id facere veniam saepe.\nConsequatur consequatur autem ut dolorum."
                         },
                         new
                         {
                             Id = 185,
-                            ChatId = 9,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 8, 19, 21, 16, 5, 570, DateTimeKind.Local).AddTicks(7475),
-                            Text = "Ab eos distinctio provident doloribus iste molestiae tempore inventore.\nEa minima ipsa aperiam."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 49,
+                            SentAt = new DateTime(2022, 2, 21, 12, 44, 15, 820, DateTimeKind.Local).AddTicks(5867),
+                            Text = "Voluptas accusantium consequatur nulla dolor blanditiis delectus eos eius.\nAd qui sint cum numquam voluptate sed illum."
                         },
                         new
                         {
                             Id = 186,
                             ChatId = 7,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 1, 24, 3, 16, 6, 24, DateTimeKind.Local).AddTicks(1039),
-                            Text = "Ut facere cumque rerum perferendis atque nostrum et culpa.\nEsse magni dolore quia sint voluptas nobis accusantium iure sed."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 51,
+                            SentAt = new DateTime(2022, 2, 28, 20, 52, 38, 833, DateTimeKind.Local).AddTicks(9236),
+                            Text = "Iste ut sit.\nEius tenetur et."
                         },
                         new
                         {
                             Id = 187,
-                            ChatId = 2,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 10, 12, 18, 57, 42, 709, DateTimeKind.Local).AddTicks(3819),
-                            Text = "Voluptatem eligendi dolore consequatur.\nDeserunt in eos beatae consequuntur totam aperiam nam."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 34,
+                            SentAt = new DateTime(2023, 2, 2, 16, 33, 0, 80, DateTimeKind.Local).AddTicks(5933),
+                            Text = "Culpa alias non.\nAutem reprehenderit ducimus voluptatum ea ratione sed."
                         },
                         new
                         {
                             Id = 188,
-                            ChatId = 10,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 8, 22, 3, 6, 13, 4, DateTimeKind.Local).AddTicks(6864),
-                            Text = "Voluptatibus quo voluptates molestias ut sed voluptatibus.\nVoluptatibus neque pariatur sed ad aperiam libero tempore veniam."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 22,
+                            SentAt = new DateTime(2022, 9, 13, 9, 7, 2, 24, DateTimeKind.Local).AddTicks(9843),
+                            Text = "Necessitatibus labore numquam qui quo aut.\nQuia ut corrupti aut et et libero."
                         },
                         new
                         {
                             Id = 189,
-                            ChatId = 20,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 9, 20, 14, 32, 5, 258, DateTimeKind.Local).AddTicks(6682),
-                            Text = "Maxime consequuntur excepturi et.\nDolore eum molestiae."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 61,
+                            SentAt = new DateTime(2022, 12, 27, 7, 13, 30, 638, DateTimeKind.Local).AddTicks(3695),
+                            Text = "Vero a cum tempora necessitatibus aut.\nVoluptate vel voluptatibus consectetur ut consectetur et in doloremque nisi."
                         },
                         new
                         {
                             Id = 190,
-                            ChatId = 7,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 7, 25, 8, 12, 1, 81, DateTimeKind.Local).AddTicks(752),
-                            Text = "Expedita inventore magnam nam assumenda molestias.\nEt occaecati iure nihil dolores quae accusantium aliquid sint officia."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 54,
+                            SentAt = new DateTime(2022, 3, 19, 17, 55, 12, 998, DateTimeKind.Local).AddTicks(7996),
+                            Text = "Maiores eligendi sit ea error officiis asperiores.\nExcepturi perspiciatis et sit exercitationem a expedita et et iste."
                         },
                         new
                         {
                             Id = 191,
-                            ChatId = 6,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 2, 26, 23, 25, 22, 851, DateTimeKind.Local).AddTicks(2747),
-                            Text = "Nihil sunt neque.\nQuaerat quia ut molestias rerum illum quos."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 2,
+                            SentAt = new DateTime(2022, 9, 28, 3, 38, 29, 640, DateTimeKind.Local).AddTicks(8984),
+                            Text = "Quis modi quod similique rerum.\nIncidunt doloremque dicta fuga."
                         },
                         new
                         {
                             Id = 192,
-                            ChatId = 17,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 4, 10, 4, 23, 54, 613, DateTimeKind.Local).AddTicks(6206),
-                            Text = "Quo veritatis impedit a iste ipsam numquam.\nSaepe qui sunt dolorem nihil voluptatem quod laboriosam recusandae."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 37,
+                            SentAt = new DateTime(2022, 8, 19, 10, 18, 46, 889, DateTimeKind.Local).AddTicks(109),
+                            Text = "Et molestiae unde aperiam quaerat nulla tempora vel corrupti.\nEt quo animi sit qui."
                         },
                         new
                         {
                             Id = 193,
-                            ChatId = 10,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 4, 15, 3, 49, 14, 390, DateTimeKind.Local).AddTicks(9616),
-                            Text = "Cum nihil qui sit.\nEnim eum iure sit impedit."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 47,
+                            SentAt = new DateTime(2022, 9, 13, 17, 5, 54, 586, DateTimeKind.Local).AddTicks(2624),
+                            Text = "Est voluptas ullam ex consequatur omnis corporis.\nDoloribus nulla totam et nemo ullam et cum similique reprehenderit."
                         },
                         new
                         {
                             Id = 194,
-                            ChatId = 13,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 5, 17, 4, 5, 8, 31, DateTimeKind.Local).AddTicks(1640),
-                            Text = "Laudantium quis voluptatem laboriosam aspernatur non doloremque consequatur qui.\nUllam adipisci voluptatem debitis sed aut necessitatibus mollitia a."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 53,
+                            SentAt = new DateTime(2022, 6, 13, 4, 1, 53, 668, DateTimeKind.Local).AddTicks(3586),
+                            Text = "Aut voluptatem temporibus et neque veniam iure asperiores impedit praesentium.\nIllum nulla et sunt nam id ducimus voluptatem."
                         },
                         new
                         {
                             Id = 195,
-                            ChatId = 9,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 6, 18, 19, 9, 57, 839, DateTimeKind.Local).AddTicks(4304),
-                            Text = "Optio aut asperiores.\nAut rerum qui eos et voluptatem voluptatibus earum dolorem recusandae."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 58,
+                            SentAt = new DateTime(2022, 5, 23, 11, 5, 54, 180, DateTimeKind.Local).AddTicks(9154),
+                            Text = "Voluptatibus sunt quo minus vel cum.\nCommodi autem quos ex odit eveniet a."
                         },
                         new
                         {
                             Id = 196,
-                            ChatId = 16,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 9, 27, 7, 47, 16, 113, DateTimeKind.Local).AddTicks(5806),
-                            Text = "Consequuntur eligendi cum ad assumenda eaque harum.\nPariatur sit fugit sint minus aperiam sint et."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 11,
+                            SentAt = new DateTime(2023, 2, 6, 13, 37, 34, 468, DateTimeKind.Local).AddTicks(2820),
+                            Text = "In id delectus earum non laboriosam laudantium temporibus laudantium repellat.\nOfficiis ullam eaque eum omnis nihil voluptates eum."
                         },
                         new
                         {
                             Id = 197,
-                            ChatId = 20,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 11, 6, 4, 4, 29, 878, DateTimeKind.Local).AddTicks(1304),
-                            Text = "Quis ratione cumque.\nMaiores asperiores temporibus."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 48,
+                            SentAt = new DateTime(2022, 8, 16, 19, 21, 50, 210, DateTimeKind.Local).AddTicks(9239),
+                            Text = "Ratione quia eius.\nSint adipisci qui id."
                         },
                         new
                         {
                             Id = 198,
-                            ChatId = 9,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 1, 6, 13, 20, 16, 529, DateTimeKind.Local).AddTicks(8695),
-                            Text = "Quaerat a recusandae error.\nPraesentium quis eaque ipsam vel rerum."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 8,
+                            SentAt = new DateTime(2022, 10, 16, 20, 52, 12, 113, DateTimeKind.Local).AddTicks(3614),
+                            Text = "Deleniti omnis tenetur dicta incidunt vel.\nCulpa omnis quae vitae autem deleniti dolorum excepturi omnis."
                         },
                         new
                         {
                             Id = 199,
-                            ChatId = 13,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 4, 9, 0, 42, 3, 475, DateTimeKind.Local).AddTicks(9026),
-                            Text = "Consectetur voluptas aut sed corrupti amet quo.\nDebitis vero reprehenderit sunt dignissimos itaque officia et voluptatem voluptas."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 7,
+                            SentAt = new DateTime(2022, 10, 21, 12, 32, 36, 338, DateTimeKind.Local).AddTicks(235),
+                            Text = "Ea non impedit at ut consequatur fuga non deserunt.\nBeatae deserunt officia vel culpa voluptas aspernatur ut."
                         },
                         new
                         {
                             Id = 200,
-                            ChatId = 17,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 8, 7, 7, 46, 52, 562, DateTimeKind.Local).AddTicks(8955),
-                            Text = "Ut cum tempore provident aut ipsum eius ipsa.\nNatus consequatur praesentium."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 9,
+                            SentAt = new DateTime(2022, 8, 9, 14, 12, 2, 602, DateTimeKind.Local).AddTicks(5332),
+                            Text = "Ipsam ea quis eius quia enim aspernatur iste provident architecto.\nNumquam quasi et dolorem aut explicabo."
                         },
                         new
                         {
                             Id = 201,
-                            ChatId = 7,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 2, 19, 8, 26, 27, 243, DateTimeKind.Local).AddTicks(1005),
-                            Text = "Asperiores sed quasi natus ipsum ut delectus quos.\nMinima velit qui nihil magni id aspernatur."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 27,
+                            SentAt = new DateTime(2023, 1, 1, 17, 7, 7, 166, DateTimeKind.Local).AddTicks(7836),
+                            Text = "Voluptate ab earum temporibus consequatur.\nTempora officia asperiores ut dicta enim."
                         },
                         new
                         {
                             Id = 202,
-                            ChatId = 5,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 3, 7, 19, 44, 4, 152, DateTimeKind.Local).AddTicks(1841),
-                            Text = "Sapiente amet debitis maxime voluptate ea ut.\nIure et accusamus accusantium numquam."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 61,
+                            SentAt = new DateTime(2022, 11, 16, 16, 49, 11, 881, DateTimeKind.Local).AddTicks(643),
+                            Text = "Nihil consequuntur repellendus.\nNon provident est beatae."
                         },
                         new
                         {
                             Id = 203,
-                            ChatId = 7,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 10, 29, 22, 18, 5, 82, DateTimeKind.Local).AddTicks(2204),
-                            Text = "Non maiores quia velit ut ex.\nQuo quae est est molestias quo modi itaque."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 9,
+                            SentAt = new DateTime(2022, 12, 12, 19, 46, 9, 655, DateTimeKind.Local).AddTicks(7610),
+                            Text = "Voluptatem non laudantium.\nIusto sit rem modi dicta iure molestias quaerat autem."
                         },
                         new
                         {
                             Id = 204,
-                            ChatId = 12,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 3, 9, 7, 37, 39, 245, DateTimeKind.Local).AddTicks(6185),
-                            Text = "Eos occaecati quos.\nEt possimus officiis quaerat."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 61,
+                            SentAt = new DateTime(2022, 4, 26, 5, 57, 56, 44, DateTimeKind.Local).AddTicks(8311),
+                            Text = "Ipsam et earum ex dolorem repellendus eos minus in.\nAspernatur earum possimus quod aliquam."
                         },
                         new
                         {
                             Id = 205,
-                            ChatId = 4,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 7, 8, 20, 17, 43, 658, DateTimeKind.Local).AddTicks(3878),
-                            Text = "Est earum a quam similique voluptate ea delectus.\nNostrum optio sed."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 54,
+                            SentAt = new DateTime(2022, 8, 23, 10, 46, 3, 31, DateTimeKind.Local).AddTicks(6688),
+                            Text = "Nihil non sunt eos sunt.\nConsequatur fugiat culpa vel aut."
                         },
                         new
                         {
                             Id = 206,
-                            ChatId = 4,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 10, 25, 21, 49, 18, 333, DateTimeKind.Local).AddTicks(62),
-                            Text = "Quidem ullam enim consequatur tenetur sunt accusamus in et.\nNon magni nemo alias error libero dicta dolorem ex."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 26,
+                            SentAt = new DateTime(2022, 8, 9, 16, 56, 16, 908, DateTimeKind.Local).AddTicks(6255),
+                            Text = "Earum voluptatem illum officiis sit amet nihil dolorem a odio.\nVitae quia autem omnis."
                         },
                         new
                         {
                             Id = 207,
-                            ChatId = 18,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 2, 17, 10, 48, 14, 650, DateTimeKind.Local).AddTicks(5858),
-                            Text = "Officia omnis eius vitae.\nAnimi suscipit est ut sit quae."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 63,
+                            SentAt = new DateTime(2022, 5, 1, 5, 18, 36, 686, DateTimeKind.Local).AddTicks(7273),
+                            Text = "Esse impedit eveniet nihil illo enim tempore consequatur dolorem.\nOmnis dolorem in."
                         },
                         new
                         {
                             Id = 208,
-                            ChatId = 2,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 11, 25, 21, 44, 14, 464, DateTimeKind.Local).AddTicks(9),
-                            Text = "Ab recusandae quae voluptas adipisci perspiciatis.\nOdit delectus culpa aut iure velit."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 35,
+                            SentAt = new DateTime(2022, 4, 13, 13, 51, 47, 382, DateTimeKind.Local).AddTicks(1393),
+                            Text = "Accusamus molestiae sint voluptas dolores quidem distinctio facilis libero omnis.\nQuidem natus vel."
                         },
                         new
                         {
                             Id = 209,
-                            ChatId = 16,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 6, 5, 2, 26, 25, 382, DateTimeKind.Local).AddTicks(1719),
-                            Text = "Officia eligendi modi commodi odio qui rerum delectus.\nDucimus eius veritatis molestiae quam optio corporis aut veritatis adipisci."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 36,
+                            SentAt = new DateTime(2022, 10, 18, 7, 44, 27, 953, DateTimeKind.Local).AddTicks(9616),
+                            Text = "Nihil dolores ipsam rerum.\nOptio dolores doloribus eligendi in qui iusto itaque non omnis."
                         },
                         new
                         {
                             Id = 210,
-                            ChatId = 2,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 12, 12, 0, 13, 55, 436, DateTimeKind.Local).AddTicks(9545),
-                            Text = "Ut molestias voluptatum vitae omnis voluptatem est.\nDolorum dolores iure ad consequatur aut ducimus."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 35,
+                            SentAt = new DateTime(2022, 11, 9, 5, 38, 46, 953, DateTimeKind.Local).AddTicks(552),
+                            Text = "Voluptatibus vero sit numquam.\nUllam qui eligendi placeat ullam quia debitis consequatur."
                         },
                         new
                         {
                             Id = 211,
-                            ChatId = 8,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 3, 13, 18, 49, 57, 988, DateTimeKind.Local).AddTicks(2082),
-                            Text = "Nulla numquam voluptatibus autem.\nDistinctio placeat esse et est at consequuntur ea ipsam."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 5,
+                            SentAt = new DateTime(2022, 5, 19, 22, 20, 33, 995, DateTimeKind.Local).AddTicks(7032),
+                            Text = "Aspernatur velit vero nesciunt aliquam reprehenderit.\nEst laboriosam recusandae molestias et et incidunt nihil alias quae."
                         },
                         new
                         {
                             Id = 212,
-                            ChatId = 11,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 6, 20, 13, 15, 2, 926, DateTimeKind.Local).AddTicks(1731),
-                            Text = "Enim voluptatem sit.\nSimilique optio nisi fugit."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 40,
+                            SentAt = new DateTime(2022, 8, 10, 15, 42, 56, 604, DateTimeKind.Local).AddTicks(514),
+                            Text = "Cupiditate tenetur numquam voluptas debitis.\nNon omnis et aut nam nostrum inventore nobis reiciendis."
                         },
                         new
                         {
                             Id = 213,
                             ChatId = 1,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 10, 26, 23, 58, 22, 245, DateTimeKind.Local).AddTicks(6626),
-                            Text = "Et ut aut.\nIpsam repudiandae ut commodi voluptas harum consequatur id."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 15,
+                            SentAt = new DateTime(2022, 9, 28, 8, 6, 32, 455, DateTimeKind.Local).AddTicks(120),
+                            Text = "Eum quibusdam tempora expedita iure nostrum rerum quod.\nLaborum id cum et consequatur reprehenderit."
                         },
                         new
                         {
                             Id = 214,
-                            ChatId = 11,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 1, 11, 18, 29, 34, 686, DateTimeKind.Local).AddTicks(8241),
-                            Text = "Ea vero qui rem quis illo ipsum amet et.\nConsequatur ut praesentium labore repellat ea deserunt omnis."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 45,
+                            SentAt = new DateTime(2023, 1, 27, 16, 48, 12, 12, DateTimeKind.Local).AddTicks(4481),
+                            Text = "Placeat rerum explicabo provident esse voluptatem.\nCorrupti explicabo autem."
                         },
                         new
                         {
                             Id = 215,
-                            ChatId = 19,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 7, 14, 22, 17, 2, 544, DateTimeKind.Local).AddTicks(6315),
-                            Text = "Aut autem perferendis nostrum aut minima iusto excepturi.\nConsectetur aliquid quaerat aliquam."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 55,
+                            SentAt = new DateTime(2022, 6, 20, 15, 39, 30, 295, DateTimeKind.Local).AddTicks(1500),
+                            Text = "Omnis est consectetur et quisquam et repellendus aut dolor est.\nQui doloribus et omnis."
                         },
                         new
                         {
                             Id = 216,
-                            ChatId = 14,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 9, 7, 19, 8, 52, 431, DateTimeKind.Local).AddTicks(1448),
-                            Text = "Nam ad quibusdam praesentium dolorem fugiat a rerum.\nAnimi eum quam nam laboriosam maiores culpa itaque id."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 1,
+                            SentAt = new DateTime(2022, 5, 26, 7, 24, 48, 126, DateTimeKind.Local).AddTicks(2715),
+                            Text = "Voluptatum id facilis.\nNostrum voluptatibus laudantium accusantium."
                         },
                         new
                         {
                             Id = 217,
-                            ChatId = 16,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 11, 12, 15, 24, 22, 324, DateTimeKind.Local).AddTicks(566),
-                            Text = "Rerum aut et minus vel optio blanditiis consectetur.\nId aut non consequatur ut incidunt autem."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 16,
+                            SentAt = new DateTime(2022, 6, 10, 19, 33, 56, 431, DateTimeKind.Local).AddTicks(4828),
+                            Text = "Qui asperiores aut iusto voluptates aperiam et laborum odit.\nVelit in ducimus."
                         },
                         new
                         {
                             Id = 218,
-                            ChatId = 6,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 5, 13, 4, 0, 45, 692, DateTimeKind.Local).AddTicks(6573),
-                            Text = "Ab suscipit voluptatem repudiandae occaecati necessitatibus sed.\nAccusamus enim voluptatem at rerum aut in sit."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 10,
+                            SentAt = new DateTime(2022, 8, 6, 8, 29, 52, 228, DateTimeKind.Local).AddTicks(6617),
+                            Text = "Ratione sunt praesentium ut aperiam et necessitatibus.\nVel magnam magni adipisci quos nemo."
                         },
                         new
                         {
                             Id = 219,
-                            ChatId = 17,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 11, 24, 16, 51, 32, 741, DateTimeKind.Local).AddTicks(659),
-                            Text = "Ullam inventore aliquid voluptatum quas a iusto distinctio.\nIn sit et vel modi eligendi odio."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 37,
+                            SentAt = new DateTime(2022, 9, 14, 1, 19, 16, 822, DateTimeKind.Local).AddTicks(5264),
+                            Text = "Et ut assumenda et velit omnis tempora officia cupiditate possimus.\nAutem omnis qui ut iure dolores quam aut."
                         },
                         new
                         {
                             Id = 220,
-                            ChatId = 15,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 11, 2, 12, 28, 1, 654, DateTimeKind.Local).AddTicks(7103),
-                            Text = "Est esse vitae hic at pariatur.\nSed consequatur molestias pariatur."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 34,
+                            SentAt = new DateTime(2023, 1, 5, 11, 34, 52, 465, DateTimeKind.Local).AddTicks(3144),
+                            Text = "Modi facilis itaque ullam reiciendis id.\nQuaerat et sequi dolorem."
                         },
                         new
                         {
                             Id = 221,
-                            ChatId = 10,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 4, 13, 1, 1, 5, 677, DateTimeKind.Local).AddTicks(7788),
-                            Text = "A rem soluta maxime sint provident praesentium rerum optio.\nVoluptatem esse dolor eos voluptas sed iste necessitatibus voluptatem."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 27,
+                            SentAt = new DateTime(2022, 5, 19, 4, 20, 57, 147, DateTimeKind.Local).AddTicks(2180),
+                            Text = "Iure non quibusdam.\nAut accusamus neque minima."
                         },
                         new
                         {
                             Id = 222,
-                            ChatId = 19,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 6, 27, 22, 26, 23, 955, DateTimeKind.Local).AddTicks(5392),
-                            Text = "Distinctio omnis magnam non omnis qui quo consequatur fugiat.\nQuo autem totam sint ad corporis voluptas."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 5,
+                            SentAt = new DateTime(2022, 7, 4, 11, 0, 40, 105, DateTimeKind.Local).AddTicks(5500),
+                            Text = "Iste in dolor ex non.\nEst sunt voluptatum aspernatur itaque saepe atque harum id."
                         },
                         new
                         {
                             Id = 223,
-                            ChatId = 7,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 7, 5, 4, 35, 50, 975, DateTimeKind.Local).AddTicks(1190),
-                            Text = "Eos non nesciunt aut ab non porro placeat iure.\nVitae eius cumque maiores."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 24,
+                            SentAt = new DateTime(2022, 7, 3, 2, 58, 9, 952, DateTimeKind.Local).AddTicks(3113),
+                            Text = "Consequatur molestias deserunt maiores distinctio ea voluptatem.\nSit esse et dolor est a."
                         },
                         new
                         {
                             Id = 224,
-                            ChatId = 5,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 6, 25, 22, 22, 33, 545, DateTimeKind.Local).AddTicks(9372),
-                            Text = "Qui ut incidunt inventore non explicabo rerum aut molestias.\nRerum repudiandae veniam aperiam."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 16,
+                            SentAt = new DateTime(2022, 4, 16, 2, 43, 16, 0, DateTimeKind.Local).AddTicks(9440),
+                            Text = "Delectus voluptatem laboriosam ipsa.\nEt sequi nihil voluptatem quos quaerat quisquam et autem."
                         },
                         new
                         {
                             Id = 225,
-                            ChatId = 2,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 1, 24, 11, 57, 58, 533, DateTimeKind.Local).AddTicks(1770),
-                            Text = "Fuga quos aliquid rem.\nRem hic id voluptas repellat."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 61,
+                            SentAt = new DateTime(2022, 6, 28, 16, 26, 19, 911, DateTimeKind.Local).AddTicks(1741),
+                            Text = "Porro fugit similique soluta commodi adipisci quam sed error.\nNisi voluptas quod enim blanditiis sint."
                         },
                         new
                         {
                             Id = 226,
-                            ChatId = 18,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 11, 19, 11, 15, 29, 585, DateTimeKind.Local).AddTicks(4020),
-                            Text = "Hic sunt quo itaque nam.\nEum at excepturi ipsam."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 46,
+                            SentAt = new DateTime(2022, 9, 11, 15, 38, 12, 520, DateTimeKind.Local).AddTicks(1877),
+                            Text = "Commodi molestias quia nihil tenetur quo officia.\nDolore id tenetur eius quos."
                         },
                         new
                         {
                             Id = 227,
-                            ChatId = 16,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 1, 10, 11, 44, 37, 516, DateTimeKind.Local).AddTicks(7091),
-                            Text = "Earum libero vero animi.\nBlanditiis maxime excepturi fuga non occaecati corrupti et quia quo."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 6,
+                            SentAt = new DateTime(2022, 4, 28, 19, 22, 49, 197, DateTimeKind.Local).AddTicks(7351),
+                            Text = "Facilis est sed.\nNesciunt deserunt sed ut."
                         },
                         new
                         {
                             Id = 228,
-                            ChatId = 14,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 2, 11, 18, 45, 46, 951, DateTimeKind.Local).AddTicks(1233),
-                            Text = "Sit quos sunt non accusantium eum et corporis qui.\nNam quia quos et eum sint ut officiis est."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 17,
+                            SentAt = new DateTime(2022, 4, 6, 8, 23, 55, 193, DateTimeKind.Local).AddTicks(1641),
+                            Text = "Nihil et id fugiat voluptatibus.\nEx consequatur aperiam similique."
                         },
                         new
                         {
                             Id = 229,
                             ChatId = 5,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 7, 18, 0, 52, 56, 906, DateTimeKind.Local).AddTicks(6975),
-                            Text = "Facere ab reprehenderit culpa rerum quam explicabo est labore mollitia.\nCorporis quod voluptas in dolores fugit molestiae."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 4,
+                            SentAt = new DateTime(2022, 11, 24, 10, 34, 47, 513, DateTimeKind.Local).AddTicks(2080),
+                            Text = "Tenetur enim magnam cupiditate sit necessitatibus modi assumenda libero illo.\nOmnis ut quasi harum possimus consequatur voluptatem dolores culpa dolores."
                         },
                         new
                         {
                             Id = 230,
-                            ChatId = 13,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 12, 7, 10, 39, 11, 821, DateTimeKind.Local).AddTicks(6894),
-                            Text = "Est repellendus minus et voluptatem architecto.\nFacere velit et ratione."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 21,
+                            SentAt = new DateTime(2022, 11, 26, 2, 11, 29, 577, DateTimeKind.Local).AddTicks(709),
+                            Text = "Inventore modi aspernatur.\nUnde consequatur ipsum velit sunt et repellendus."
                         },
                         new
                         {
                             Id = 231,
-                            ChatId = 3,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 6, 14, 5, 47, 9, 111, DateTimeKind.Local).AddTicks(6591),
-                            Text = "Nihil tenetur rem doloremque.\nBlanditiis corporis totam aut reiciendis et voluptas repudiandae voluptatem ea."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 23,
+                            SentAt = new DateTime(2022, 12, 10, 12, 45, 8, 424, DateTimeKind.Local).AddTicks(1367),
+                            Text = "Ut quisquam corporis molestias in aliquid.\nEt quidem consequatur."
                         },
                         new
                         {
                             Id = 232,
-                            ChatId = 20,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 12, 12, 6, 11, 51, 524, DateTimeKind.Local).AddTicks(4058),
-                            Text = "Inventore maiores quos aut.\nRerum veritatis nam iusto."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 63,
+                            SentAt = new DateTime(2022, 11, 26, 16, 3, 35, 224, DateTimeKind.Local).AddTicks(9894),
+                            Text = "Qui odio animi ratione.\nRerum explicabo qui quos."
                         },
                         new
                         {
                             Id = 233,
-                            ChatId = 11,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 7, 11, 23, 16, 19, 774, DateTimeKind.Local).AddTicks(8174),
-                            Text = "Dolore et sed.\nEt recusandae maxime pariatur magni porro non ut dolorum delectus."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 37,
+                            SentAt = new DateTime(2022, 8, 1, 23, 4, 7, 92, DateTimeKind.Local).AddTicks(1526),
+                            Text = "Dolorem labore ipsum pariatur corrupti repudiandae ducimus soluta.\nQuia ipsam est id incidunt rerum."
                         },
                         new
                         {
                             Id = 234,
-                            ChatId = 18,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 11, 7, 12, 55, 35, 172, DateTimeKind.Local).AddTicks(3530),
-                            Text = "Est dolores qui.\nSed voluptatem tempora illum."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 47,
+                            SentAt = new DateTime(2022, 7, 19, 14, 47, 22, 241, DateTimeKind.Local).AddTicks(2914),
+                            Text = "Voluptatem consequatur accusantium similique minus.\nVoluptas laudantium voluptas nostrum."
                         },
                         new
                         {
                             Id = 235,
-                            ChatId = 7,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 1, 5, 13, 27, 28, 251, DateTimeKind.Local).AddTicks(7089),
-                            Text = "Perferendis voluptatibus sunt.\nAccusantium ipsum quibusdam assumenda aut iusto sunt veniam numquam."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 59,
+                            SentAt = new DateTime(2023, 1, 18, 7, 49, 37, 283, DateTimeKind.Local).AddTicks(8518),
+                            Text = "Quia excepturi fugiat est.\nSint sint voluptates officia architecto aliquid fugit dolorum ipsam."
                         },
                         new
                         {
                             Id = 236,
-                            ChatId = 10,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 1, 12, 5, 26, 9, 131, DateTimeKind.Local).AddTicks(242),
-                            Text = "Deleniti corrupti voluptate.\nAutem totam ipsa saepe doloribus labore rerum."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 31,
+                            SentAt = new DateTime(2022, 6, 14, 2, 27, 56, 794, DateTimeKind.Local).AddTicks(9497),
+                            Text = "Sed animi unde.\nAutem necessitatibus in vel officia repellat esse."
                         },
                         new
                         {
                             Id = 237,
-                            ChatId = 7,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 12, 27, 17, 53, 23, 0, DateTimeKind.Local).AddTicks(2402),
-                            Text = "Magni omnis dicta dolorem dicta officiis asperiores nulla mollitia rerum.\nEveniet officiis culpa molestiae enim."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 38,
+                            SentAt = new DateTime(2022, 2, 16, 22, 34, 28, 310, DateTimeKind.Local).AddTicks(435),
+                            Text = "Aliquam exercitationem ipsam ratione numquam.\nAliquid enim hic."
                         },
                         new
                         {
                             Id = 238,
-                            ChatId = 19,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 9, 7, 14, 49, 38, 213, DateTimeKind.Local).AddTicks(7798),
-                            Text = "Ab reiciendis quasi et.\nSed vero consequatur corrupti nihil delectus."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 7,
+                            SentAt = new DateTime(2022, 10, 20, 23, 40, 32, 293, DateTimeKind.Local).AddTicks(4431),
+                            Text = "Atque culpa impedit ad molestiae voluptatem recusandae id tempore.\nExercitationem sequi molestias rem amet commodi similique voluptate eum vero."
                         },
                         new
                         {
                             Id = 239,
-                            ChatId = 16,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 3, 8, 2, 59, 40, 276, DateTimeKind.Local).AddTicks(4106),
-                            Text = "Suscipit sapiente nostrum.\nAliquid nesciunt ut nisi doloremque."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 32,
+                            SentAt = new DateTime(2023, 2, 12, 10, 33, 3, 404, DateTimeKind.Local).AddTicks(408),
+                            Text = "Doloribus reiciendis repellendus et reiciendis eaque earum.\nHarum sunt laudantium earum quod est similique sint."
                         },
                         new
                         {
                             Id = 240,
-                            ChatId = 12,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 11, 26, 18, 38, 32, 827, DateTimeKind.Local).AddTicks(3703),
-                            Text = "Qui vel architecto doloremque doloremque.\nDoloribus officiis ratione porro dicta aliquid et aut."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 34,
+                            SentAt = new DateTime(2022, 12, 1, 7, 44, 30, 766, DateTimeKind.Local).AddTicks(2721),
+                            Text = "Officiis aspernatur non.\nInventore inventore sit a."
                         },
                         new
                         {
                             Id = 241,
-                            ChatId = 7,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 5, 26, 22, 2, 48, 834, DateTimeKind.Local).AddTicks(8011),
-                            Text = "Qui ipsum aspernatur.\nModi culpa doloribus accusamus porro omnis assumenda eius ullam."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 25,
+                            SentAt = new DateTime(2022, 10, 13, 22, 41, 54, 240, DateTimeKind.Local).AddTicks(8118),
+                            Text = "Ut molestiae ab.\nDolor quisquam sunt assumenda atque recusandae enim commodi et."
                         },
                         new
                         {
                             Id = 242,
-                            ChatId = 1,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 4, 10, 19, 12, 55, 134, DateTimeKind.Local).AddTicks(9891),
-                            Text = "Est magnam possimus.\nAliquid ut repudiandae quos excepturi asperiores ut."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 40,
+                            SentAt = new DateTime(2022, 9, 12, 21, 16, 59, 690, DateTimeKind.Local).AddTicks(8096),
+                            Text = "Qui molestias fugit itaque.\nAperiam repellat et et quia."
                         },
                         new
                         {
                             Id = 243,
                             ChatId = 3,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 2, 24, 12, 47, 36, 476, DateTimeKind.Local).AddTicks(1915),
-                            Text = "Et aut repellendus eveniet architecto necessitatibus est in vel.\nDolorum non nisi dicta quo expedita blanditiis ullam et sit."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 8,
+                            SentAt = new DateTime(2022, 4, 2, 8, 40, 17, 343, DateTimeKind.Local).AddTicks(2275),
+                            Text = "Rem error consequuntur nulla.\nMaxime ea officiis esse."
                         },
                         new
                         {
                             Id = 244,
-                            ChatId = 19,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 10, 17, 8, 3, 39, 624, DateTimeKind.Local).AddTicks(9967),
-                            Text = "Qui qui nobis.\nEos laborum cumque qui debitis est."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 26,
+                            SentAt = new DateTime(2022, 7, 1, 23, 0, 20, 163, DateTimeKind.Local).AddTicks(6743),
+                            Text = "Praesentium odio quod quasi ipsum in.\nAut nulla est itaque repellendus."
                         },
                         new
                         {
                             Id = 245,
-                            ChatId = 18,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 4, 15, 10, 48, 3, 285, DateTimeKind.Local).AddTicks(9920),
-                            Text = "Animi corrupti praesentium corporis temporibus voluptatibus.\nEveniet excepturi dolores et dolor enim sit est voluptas ea."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 21,
+                            SentAt = new DateTime(2022, 10, 26, 2, 32, 50, 278, DateTimeKind.Local).AddTicks(1401),
+                            Text = "Aut dolores at pariatur eos autem ipsam maxime quis fuga.\nEveniet non fuga aliquid."
                         },
                         new
                         {
                             Id = 246,
-                            ChatId = 4,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 9, 23, 22, 46, 3, 704, DateTimeKind.Local).AddTicks(1925),
-                            Text = "Perspiciatis incidunt aliquid tempore aliquid.\nError sunt rerum atque quibusdam."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 13,
+                            SentAt = new DateTime(2022, 3, 24, 9, 39, 52, 437, DateTimeKind.Local).AddTicks(1731),
+                            Text = "Quam deserunt maiores totam tenetur blanditiis ab sunt est.\nFacilis quo sequi consequatur natus veritatis ex est."
                         },
                         new
                         {
                             Id = 247,
-                            ChatId = 2,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 1, 29, 14, 59, 40, 710, DateTimeKind.Local).AddTicks(8883),
-                            Text = "Tenetur soluta culpa expedita et aut ratione.\nEt quo vero et minus doloribus voluptate est dolor."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 30,
+                            SentAt = new DateTime(2023, 2, 8, 13, 42, 1, 659, DateTimeKind.Local).AddTicks(4961),
+                            Text = "Nesciunt ex nihil quae impedit modi ab.\nEos aspernatur possimus qui ut hic corrupti doloribus voluptatem."
                         },
                         new
                         {
                             Id = 248,
                             ChatId = 4,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 7, 19, 1, 53, 38, 886, DateTimeKind.Local).AddTicks(7645),
-                            Text = "Facilis neque aut qui numquam voluptates.\nConsequatur non sunt est earum laudantium minima deserunt sit accusantium."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 22,
+                            SentAt = new DateTime(2023, 1, 28, 13, 47, 37, 334, DateTimeKind.Local).AddTicks(32),
+                            Text = "Voluptates id nisi quia sit aspernatur aut recusandae quas.\nEst cum et."
                         },
                         new
                         {
                             Id = 249,
-                            ChatId = 17,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 2, 9, 21, 7, 5, 656, DateTimeKind.Local).AddTicks(405),
-                            Text = "Sequi dolor delectus omnis facilis animi est a.\nQuia rerum earum odit non."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 34,
+                            SentAt = new DateTime(2022, 4, 5, 7, 44, 2, 664, DateTimeKind.Local).AddTicks(844),
+                            Text = "Pariatur dolores reiciendis aut magnam doloribus.\nAccusantium est enim quos."
                         },
                         new
                         {
                             Id = 250,
-                            ChatId = 9,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 4, 11, 2, 53, 8, 235, DateTimeKind.Local).AddTicks(3094),
-                            Text = "Sapiente ipsum nulla.\nCum et explicabo voluptates."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 29,
+                            SentAt = new DateTime(2022, 10, 2, 16, 49, 43, 821, DateTimeKind.Local).AddTicks(6810),
+                            Text = "Voluptatem nulla aspernatur voluptates.\nEius soluta quod."
                         },
                         new
                         {
                             Id = 251,
-                            ChatId = 18,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 4, 4, 11, 0, 1, 303, DateTimeKind.Local).AddTicks(5645),
-                            Text = "Neque non nulla voluptates architecto ullam totam.\nEaque repellendus at sit."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 34,
+                            SentAt = new DateTime(2022, 3, 19, 14, 4, 49, 345, DateTimeKind.Local).AddTicks(6173),
+                            Text = "Voluptas autem voluptatibus cum culpa et odio suscipit et odio.\nEa dignissimos autem quam rerum architecto optio aut accusantium."
                         },
                         new
                         {
                             Id = 252,
-                            ChatId = 13,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 5, 13, 0, 56, 39, 791, DateTimeKind.Local).AddTicks(870),
-                            Text = "Dolorum deserunt ullam tempore eos sed commodi.\nFuga porro provident aspernatur perspiciatis nesciunt qui minus iure iusto."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 27,
+                            SentAt = new DateTime(2022, 12, 30, 4, 56, 58, 303, DateTimeKind.Local).AddTicks(5849),
+                            Text = "Dolore aut et occaecati distinctio quod accusantium numquam et et.\nTemporibus praesentium qui asperiores."
                         },
                         new
                         {
                             Id = 253,
-                            ChatId = 20,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 3, 14, 18, 6, 9, 5, DateTimeKind.Local).AddTicks(4872),
-                            Text = "Molestiae porro at minima quaerat quasi perspiciatis.\nAb dolores incidunt explicabo occaecati numquam non omnis exercitationem."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 11,
+                            SentAt = new DateTime(2022, 7, 26, 6, 17, 7, 230, DateTimeKind.Local).AddTicks(4135),
+                            Text = "Omnis quaerat vel labore dicta maiores nulla dolores provident cumque.\nPraesentium laborum libero quam blanditiis dolorem et quis eveniet."
                         },
                         new
                         {
                             Id = 254,
-                            ChatId = 17,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 12, 16, 12, 27, 56, 836, DateTimeKind.Local).AddTicks(3199),
-                            Text = "Voluptate explicabo voluptate dignissimos laudantium ducimus excepturi sit quidem.\nAb dolorum incidunt."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 45,
+                            SentAt = new DateTime(2022, 8, 12, 4, 17, 56, 796, DateTimeKind.Local).AddTicks(742),
+                            Text = "Enim voluptatem sunt incidunt.\nPraesentium earum sed velit consequuntur ea itaque optio laudantium dolore."
                         },
                         new
                         {
                             Id = 255,
-                            ChatId = 7,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 8, 30, 9, 22, 10, 571, DateTimeKind.Local).AddTicks(5057),
-                            Text = "Nulla labore quia vero ducimus eaque voluptas sapiente.\nUllam nihil quis iure distinctio quia non."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 51,
+                            SentAt = new DateTime(2022, 6, 30, 8, 37, 52, 126, DateTimeKind.Local).AddTicks(5284),
+                            Text = "Impedit veniam error ipsum voluptatem nulla sint quibusdam incidunt commodi.\nSuscipit ea ad officia aliquid tempore repellat."
                         },
                         new
                         {
                             Id = 256,
-                            ChatId = 16,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 1, 4, 1, 53, 37, 553, DateTimeKind.Local).AddTicks(9920),
-                            Text = "Sed quis numquam voluptatem pariatur sint consequatur harum.\nRerum vitae soluta perspiciatis inventore iste."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 3,
+                            SentAt = new DateTime(2023, 2, 14, 9, 11, 19, 408, DateTimeKind.Local).AddTicks(2318),
+                            Text = "Consequatur ipsam expedita veniam minima ea accusantium nostrum eveniet sunt.\nEst qui consequatur nisi."
                         },
                         new
                         {
                             Id = 257,
-                            ChatId = 2,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 3, 17, 10, 45, 31, 309, DateTimeKind.Local).AddTicks(9990),
-                            Text = "Qui similique voluptas.\nIure repellat magni aliquam est."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 30,
+                            SentAt = new DateTime(2022, 12, 30, 16, 24, 38, 818, DateTimeKind.Local).AddTicks(1687),
+                            Text = "Id culpa autem aut sint.\nUt ullam exercitationem sed tempore nisi nulla ratione."
                         },
                         new
                         {
                             Id = 258,
-                            ChatId = 7,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 2, 2, 15, 36, 17, 848, DateTimeKind.Local).AddTicks(4262),
-                            Text = "Quae tempora voluptas laudantium maxime rem qui possimus repellat suscipit.\nVelit sunt nesciunt."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 63,
+                            SentAt = new DateTime(2022, 2, 21, 18, 10, 50, 785, DateTimeKind.Local).AddTicks(2781),
+                            Text = "Voluptatibus qui ratione.\nEt placeat nesciunt."
                         },
                         new
                         {
                             Id = 259,
-                            ChatId = 7,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 2, 16, 22, 59, 2, 792, DateTimeKind.Local).AddTicks(2911),
-                            Text = "Velit neque delectus ut dolorum ipsum et natus.\nEt suscipit eveniet ducimus similique laudantium."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 11,
+                            SentAt = new DateTime(2022, 8, 6, 1, 17, 40, 382, DateTimeKind.Local).AddTicks(862),
+                            Text = "Sunt illo sed qui.\nId est consequatur asperiores."
                         },
                         new
                         {
                             Id = 260,
-                            ChatId = 3,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 8, 4, 15, 6, 22, 274, DateTimeKind.Local).AddTicks(5492),
-                            Text = "Vel dolores rerum qui dolorem et earum beatae aut ad.\nFuga molestiae nihil ipsa est pariatur sed et quia iusto."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 32,
+                            SentAt = new DateTime(2022, 4, 26, 14, 40, 48, 436, DateTimeKind.Local).AddTicks(9997),
+                            Text = "Ea quis et aut officiis dolor.\nCumque occaecati dolore accusamus laudantium."
                         },
                         new
                         {
                             Id = 261,
-                            ChatId = 9,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 6, 25, 8, 38, 59, 977, DateTimeKind.Local).AddTicks(2879),
-                            Text = "Veniam asperiores suscipit aliquid incidunt molestiae reiciendis.\nMaxime quam maiores et."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 61,
+                            SentAt = new DateTime(2022, 8, 31, 10, 24, 0, 464, DateTimeKind.Local).AddTicks(1244),
+                            Text = "Error iure sunt aut quidem dolore magni in sequi perferendis.\nMaxime quia ut deserunt nobis et nihil vitae."
                         },
                         new
                         {
                             Id = 262,
-                            ChatId = 5,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 12, 26, 20, 33, 51, 918, DateTimeKind.Local).AddTicks(7751),
-                            Text = "Quasi aut vero necessitatibus culpa nam quis unde numquam.\nExpedita quia veniam."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 15,
+                            SentAt = new DateTime(2022, 8, 17, 15, 2, 18, 507, DateTimeKind.Local).AddTicks(6224),
+                            Text = "Qui voluptas consequatur aut provident ipsum.\nVoluptates consequatur et incidunt consequatur quasi rem consequatur et."
                         },
                         new
                         {
                             Id = 263,
-                            ChatId = 1,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 2, 16, 13, 33, 42, 952, DateTimeKind.Local).AddTicks(4358),
-                            Text = "Enim debitis ullam dolorum.\nIn perferendis dolorem quas veritatis."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 31,
+                            SentAt = new DateTime(2022, 9, 1, 17, 15, 44, 59, DateTimeKind.Local).AddTicks(7145),
+                            Text = "Architecto adipisci quo exercitationem dolorem necessitatibus omnis.\nRepellat sit sapiente accusantium vero doloribus dolorem."
                         },
                         new
                         {
                             Id = 264,
-                            ChatId = 1,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 2, 17, 9, 4, 48, 899, DateTimeKind.Local).AddTicks(704),
-                            Text = "Doloribus quo sapiente voluptatem incidunt iure.\nNon sapiente placeat sed facere ut temporibus delectus dolorum."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 47,
+                            SentAt = new DateTime(2022, 4, 13, 16, 26, 38, 890, DateTimeKind.Local).AddTicks(525),
+                            Text = "Ratione non dolore quia autem placeat dicta impedit repellendus aperiam.\nQuidem rerum impedit occaecati officiis."
                         },
                         new
                         {
                             Id = 265,
                             ChatId = 1,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 9, 15, 23, 22, 29, 266, DateTimeKind.Local).AddTicks(8753),
-                            Text = "Voluptatem ullam dolor voluptatem consequatur voluptate enim aut quisquam magnam.\nDolores debitis et et."
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 38,
+                            SentAt = new DateTime(2022, 10, 1, 0, 55, 40, 874, DateTimeKind.Local).AddTicks(8100),
+                            Text = "Quis reiciendis saepe voluptatem vel saepe.\nEos et aut in voluptates vero voluptas sit iure."
                         },
                         new
                         {
                             Id = 266,
-                            ChatId = 11,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 10, 8, 9, 52, 11, 217, DateTimeKind.Local).AddTicks(1945),
-                            Text = "Sit ducimus ullam laborum saepe facilis velit quisquam eum.\nVel provident sunt adipisci iure natus asperiores."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 33,
+                            SentAt = new DateTime(2023, 1, 22, 4, 13, 53, 982, DateTimeKind.Local).AddTicks(7398),
+                            Text = "Neque sunt et assumenda.\nMaxime ut a impedit expedita nihil tempora magni molestias aut."
                         },
                         new
                         {
                             Id = 267,
-                            ChatId = 14,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 6, 17, 1, 47, 25, 146, DateTimeKind.Local).AddTicks(9901),
-                            Text = "Esse qui sint.\nFuga quo nisi voluptatibus alias veniam aperiam nihil sequi minima."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 34,
+                            SentAt = new DateTime(2022, 10, 14, 12, 37, 11, 748, DateTimeKind.Local).AddTicks(3786),
+                            Text = "Quidem quos et.\nQuibusdam blanditiis molestiae placeat."
                         },
                         new
                         {
                             Id = 268,
-                            ChatId = 2,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 2, 27, 12, 54, 52, 165, DateTimeKind.Local).AddTicks(9292),
-                            Text = "Est eaque accusantium aut explicabo.\nIste hic occaecati repellat eos."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 63,
+                            SentAt = new DateTime(2022, 7, 27, 12, 41, 51, 933, DateTimeKind.Local).AddTicks(4365),
+                            Text = "Voluptatem velit vitae molestiae aut sed facilis.\nQuia corrupti occaecati beatae sint rem pariatur veritatis veniam."
                         },
                         new
                         {
                             Id = 269,
-                            ChatId = 12,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 6, 11, 3, 52, 47, 174, DateTimeKind.Local).AddTicks(6921),
-                            Text = "Necessitatibus itaque velit in nam.\nIpsa quod eum aut in."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 63,
+                            SentAt = new DateTime(2022, 12, 9, 6, 31, 43, 750, DateTimeKind.Local).AddTicks(146),
+                            Text = "Et eaque et ipsum.\nSoluta eos voluptas."
                         },
                         new
                         {
                             Id = 270,
-                            ChatId = 15,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 6, 30, 16, 7, 27, 20, DateTimeKind.Local).AddTicks(6942),
-                            Text = "Cupiditate natus et excepturi pariatur numquam porro assumenda error enim.\nAperiam earum labore harum neque ex deserunt."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 57,
+                            SentAt = new DateTime(2022, 5, 7, 17, 14, 50, 69, DateTimeKind.Local).AddTicks(323),
+                            Text = "Placeat sint dignissimos quibusdam nostrum aperiam.\nRatione odio consequatur."
                         },
                         new
                         {
                             Id = 271,
-                            ChatId = 7,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 12, 28, 9, 20, 18, 286, DateTimeKind.Local).AddTicks(5279),
-                            Text = "Aperiam qui vel et distinctio incidunt est voluptatem commodi.\nAccusamus vitae inventore quod enim doloremque architecto dignissimos sed."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 31,
+                            SentAt = new DateTime(2022, 4, 19, 18, 5, 37, 657, DateTimeKind.Local).AddTicks(9839),
+                            Text = "Dignissimos delectus quia unde et cum omnis rem voluptates.\nAtque vel numquam et est accusamus nesciunt."
                         },
                         new
                         {
                             Id = 272,
-                            ChatId = 10,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 9, 24, 3, 42, 32, 813, DateTimeKind.Local).AddTicks(75),
-                            Text = "Velit optio nemo.\nRatione quis delectus dignissimos."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 9,
+                            SentAt = new DateTime(2022, 11, 29, 5, 32, 24, 46, DateTimeKind.Local).AddTicks(4015),
+                            Text = "Eligendi repellat laudantium earum quasi sit aut.\nEarum aut enim eius provident quis tempore reprehenderit qui modi."
                         },
                         new
                         {
                             Id = 273,
-                            ChatId = 6,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 10, 28, 19, 6, 30, 780, DateTimeKind.Local).AddTicks(9660),
-                            Text = "Numquam aut officia.\nAut inventore voluptatibus velit quisquam."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 48,
+                            SentAt = new DateTime(2022, 3, 7, 6, 43, 40, 260, DateTimeKind.Local).AddTicks(5226),
+                            Text = "Nisi quo aperiam tempora fugit repellat et blanditiis laborum omnis.\nVoluptatem qui aperiam omnis similique et nobis pariatur."
                         },
                         new
                         {
                             Id = 274,
-                            ChatId = 16,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 9, 7, 21, 36, 6, 379, DateTimeKind.Local).AddTicks(9281),
-                            Text = "Aut deserunt repellat animi consequatur sint optio est.\nVoluptatibus est porro ullam non sit doloremque veritatis aut sunt."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 3,
+                            SentAt = new DateTime(2022, 11, 12, 10, 30, 12, 471, DateTimeKind.Local).AddTicks(2321),
+                            Text = "Dolore maiores quia.\nSed blanditiis molestiae eius molestiae."
                         },
                         new
                         {
                             Id = 275,
-                            ChatId = 14,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 10, 6, 2, 21, 32, 405, DateTimeKind.Local).AddTicks(2899),
-                            Text = "Et odit illum nisi est omnis in aut.\nQuibusdam voluptas nihil."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 10,
+                            SentAt = new DateTime(2022, 3, 9, 3, 39, 9, 530, DateTimeKind.Local).AddTicks(562),
+                            Text = "Repellat nemo iure alias officia praesentium rerum.\nSapiente dolorum amet non velit quo sit omnis culpa."
                         },
                         new
                         {
                             Id = 276,
-                            ChatId = 17,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 11, 9, 23, 30, 41, 286, DateTimeKind.Local).AddTicks(9106),
-                            Text = "Nisi quia molestiae ut.\nFugit molestias molestiae at ut."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 14,
+                            SentAt = new DateTime(2023, 1, 29, 3, 43, 4, 802, DateTimeKind.Local).AddTicks(6234),
+                            Text = "Possimus ut sit.\nOdit dolores quae."
                         },
                         new
                         {
                             Id = 277,
-                            ChatId = 13,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 8, 14, 5, 5, 44, 47, DateTimeKind.Local).AddTicks(8888),
-                            Text = "Quia praesentium necessitatibus magnam eligendi reprehenderit nulla fugit est.\nVoluptas minus exercitationem iusto soluta."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 63,
+                            SentAt = new DateTime(2022, 2, 26, 19, 38, 12, 796, DateTimeKind.Local).AddTicks(1517),
+                            Text = "Ullam nisi neque repellendus.\nBeatae tenetur magnam doloribus soluta culpa qui et."
                         },
                         new
                         {
                             Id = 278,
-                            ChatId = 2,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 6, 26, 17, 15, 2, 487, DateTimeKind.Local).AddTicks(3048),
-                            Text = "Eum atque beatae rerum sit officiis sed quia.\nQuas non sed."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 38,
+                            SentAt = new DateTime(2022, 11, 16, 11, 24, 12, 224, DateTimeKind.Local).AddTicks(8100),
+                            Text = "Est accusamus natus recusandae odit.\nPorro nihil non dolor repellendus."
                         },
                         new
                         {
                             Id = 279,
-                            ChatId = 15,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 7, 2, 23, 50, 1, 467, DateTimeKind.Local).AddTicks(8361),
-                            Text = "Accusamus in iure repudiandae itaque inventore ut velit earum ea.\nDicta possimus ut non corrupti."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 25,
+                            SentAt = new DateTime(2022, 4, 24, 6, 28, 30, 448, DateTimeKind.Local).AddTicks(4586),
+                            Text = "Similique iure odit animi et laboriosam temporibus.\nQui quos vero."
                         },
                         new
                         {
                             Id = 280,
-                            ChatId = 8,
-                            SenderId = 2,
-                            SentAt = new DateTime(2022, 3, 1, 11, 34, 41, 722, DateTimeKind.Local).AddTicks(2784),
-                            Text = "Nihil in nobis architecto possimus ipsa officiis ea.\nMagnam aliquam soluta alias velit."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 51,
+                            SentAt = new DateTime(2023, 1, 15, 14, 45, 59, 135, DateTimeKind.Local).AddTicks(8806),
+                            Text = "Maxime ea eaque in similique tempora et harum autem rerum.\nItaque voluptatem perspiciatis aperiam."
                         },
                         new
                         {
                             Id = 281,
-                            ChatId = 9,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 10, 10, 9, 5, 52, 81, DateTimeKind.Local).AddTicks(4655),
-                            Text = "Quasi tempore totam pariatur non possimus ipsa sit magnam.\nOccaecati nam aliquam rerum."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 18,
+                            SentAt = new DateTime(2022, 4, 8, 17, 27, 49, 733, DateTimeKind.Local).AddTicks(8293),
+                            Text = "Minima molestiae reiciendis cum adipisci aut consequatur nam natus.\nEt qui consectetur laudantium hic incidunt."
                         },
                         new
                         {
                             Id = 282,
-                            ChatId = 6,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 6, 11, 2, 52, 35, 508, DateTimeKind.Local).AddTicks(4946),
-                            Text = "Voluptatum nemo repellat vel voluptas dolorum officia non maxime.\nQuia quia molestias."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 24,
+                            SentAt = new DateTime(2022, 6, 17, 6, 35, 31, 823, DateTimeKind.Local).AddTicks(7358),
+                            Text = "Dolor libero debitis atque rerum ad.\nMolestiae labore iusto quis exercitationem perferendis laborum et ullam modi."
                         },
                         new
                         {
                             Id = 283,
-                            ChatId = 18,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 7, 12, 21, 4, 52, 892, DateTimeKind.Local).AddTicks(5744),
-                            Text = "In illo amet maxime.\nPraesentium libero odit consequuntur at accusantium blanditiis non."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 1,
+                            SentAt = new DateTime(2022, 5, 12, 0, 41, 36, 504, DateTimeKind.Local).AddTicks(7424),
+                            Text = "Sunt excepturi voluptatem ex et illo eos provident.\nIllum quo numquam odio est aperiam perspiciatis alias."
                         },
                         new
                         {
                             Id = 284,
-                            ChatId = 20,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 7, 25, 9, 33, 12, 178, DateTimeKind.Local).AddTicks(4686),
-                            Text = "Magni dolores mollitia ut eius mollitia voluptatem et dignissimos quidem.\nCum reiciendis deserunt."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 51,
+                            SentAt = new DateTime(2022, 5, 7, 6, 50, 17, 126, DateTimeKind.Local).AddTicks(9709),
+                            Text = "Perferendis nesciunt sit omnis vitae cum quo qui mollitia.\nNostrum voluptatem consequuntur vitae maxime exercitationem ipsa expedita provident veritatis."
                         },
                         new
                         {
                             Id = 285,
-                            ChatId = 12,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 10, 5, 16, 34, 0, 111, DateTimeKind.Local).AddTicks(14),
-                            Text = "Distinctio sit quia maxime aut laudantium consequatur molestiae facere laborum.\nEaque quia eligendi placeat."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 29,
+                            SentAt = new DateTime(2022, 12, 18, 8, 32, 34, 85, DateTimeKind.Local).AddTicks(7438),
+                            Text = "Quo tempore labore eligendi.\nOptio impedit hic voluptate et quo praesentium."
                         },
                         new
                         {
                             Id = 286,
-                            ChatId = 6,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 4, 24, 10, 8, 23, 523, DateTimeKind.Local).AddTicks(5958),
-                            Text = "Possimus exercitationem est.\nVoluptatibus labore nemo nesciunt et eum laboriosam aliquam veniam est."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 36,
+                            SentAt = new DateTime(2022, 9, 11, 15, 25, 9, 478, DateTimeKind.Local).AddTicks(7611),
+                            Text = "Nostrum excepturi alias alias provident omnis.\nUnde possimus nemo modi dolorem molestias natus et aliquam."
                         },
                         new
                         {
                             Id = 287,
-                            ChatId = 5,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 7, 12, 7, 14, 34, 717, DateTimeKind.Local).AddTicks(2118),
-                            Text = "Perspiciatis voluptas ut asperiores sit illo totam molestiae dolor.\nUt est voluptates et aut explicabo rerum aut deleniti nihil."
+                            ChatId = 2,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 12,
+                            SentAt = new DateTime(2023, 1, 21, 0, 39, 12, 294, DateTimeKind.Local).AddTicks(5816),
+                            Text = "Perferendis laboriosam incidunt aliquid voluptatem quia.\nBlanditiis ipsam molestias explicabo dolorum consequuntur debitis."
                         },
                         new
                         {
                             Id = 288,
-                            ChatId = 17,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 8, 27, 1, 12, 51, 221, DateTimeKind.Local).AddTicks(7349),
-                            Text = "Ipsa incidunt id laboriosam.\nTempore sed quasi aut sunt eum occaecati et earum non."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 5,
+                            SentAt = new DateTime(2023, 1, 30, 22, 6, 56, 380, DateTimeKind.Local).AddTicks(1715),
+                            Text = "Earum veritatis voluptatem corrupti dignissimos totam rerum facere.\nTempore ab quia dolor porro eaque."
                         },
                         new
                         {
                             Id = 289,
-                            ChatId = 3,
-                            SenderId = 7,
-                            SentAt = new DateTime(2022, 8, 24, 15, 6, 28, 243, DateTimeKind.Local).AddTicks(7164),
-                            Text = "Dolorum voluptas rerum illum perferendis consectetur impedit placeat.\nIpsa quaerat atque aperiam aut."
+                            ChatId = 1,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 18,
+                            SentAt = new DateTime(2022, 10, 31, 8, 42, 6, 549, DateTimeKind.Local).AddTicks(3576),
+                            Text = "Quisquam molestiae est et consequatur consequatur autem laudantium qui.\nConsequatur similique pariatur consequuntur doloremque minus."
                         },
                         new
                         {
                             Id = 290,
-                            ChatId = 3,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 3, 21, 19, 53, 35, 222, DateTimeKind.Local).AddTicks(8597),
-                            Text = "Quasi beatae laudantium sed dicta aut nobis.\nUt suscipit voluptas consequatur distinctio consequuntur nam quia."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 3,
+                            SentAt = new DateTime(2022, 9, 27, 3, 30, 59, 750, DateTimeKind.Local).AddTicks(4076),
+                            Text = "Odio totam dicta dignissimos cupiditate officia tempora occaecati exercitationem dolor.\nCupiditate est vero distinctio maxime enim non est soluta."
                         },
                         new
                         {
                             Id = 291,
-                            ChatId = 18,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 9, 27, 6, 8, 35, 206, DateTimeKind.Local).AddTicks(7465),
-                            Text = "Voluptate alias sequi nesciunt.\nQuibusdam ut voluptatem aperiam et qui sunt occaecati."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 53,
+                            SentAt = new DateTime(2022, 4, 14, 18, 33, 13, 793, DateTimeKind.Local).AddTicks(4337),
+                            Text = "Sequi sed voluptatem alias non repellat iste vero ea architecto.\nNulla tempora suscipit et labore."
                         },
                         new
                         {
                             Id = 292,
-                            ChatId = 4,
-                            SenderId = 3,
-                            SentAt = new DateTime(2022, 9, 3, 23, 49, 14, 271, DateTimeKind.Local).AddTicks(6197),
-                            Text = "Nihil eum fugit a quas ab non excepturi tempore.\nAdipisci ut sequi recusandae aut vero dolore facere."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 19,
+                            SentAt = new DateTime(2022, 4, 19, 4, 26, 21, 550, DateTimeKind.Local).AddTicks(3260),
+                            Text = "Magnam provident ducimus facere facere.\nEveniet rerum exercitationem veritatis rerum."
                         },
                         new
                         {
                             Id = 293,
-                            ChatId = 10,
-                            SenderId = 9,
-                            SentAt = new DateTime(2022, 4, 19, 16, 50, 30, 287, DateTimeKind.Local).AddTicks(9913),
-                            Text = "Eum corrupti accusamus aut.\nQuasi dolorum aut voluptas nihil et consequatur."
+                            ChatId = 4,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 3,
+                            SentAt = new DateTime(2022, 9, 14, 20, 5, 38, 920, DateTimeKind.Local).AddTicks(6466),
+                            Text = "Aliquam aut hic aut omnis.\nQuam laboriosam incidunt et et."
                         },
                         new
                         {
                             Id = 294,
-                            ChatId = 5,
-                            SenderId = 6,
-                            SentAt = new DateTime(2022, 7, 22, 23, 36, 34, 852, DateTimeKind.Local).AddTicks(6527),
-                            Text = "Corrupti iste porro voluptatem quia officiis saepe consequuntur laborum.\nOccaecati perferendis nobis voluptas non debitis distinctio voluptatem."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 26,
+                            SentAt = new DateTime(2022, 3, 31, 8, 48, 36, 796, DateTimeKind.Local).AddTicks(9479),
+                            Text = "Ut nisi est dicta qui dignissimos vel.\nDolores blanditiis voluptatem exercitationem rerum ex."
                         },
                         new
                         {
                             Id = 295,
-                            ChatId = 5,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 3, 19, 15, 36, 57, 616, DateTimeKind.Local).AddTicks(3595),
-                            Text = "Doloremque voluptate distinctio numquam officiis quia.\nCorrupti eos qui quod magnam excepturi velit voluptatum pariatur deserunt."
+                            ChatId = 6,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 4,
+                            SentAt = new DateTime(2022, 9, 4, 14, 30, 26, 890, DateTimeKind.Local).AddTicks(5614),
+                            Text = "Quia expedita omnis ut magnam cumque reprehenderit aperiam.\nDucimus ratione quia tempora."
                         },
                         new
                         {
                             Id = 296,
-                            ChatId = 8,
-                            SenderId = 1,
-                            SentAt = new DateTime(2022, 10, 13, 2, 0, 4, 931, DateTimeKind.Local).AddTicks(6721),
-                            Text = "Officiis maiores non sunt quasi.\nVeniam excepturi odio commodi dolorem quae provident."
+                            ChatId = 7,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 43,
+                            SentAt = new DateTime(2022, 6, 19, 21, 34, 25, 713, DateTimeKind.Local).AddTicks(4963),
+                            Text = "Corporis repudiandae sit inventore reprehenderit sunt eius quos alias.\nAccusantium rem doloremque."
                         },
                         new
                         {
                             Id = 297,
-                            ChatId = 4,
-                            SenderId = 5,
-                            SentAt = new DateTime(2022, 1, 16, 6, 15, 14, 391, DateTimeKind.Local).AddTicks(8270),
-                            Text = "In commodi illo molestiae dolor voluptatem officia rerum voluptas sunt.\nUt enim doloribus ut dolorem."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 11,
+                            SentAt = new DateTime(2022, 4, 19, 15, 56, 6, 833, DateTimeKind.Local).AddTicks(6519),
+                            Text = "Autem libero nobis deleniti aut.\nRecusandae cumque sequi exercitationem sit reiciendis."
                         },
                         new
                         {
                             Id = 298,
-                            ChatId = 3,
-                            SenderId = 10,
-                            SentAt = new DateTime(2022, 11, 7, 22, 51, 1, 100, DateTimeKind.Local).AddTicks(8365),
-                            Text = "Assumenda provident reprehenderit eum natus.\nAsperiores quae beatae ipsa voluptas consequatur et."
+                            ChatId = 5,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 60,
+                            SentAt = new DateTime(2022, 12, 23, 5, 30, 17, 172, DateTimeKind.Local).AddTicks(9875),
+                            Text = "Sunt delectus corporis alias aliquam est consequuntur provident mollitia.\nNemo dolorum quia aut voluptatum laboriosam sed."
                         },
                         new
                         {
                             Id = 299,
-                            ChatId = 5,
-                            SenderId = 8,
-                            SentAt = new DateTime(2022, 8, 20, 14, 1, 14, 997, DateTimeKind.Local).AddTicks(824),
-                            Text = "Voluptatem aspernatur adipisci non voluptate recusandae iste repudiandae.\nVoluptate doloremque maxime explicabo dolorum."
+                            ChatId = 8,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 59,
+                            SentAt = new DateTime(2022, 4, 12, 6, 53, 36, 947, DateTimeKind.Local).AddTicks(2291),
+                            Text = "Sint aut sed aut voluptatem quisquam reprehenderit rerum rem impedit.\nUnde itaque provident nesciunt et nemo sed."
                         },
                         new
                         {
                             Id = 300,
-                            ChatId = 4,
-                            SenderId = 4,
-                            SentAt = new DateTime(2022, 2, 9, 19, 58, 36, 392, DateTimeKind.Local).AddTicks(9456),
-                            Text = "Molestiae qui vitae asperiores aspernatur nihil.\nSed quia tempore."
+                            ChatId = 3,
+                            IsEdited = false,
+                            IsSeen = false,
+                            SenderId = 35,
+                            SentAt = new DateTime(2022, 4, 18, 2, 22, 14, 834, DateTimeKind.Local).AddTicks(6286),
+                            Text = "Vitae velit sapiente rerum tempore nemo nihil ullam.\nMolestias enim in beatae."
+                        });
+                });
+
+            modelBuilder.Entity("reenbitChat.DAL.Entities.Permission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Permission");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "SendMessages"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "AddNewAdmins"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "DeleteMessages"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "RemoveUsers"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "AddUsers"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "ChangeChatInfo"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "PinMessages"
+                        });
+                });
+
+            modelBuilder.Entity("reenbitChat.DAL.Entities.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Role");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Member",
+                            Order = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Admin",
+                            Order = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Owner",
+                            Order = 2
                         });
                 });
 
@@ -3451,6 +4617,9 @@ namespace reenbitChat.DAL.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastSeen")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -3477,6 +4646,12 @@ namespace reenbitChat.DAL.Migrations
 
                     b.Property<string>("ProfilePhotoUrl")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RefreshTokenExpiryTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -3505,145 +4680,180 @@ namespace reenbitChat.DAL.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d36dc39f-0d0e-4cb0-b84f-38f1a979f8a7",
+                            ConcurrencyStamp = "21fa4f9b-9172-4941-813e-cfd4b4f8f48d",
                             EmailConfirmed = false,
+                            LastSeen = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
-                            NormalizedEmail = "Beaulah66@gmail.com",
+                            NormalizedEmail = "Ivory.Parker54@gmail.com",
                             PhoneNumberConfirmed = false,
-                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=52",
+                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=48",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TwoFactorEnabled = false,
-                            UserName = "Tyrell"
+                            UserName = "Rupert"
                         },
                         new
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "be037d8e-f830-4d79-a078-7ef22fdac465",
+                            ConcurrencyStamp = "69419c05-4a80-4468-9fad-f66b4ef8bec8",
                             EmailConfirmed = false,
+                            LastSeen = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
-                            NormalizedEmail = "Jonas.Boyle33@yahoo.com",
+                            NormalizedEmail = "Obie3@yahoo.com",
                             PhoneNumberConfirmed = false,
-                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=534",
+                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=998",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TwoFactorEnabled = false,
-                            UserName = "Ali"
+                            UserName = "Vella"
                         },
                         new
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "29cad548-0f02-4e5d-ae18-00463942863b",
+                            ConcurrencyStamp = "b1890cb6-b30a-42a4-9f84-cb3d1fe6a544",
                             EmailConfirmed = false,
+                            LastSeen = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
-                            NormalizedEmail = "Jimmie28@yahoo.com",
+                            NormalizedEmail = "Lennie_Glover8@yahoo.com",
                             PhoneNumberConfirmed = false,
-                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=27",
+                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=93",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TwoFactorEnabled = false,
-                            UserName = "Sarah"
+                            UserName = "Marilie"
                         },
                         new
                         {
                             Id = 4,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cfbc5ee8-95e1-4db5-a8e5-3649f548b5c2",
+                            ConcurrencyStamp = "4896d4a2-9f3d-40d2-a572-ac379bbfbfe7",
                             EmailConfirmed = false,
+                            LastSeen = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
-                            NormalizedEmail = "Gilbert.Crist@gmail.com",
+                            NormalizedEmail = "Candelario_Olson@yahoo.com",
                             PhoneNumberConfirmed = false,
-                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=433",
+                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=185",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TwoFactorEnabled = false,
-                            UserName = "Fausto"
+                            UserName = "Sylvan"
                         },
                         new
                         {
                             Id = 5,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3a01440b-9c78-48aa-9b4c-cab3f0e79327",
+                            ConcurrencyStamp = "0b2ec3fc-4b7c-4a1e-98c8-25e832a2815c",
                             EmailConfirmed = false,
+                            LastSeen = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
-                            NormalizedEmail = "Alexzander93@gmail.com",
+                            NormalizedEmail = "Edward.Raynor@yahoo.com",
                             PhoneNumberConfirmed = false,
-                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=637",
+                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=790",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TwoFactorEnabled = false,
-                            UserName = "Raquel"
+                            UserName = "Chase"
                         },
                         new
                         {
                             Id = 6,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1296ae50-2fe0-437a-bf6d-83f22c377666",
+                            ConcurrencyStamp = "36f48a10-12fc-4df4-936d-89348a138693",
                             EmailConfirmed = false,
+                            LastSeen = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
-                            NormalizedEmail = "Nina_Stokes@yahoo.com",
+                            NormalizedEmail = "Brando70@yahoo.com",
                             PhoneNumberConfirmed = false,
-                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=556",
+                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=1043",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TwoFactorEnabled = false,
-                            UserName = "Elfrieda"
+                            UserName = "Hilario"
                         },
                         new
                         {
                             Id = 7,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cc3f6f76-edca-44d6-ba46-8f091c98ce7f",
+                            ConcurrencyStamp = "c0e7b9c0-4b39-4bd5-a7e5-46f3159b6a12",
                             EmailConfirmed = false,
+                            LastSeen = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
-                            NormalizedEmail = "Adelia_Rolfson@yahoo.com",
+                            NormalizedEmail = "Gianni26@yahoo.com",
                             PhoneNumberConfirmed = false,
-                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=42",
+                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=914",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TwoFactorEnabled = false,
-                            UserName = "Kayla"
+                            UserName = "Krystel"
                         },
                         new
                         {
                             Id = 8,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "eb611736-7e41-4203-8466-e1212a846e5c",
+                            ConcurrencyStamp = "fdb58ddf-180a-4625-b486-9a7f9c9359e5",
                             EmailConfirmed = false,
+                            LastSeen = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
-                            NormalizedEmail = "Adriana4@yahoo.com",
+                            NormalizedEmail = "Eva.Hane11@gmail.com",
                             PhoneNumberConfirmed = false,
-                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=529",
+                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=712",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TwoFactorEnabled = false,
-                            UserName = "Lauretta"
+                            UserName = "Kale"
                         },
                         new
                         {
                             Id = 9,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "69b083a0-b31e-4dd5-9f7d-4bc2a9383b47",
+                            ConcurrencyStamp = "fd081ca4-4b77-4af2-b6ee-6ab7ac633268",
                             EmailConfirmed = false,
+                            LastSeen = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
-                            NormalizedEmail = "Bennie_Franecki@yahoo.com",
+                            NormalizedEmail = "Nikita31@hotmail.com",
                             PhoneNumberConfirmed = false,
-                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=808",
+                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=291",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TwoFactorEnabled = false,
-                            UserName = "Frida"
+                            UserName = "Fleta"
                         },
                         new
                         {
                             Id = 10,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1afa9f82-2650-47bd-acca-0a53e7228491",
+                            ConcurrencyStamp = "5e6976c2-d871-4f58-8a17-94fea889821f",
                             EmailConfirmed = false,
+                            LastSeen = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
-                            NormalizedEmail = "Jazmyne.Bashirian@hotmail.com",
+                            NormalizedEmail = "Milan_Becker@gmail.com",
                             PhoneNumberConfirmed = false,
-                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=828",
+                            ProfilePhotoUrl = "https://picsum.photos/480/480/?image=59",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TwoFactorEnabled = false,
-                            UserName = "Elwin"
+                            UserName = "Wilber"
                         });
                 });
 
-            modelBuilder.Entity("ChatUser", b =>
+            modelBuilder.Entity("ChatMemberMessage", b =>
                 {
-                    b.HasOne("reenbitChat.DAL.Entities.Chat", null)
+                    b.HasOne("reenbitChat.DAL.Entities.Message", null)
                         .WithMany()
-                        .HasForeignKey("ChatsId")
+                        .HasForeignKey("MessagesReadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("reenbitChat.DAL.Entities.User", null)
+                    b.HasOne("reenbitChat.DAL.Entities.ChatMember", null)
+                        .WithMany()
+                        .HasForeignKey("ReadById")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ChatMemberPermission", b =>
+                {
+                    b.HasOne("reenbitChat.DAL.Entities.ChatMember", null)
                         .WithMany()
                         .HasForeignKey("MembersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("reenbitChat.DAL.Entities.Permission", null)
+                        .WithMany()
+                        .HasForeignKey("PermissionsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -3699,28 +4909,92 @@ namespace reenbitChat.DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PermissionRole", b =>
+                {
+                    b.HasOne("reenbitChat.DAL.Entities.Permission", null)
+                        .WithMany()
+                        .HasForeignKey("DefaultPermissionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("reenbitChat.DAL.Entities.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RolesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("reenbitChat.DAL.Entities.ChatMember", b =>
+                {
+                    b.HasOne("reenbitChat.DAL.Entities.Chat", "Chat")
+                        .WithMany("Members")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("reenbitChat.DAL.Entities.Role", "Role")
+                        .WithMany("Members")
+                        .HasForeignKey("RoleId");
+
+                    b.HasOne("reenbitChat.DAL.Entities.User", "User")
+                        .WithMany("ChatMembers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Chat");
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("reenbitChat.DAL.Entities.Message", b =>
                 {
                     b.HasOne("reenbitChat.DAL.Entities.Chat", "Chat")
                         .WithMany("Messages")
                         .HasForeignKey("ChatId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("reenbitChat.DAL.Entities.User", "Sender")
-                        .WithMany()
+                    b.HasOne("reenbitChat.DAL.Entities.Message", "ReplyMessage")
+                        .WithOne()
+                        .HasForeignKey("reenbitChat.DAL.Entities.Message", "ReplyMessageId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("reenbitChat.DAL.Entities.ChatMember", "Sender")
+                        .WithMany("MessagesSent")
                         .HasForeignKey("SenderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Chat");
 
+                    b.Navigation("ReplyMessage");
+
                     b.Navigation("Sender");
                 });
 
             modelBuilder.Entity("reenbitChat.DAL.Entities.Chat", b =>
                 {
+                    b.Navigation("Members");
+
                     b.Navigation("Messages");
+                });
+
+            modelBuilder.Entity("reenbitChat.DAL.Entities.ChatMember", b =>
+                {
+                    b.Navigation("MessagesSent");
+                });
+
+            modelBuilder.Entity("reenbitChat.DAL.Entities.Role", b =>
+                {
+                    b.Navigation("Members");
+                });
+
+            modelBuilder.Entity("reenbitChat.DAL.Entities.User", b =>
+                {
+                    b.Navigation("ChatMembers");
                 });
 #pragma warning restore 612, 618
         }

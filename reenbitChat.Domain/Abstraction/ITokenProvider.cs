@@ -4,5 +4,7 @@ namespace reenbitChat.Domain.Abstraction;
 
 public interface ITokenProvider
 {
-    public string GenerateToken(IEnumerable<Claim> claims);
+    public string GenerateAccessToken(IEnumerable<Claim> claims);
+    public string GenerateRefreshToken();
+    ClaimsPrincipal GetPrincipalFromToken(string token);
 }

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
   </ItemGroup>
 
@@ -19,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
+    <Folder Include="Authorization\" />
   </ItemGroup>
 
 </Project>

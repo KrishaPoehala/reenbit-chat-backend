@@ -15,4 +15,5 @@ public class RegisterUserDto
 
     [Compare(nameof(Password), ErrorMessage = "The password and confirmation password do not match.")]
     public string? ConfirmPassword { get; set; }
+    public string? ProfilePhotoUrl { get; set; }
 }

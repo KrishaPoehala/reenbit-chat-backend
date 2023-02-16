@@ -45,7 +45,24 @@ public static class IServiceCollectionExtentions
                 ValidIssuer = jwtSettings["validIssuer"],
                 ValidAudience = jwtSettings["validAudience"],
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
-                    .GetBytes(jwtSettings.GetSection("securityKey").Value))
+                    .GetBytes(jwtSettings.GetSection("securityKey").Value)),
+                
+            };
+
+            options.Events = new JwtBearerEvents
+            {
+                OnMessageReceived = context =>
+                {
+                    var accessToken = context.Request.Query["access_token"];
+
+                    var path = context.HttpContext.Request.Path;
+                    if (!string.IsNullOrEmpty(accessToken) &&
+                        (path.StartsWithSegments("/chat")))
+                    {
+                        context.Token = accessToken;
+                    }
+                    return Task.CompletedTask;
+                }
             };
         });
 

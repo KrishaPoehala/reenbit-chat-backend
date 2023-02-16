@@ -9,12 +9,12 @@ namespace reenbitChat.WebApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-// [Authorize]
+[Authorize]
 public class MessagesController : ControllerBase
 {
-    private readonly IMessageService _messageService;
+    private readonly IMessagesService _messageService;
 
-    public MessagesController(IMessageService messageService)
+    public MessagesController(IMessagesService messageService)
     {
         _messageService = messageService;
     }
@@ -36,7 +36,7 @@ public class MessagesController : ControllerBase
     }
 
     [HttpDelete]
-    [Route("delete/{id}/{isDeleteOnlyForSender}")]
+    [Route("delete/{id}/{isDeletedOnlyForSender}")]
     public async Task<ActionResult> DeleteMessage(int id, bool isDeletedOnlyForSender)
     {
         await _messageService.DeleteMessage(id, isDeletedOnlyForSender);
